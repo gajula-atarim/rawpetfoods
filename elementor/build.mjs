@@ -553,7 +553,7 @@ const home = [
       text('<p>Every ingredient serves a purpose — rich proteins for strength, omega oils for glossy coats, and natural minerals for a longer, happier life.</p>'),
       w('icon-list', {
         icon_list: ['Healthier skin &amp; shinier coat', 'Stronger immunity', 'More energy every day', 'Easy, gentle digestion'].map(benefitItem),
-        space_between: px(8), icon_size: px(20), text_indent: px(12), icon_color: '#7EC78E',
+        space_between: px(8), icon_size: px(20), text_indent: px(12), icon_color: '#62B6CF',
         __globals__: { text_color: gColor('text'), icon_typography_typography: gType('rpf_lead') },
       }),
       ctaBtn('Order Now – Freshness Delivered Frozen', '#products', { _margin: box(16, 0, 0, 0) }),
