@@ -1,0 +1,34 @@
+/* Raw Petfoods – small additions that Elementor (free) has no control for. */
+html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 24px; }
+
+/* Hero: frosted plan card */
+.rpf-glass { -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+
+/* Pill forms (hero animal picker + footer newsletter) */
+.rpf-pill-form { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 8px 8px 16px; border: 1px solid #E1E4EA; border-radius: 999px; background: transparent; }
+.rpf-pill-form input, .rpf-pill-form select { flex: 1 1 auto; min-width: 0; border: 0; background: transparent; padding: 0; font: 400 16px/24px "Source Sans Pro", sans-serif; letter-spacing: -0.16px; color: #514150; outline: none; box-shadow: none; }
+.rpf-pill-form input::placeholder { color: rgba(0, 0, 0, .4); }
+.rpf-pill-btn { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; padding: 12px 32px; border: 0; border-radius: 999px; background: #B4544E; color: #fff !important; font: 600 16px/24px "Source Sans Pro", sans-serif; letter-spacing: -0.16px; text-decoration: none !important; cursor: pointer; transition: background .2s; }
+.rpf-pill-btn:hover, .rpf-pill-btn:focus { background: #9A4540; color: #fff; }
+.rpf-pill-form--dark { border-color: rgba(255, 255, 255, .24); }
+.rpf-pill-form--dark select { color: #fff; font-weight: 600; -webkit-appearance: none; appearance: none; cursor: pointer; padding-right: 24px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right center; }
+.rpf-pill-form--dark select option { color: #514150; }
+@media (max-width: 480px) { .rpf-pill-btn { padding: 12px 20px; } }
+
+/* Blog cards */
+.rpf-clamp-2 .elementor-widget-container > *:first-child, .rpf-clamp-2 p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin: 0; }
+.rpf-readmore .elementor-button-icon { transform: rotate(-45deg); }
+.rpf-readmore .elementor-button { box-shadow: none; }
+
+/* Reviews slider (cards inside .rpf-review-track; duplicate a card in Elementor to add more) */
+.rpf-review-track > .rpf-review:not(.is-active) { display: none; }
+.rpf-review-prev a, .rpf-review-next a { cursor: pointer; }
+.rpf-reviews.rpf-single .rpf-review-prev, .rpf-reviews.rpf-single .rpf-review-next { opacity: .6; }
+
+/* Text paragraphs inside Elementor text widgets: no extra bottom margin */
+.elementor-widget-text-editor p:last-child { margin-bottom: 0; }
+
+/* Header nav: keep dropdown above hero */
+.rpf-header { position: relative; z-index: 50; }
