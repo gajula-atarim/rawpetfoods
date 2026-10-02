@@ -387,12 +387,13 @@ const home = [
       button('Order now', '#products', { align: 'center' }),
     ]),
     con({ ...row({ flex_direction_tablet: 'column' }), flex_justify_content: 'space-between', flex_align_items: 'stretch', flex_gap: gap(0), flex_gap_tablet: gap(16), width: pct(100) }, [
-      con({ ...col(), flex_justify_content: 'space-between', flex_align_items: 'flex-start', flex_gap: gap(16), z_index: 2, flex_direction_tablet: 'row', flex_wrap_tablet: 'wrap', flex_direction_mobile: 'column', _flex_size: 'none', order_tablet: 'end', css_classes: 'rpf-callouts' }, [
+      con({ ...col(), flex_justify_content: 'space-between', flex_align_items: 'flex-start', flex_gap: gap(16), z_index: 2, flex_direction_tablet: 'row', flex_wrap_tablet: 'wrap', flex_direction_mobile: 'column', _flex_size: 'none', ...widthPx(362), order_tablet: 'end', css_classes: 'rpf-callouts' }, [
         callout('Real seafood', 'Only premium salmon belly fins — rich in protein, calcium, and vitamin D.', -2),
         callout('Vet-approved nutrition', 'Balanced and safe for pets of all ages — backed by science, trusted by owners.', 2),
       ]),
-      image({ ...MEDIA.pack }, { width: px(927), width_tablet: pct(100), _margin: box(26, -218, 0, -217), _margin_tablet: box(0), _flex_size: 'none', _flex_size_tablet: 'none', z_index: 1, css_classes: 'rpf-pack' }),
-      con({ ...col(), flex_justify_content: 'space-between', flex_align_items: 'flex-end', flex_gap: gap(16), z_index: 2, flex_direction_tablet: 'row', flex_wrap_tablet: 'wrap', flex_direction_mobile: 'column', _flex_size: 'none', order_tablet: 'end', css_classes: 'rpf-callouts' }, [
+      // Widgets in a row default to 100% wide, so pin the pack shot's own width for the overlap maths.
+      image({ ...MEDIA.pack }, { width: pct(100), _element_width: 'initial', _element_custom_width: px(927), _element_width_tablet: 'inherit', _margin: box(26, -218, 0, -217), _margin_tablet: box(0), _flex_size: 'none', _flex_size_tablet: 'none', z_index: 1, css_classes: 'rpf-pack' }),
+      con({ ...col(), flex_justify_content: 'space-between', flex_align_items: 'flex-end', flex_gap: gap(16), z_index: 2, flex_direction_tablet: 'row', flex_wrap_tablet: 'wrap', flex_direction_mobile: 'column', _flex_size: 'none', ...widthPx(362), order_tablet: 'end', css_classes: 'rpf-callouts' }, [
         callout('Responsibly sourced', 'Harvested from sustainable local waters with care for your pet.', 2),
         callout('Freshly packed', 'Sealed for freshness to lock in every drop of natural flavor and benefit.', -2),
       ]),
