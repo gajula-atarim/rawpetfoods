@@ -204,12 +204,14 @@ const TAGLINE = 'Australia’s First Ocean-Fresh Raw Seafood Meals for Pets';
 const EMAIL_ORDERS = 'orders@rawpetfoods.com.au';
 const EMAIL_INFO = 'info@rawpetfoods.com.au';
 const footerColTitle = (t) => heading(t, { tag: 'h4', color: 'rpf_dark', type: 'secondary' });
-// Plain link list (icon-list without icons) so the client edits links right in Elementor — no WP menu needed.
-const linkList = (items) => w('icon-list', {
-  icon_list: items.map(([label, url]) => ({ _id: uid(), text: label, selected_icon: { value: '', library: '' }, link: link(url) })),
-  space_between: px(12), text_indent: px(0), text_color: '#534251', text_color_hover: '#B4544E',
-  icon_typography_typography: 'custom', icon_typography_font_family: 'Source Sans Pro', icon_typography_font_weight: '600',
-  icon_typography_font_size: px(16), icon_typography_line_height: px(24), css_classes: 'rpf-footer-links',
+// Footer columns use the WordPress menus (Appearance → Menus: "Footer Home" and "Footer Legal"),
+// so links stay connected to the pages and can be edited without opening Elementor.
+const footerMenu = (slug) => w('navigation-menu', {
+  menu: slug, layout: 'vertical', navmenu_align: 'left', submenu_icon: 'arrow', dropdown: 'none', pointer: 'none',
+  padding_horizontal_menu_item: px(0), padding_vertical_menu_item: px(0), menu_space_between: px(12),
+  color_menu_item: '#534251', color_menu_item_hover: '#B4544E', color_menu_item_active: '#534251',
+  menu_typography_typography: 'custom', menu_typography_font_family: 'Source Sans Pro', menu_typography_font_weight: '600',
+  menu_typography_font_size: px(16), menu_typography_line_height: px(24), _css_classes: 'rpf-footer-menu',
 });
 const newsletterForm = `<form class="rpf-pill-form" onsubmit="return false;">
   <label class="screen-reader-text" for="rpf-newsletter-email">Email address</label>
@@ -243,14 +245,8 @@ const footer = [
       }),
     ]),
     con({ ...row({ flex_direction_mobile: 'row', flex_wrap: 'nowrap' }), flex_wrap_tablet: 'wrap', flex_wrap_mobile: 'wrap', flex_justify_content: 'space-between', flex_gap: gap(24), flex_gap_tablet: { unit: 'px', size: 32, column: '24', row: '32', isLinked: false }, flex_gap_mobile: { unit: 'px', size: 32, column: '24', row: '32', isLinked: false } }, [
-      con({ ...col(), flex_gap: gap(16), ...pctCol(17) }, [footerColTitle('Explore'), linkList([
-        ['Home', `${SITE}/`], ['Our Range', `${SITE}/#products`], ['Why Raw', `${SITE}/#why-raw`], ['Health Benefits', `${SITE}/#health-benefits`],
-        ['Sustainability', `${SITE}/#sustainability`], ['Feeding Guide', `${SITE}/#feeding-guide`], ['Blog', `${SITE}/#blog`],
-      ])]),
-      con({ ...col(), flex_gap: gap(16), ...pctCol(17) }, [footerColTitle('Help'), linkList([
-        ['About Us', `${SITE}/about-us/`], ['Wholesale', `${SITE}/wholesale/`], ['FAQ', `${SITE}/faq/`], ['Delivery Info', `${SITE}/delivery-info/`],
-        ['Privacy Policy', `${SITE}/privacy-policy/`], ['Terms &amp; Conditions', `${SITE}/terms-and-conditions/`],
-      ])]),
+      con({ ...col(), flex_gap: gap(16), ...pctCol(17) }, [footerColTitle('Explore'), footerMenu('footer-home')]),
+      con({ ...col(), flex_gap: gap(16), ...pctCol(17) }, [footerColTitle('Help'), footerMenu('footer-legal')]),
       con({ ...col(), flex_gap: gap(16), width: pct(26), width_tablet: halfCol, width_mobile: pct(100) }, [footerColTitle('Contact'), w('html', { html: contactHtml })]),
       con({ ...col(), flex_gap: gap(16), width: pct(32), width_tablet: halfCol, width_mobile: pct(100) }, [
         footerColTitle('Newsletter'),
