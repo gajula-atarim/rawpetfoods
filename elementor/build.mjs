@@ -35,11 +35,26 @@ const icon = (value, library = 'fa-solid') => ({ value, library });
 const gColor = (id) => `globals/colors?id=${id}`;
 const gType = (id) => `globals/typography?id=${id}`;
 
-const con = (settings, elements = [], isInner = true) => ({ id: uid(), elType: 'container', isInner, settings, elements });
+const con = (settings, elements = [], isInner = true) => ({
+  id: uid(), elType: 'container', isInner,
+  // Inner containers are full width so their own Width setting applies (boxed ignores it).
+  settings: isInner && !settings.content_width ? { content_width: 'full', ...settings } : settings,
+  elements,
+});
 const section = (settings, elements) => con(settings, elements, false);
-const w = (widgetType, settings) => ({ id: uid(), elType: 'widget', widgetType, isInner: false, settings, elements: [] });
+const w = (widgetType, settings) => {
+  const st = { ...settings };
+  if (st.css_classes) { st._css_classes = st.css_classes; delete st.css_classes; }
+  if (st.z_index !== undefined) { st._z_index = st.z_index; delete st.z_index; }
+  return { id: uid(), elType: 'widget', widgetType, isInner: false, settings: st, elements: [] };
+};
 
-const row = (extra = {}) => ({ flex_direction: 'row', flex_direction_mobile: 'column', ...extra });
+const row = (extra = {}) => {
+  const r = { flex_direction: 'row', flex_direction_mobile: 'column', ...extra };
+  // Rows that stay rows on mobile must not wrap (Elementor wraps them by default).
+  if (r.flex_direction_mobile === 'row' && !r.flex_wrap) { r.flex_wrap_tablet = 'nowrap'; r.flex_wrap_mobile = 'nowrap'; }
+  return r;
+};
 const col = (extra = {}) => ({ flex_direction: 'column', ...extra });
 const widthPx = (desktop, extra = {}) => ({ width: px(desktop), width_tablet: pct(100), width_mobile: pct(100), ...extra });
 
@@ -122,8 +137,6 @@ export const kit = {
   container_width: px(1216),
   container_padding: box(0),
   space_between_widgets: { unit: 'px', size: 0, column: '0', row: '0', isLinked: true },
-  viewport_md: 768,
-  viewport_lg: 1025,
 };
 
 // ---------- Header (UAE) ----------
@@ -133,9 +146,8 @@ const header = [
     padding: box(16), padding_mobile: box(10, 16),
     background_background: 'classic', __globals__: { background_color: gColor('accent') },
   }, [
-    heading('Get a discount code with your first order — limited time only! 🐾', {
+    heading('<u>Get a discount code with your first order — limited time only! 🐾</u>', {
       tag: 'p', color: 'rpf_white', type: 'rpf_banner', align: 'center',
-      extra: { typography_text_decoration: 'underline' },
     }),
   ]),
   section({
@@ -148,7 +160,8 @@ const header = [
       menu: 'main-menu', layout: 'horizontal', navmenu_align: 'center', submenu_icon: 'arrow', submenu_animation: 'none',
       dropdown: 'tablet', resp_align: 'center', full_width_dropdown: 'yes',
       pointer: 'none', padding_horizontal_menu_item: px(16), padding_vertical_menu_item: px(8), menu_space_between: px(0),
-      color_menu_item: '#3C3C3C', color_menu_item_hover: '#B4544E', color_menu_item_active: '#B4544E',
+      color_menu_item: '#3C3C3C', color_menu_item_hover: '#B4544E', color_menu_item_active: '#3C3C3C',
+      hamburger_align_tablet: 'right', hamburger_align_mobile: 'right',
       menu_typography_typography: 'custom', menu_typography_font_family: 'Source Sans Pro', menu_typography_font_weight: '600',
       menu_typography_font_size: px(16), menu_typography_line_height: px(24),
       color_dropdown_item: '#3C3C3C', background_color_dropdown_item: '#FFFFFF',
@@ -156,7 +169,7 @@ const header = [
       dropdown_typography_typography: 'custom', dropdown_typography_font_family: 'Source Sans Pro', dropdown_typography_font_weight: '600',
       dropdown_typography_font_size: px(16),
       toggle_color: '#514150', toggle_size: px(24),
-      _flex_size: 'grow', _flex_size_tablet: 'none', _flex_size_mobile: 'none', _element_width_tablet: 'auto',
+      _flex_size: 'grow',
       css_classes: 'rpf-nav',
     }),
     smallButton('Contact Us', '#contact', { _flex_size: 'none', hide_mobile: 'hidden-mobile', css_classes: 'rpf-header-cta' }),
@@ -176,7 +189,7 @@ const footerMenu = (slug) => w('navigation-menu', {
 const newsletterForm = `<form class="rpf-pill-form" onsubmit="return false;">
   <label class="screen-reader-text" for="rpf-newsletter-email">Email address</label>
   <input id="rpf-newsletter-email" type="email" name="email" placeholder="Email Adress..." required>
-  <button type="submit" class="rpf-pill-btn">Join now</button>
+  <button type="submit" class="rpf-pill-btn" style="font-size:16px;line-height:24px;padding:12px 32px;border-radius:999px">Join now</button>
 </form>`;
 const footer = [
   section({
@@ -205,7 +218,7 @@ const footer = [
         w('html', { html: newsletterForm }),
       ]),
     ]),
-    text('<p>© 2025 Raw Petfoods | All rights reserved.</p>', { color: 'text', align: 'center', extra: { _css_classes: 'rpf-copyright', css_classes: 'rpf-copyright' } }),
+    w('text-editor', { editor: '<p>© 2025 Raw Petfoods | All rights reserved.</p>', align: 'center', text_color: 'rgba(83,66,81,0.5)', __globals__: { typography_typography: gType('text') }, css_classes: 'rpf-copyright' }),
   ]),
 ];
 
@@ -230,7 +243,8 @@ const callout = (title, body, rotate) => con({
   width: px(362), width_tablet: px(320), width_mobile: pct(100),
 }, [
   w('icon', { selected_icon: icon('fas fa-check'), view: 'stacked', shape: 'circle', primary_color: '#B4544E', secondary_color: '#FFFFFF', size: px(14), icon_padding: px(9), _flex_size: 'none' }),
-  con({ ...col(), flex_gap: gap(8), _flex_size: 'grow' }, [
+  // 'custom' grow+shrink: Elementor's 'grow' preset disables shrinking, which lets text overflow the card.
+  con({ ...col(), flex_gap: gap(8), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
     heading(title, { tag: 'h3', type: 'secondary' }),
     text(`<p>${body}</p>`, { color: 'primary' }),
   ]),
@@ -239,9 +253,9 @@ const callout = (title, body, rotate) => con({
 const blogCard = (m, date, title, excerpt, url) => con({
   ...col(), flex_gap: gap(16), padding: box(16), background_background: 'classic', background_color: '#FFFFFF',
   border_border: 'solid', border_width: box(1), border_color: 'rgba(83,66,81,0.24)',
-  width: pct(33.33), width_tablet: pct(100), width_mobile: pct(100), _flex_size: 'grow',
+  width: pct(31), width_tablet: pct(100), width_mobile: pct(100), _flex_size: 'grow',
 }, [
-  image(m, { link_to: 'custom', link: link(url), height: px(308), height_mobile: px(240), 'object-fit': 'cover', width: pct(100) }),
+  image(m, { link_to: 'custom', link: link(url), height: px(308), height_mobile: px(240), 'object-fit': 'cover', width: pct(100), width_tablet: pct(100), width_mobile: pct(100), _element_width: 'inherit' }),
   con({ ...col(), flex_gap: gap(24), padding: box(16) }, [
     w('icon-list', {
       view: 'inline', icon_list: [{ _id: uid(), text: date, selected_icon: icon('far fa-calendar', 'fa-regular') }],
@@ -290,7 +304,7 @@ const accordion = w('nested-accordion', {
   normal_title_color: '#514150', hover_title_color: '#B4544E', active_title_color: '#514150',
   normal_icon_color: '#7EC78E', hover_icon_color: '#7EC78E', active_icon_color: '#7EC78E', icon_size: px(24),
   content_padding: box(0, 32, 32, 32), content_padding_mobile: box(0, 20, 20, 20),
-  width: px(800), width_tablet: pct(100), _element_width: 'initial', _element_custom_width: px(800), _element_custom_width_tablet: pct(100),
+  _element_width: 'initial', _element_custom_width: px(800), _element_custom_width_tablet: pct(100),
 });
 accordion.elements = faqs.map((f) => con({ content_width: 'full', ...col() }, [text(`<p>${f.a}</p>`, { color: 'text' })]));
 
@@ -309,7 +323,7 @@ const home = [
     }, [
       con({ ...col(), flex_gap: gap(24), ...widthPx(547) }, [
         con({ ...row({ flex_direction_mobile: 'row', flex_wrap: 'wrap' }), flex_align_items: 'center', flex_gap: gap(12) }, [
-          image(MEDIA.trustpilot, { width: px(259), width_mobile: px(200), _flex_size: 'none', alt: 'Trustpilot 5 stars' }),
+          image(MEDIA.trustpilot, { width: px(259), width_mobile: px(200), _flex_size: 'none' }),
           heading('We’ve rated 4.9 across 200 reviews!', { tag: 'p', color: 'rpf_white', type: 'rpf_rating' }),
         ]),
         heading('Made for pets who deserve better.', { tag: 'h1', color: 'rpf_white', type: 'rpf_display' }),
@@ -377,7 +391,7 @@ const home = [
         callout('Real seafood', 'Only premium salmon belly fins — rich in protein, calcium, and vitamin D.', -2),
         callout('Vet-approved nutrition', 'Balanced and safe for pets of all ages — backed by science, trusted by owners.', 2),
       ]),
-      image({ ...MEDIA.pack }, { width: px(927), width_tablet: pct(100), _margin: box(26, -150, 0, -150), _margin_tablet: box(0), _flex_size: 'none', _flex_size_tablet: 'none', z_index: 1, css_classes: 'rpf-pack' }),
+      image({ ...MEDIA.pack }, { width: px(927), width_tablet: pct(100), _margin: box(26, -218, 0, -217), _margin_tablet: box(0), _flex_size: 'none', _flex_size_tablet: 'none', z_index: 1, css_classes: 'rpf-pack' }),
       con({ ...col(), flex_justify_content: 'space-between', flex_align_items: 'flex-end', flex_gap: gap(16), z_index: 2, flex_direction_tablet: 'row', flex_wrap_tablet: 'wrap', flex_direction_mobile: 'column', _flex_size: 'none', order_tablet: 'end', css_classes: 'rpf-callouts' }, [
         callout('Responsibly sourced', 'Harvested from sustainable local waters with care for your pet.', 2),
         callout('Freshly packed', 'Sealed for freshness to lock in every drop of natural flavor and benefit.', -2),
