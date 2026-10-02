@@ -141,6 +141,18 @@ export const kit = {
 };
 
 // ---------- Header (UAE) ----------
+const headerLayoutCss = `<style>
+.rpf-header > .rpf-style-only{display:none!important}
+@media (max-width:1024px){
+  body .rpf-header > .elementor-widget-image{flex:0 0 auto!important;order:1!important;margin-right:auto!important;width:auto!important;min-width:0!important}
+  body .rpf-header > .rpf-header-cta{flex:0 0 auto!important;order:2!important}
+  body .rpf-header > .rpf-nav{flex:0 0 auto!important;order:3!important;width:auto!important;max-width:60px!important}
+}
+@media (max-width:767px){
+  .rpf-header{gap:12px!important}
+  .rpf-header > .rpf-header-cta .elementor-button{font-size:15px}
+}
+</style>`;
 const header = [
   section({
     content_width: 'full', ...row({ flex_direction_mobile: 'row' }), flex_justify_content: 'center', flex_align_items: 'center',
@@ -174,7 +186,10 @@ const header = [
       _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1,
       css_classes: 'rpf-nav',
     }),
-    smallButton('Contact Us', '#contact', { _flex_size: 'none', hide_mobile: 'hidden-mobile', css_classes: 'rpf-header-cta' }),
+    smallButton('Contact Us', '#contact', { _flex_size: 'none', text_padding_mobile: box(10, 18), css_classes: 'rpf-header-cta' }),
+    // Tablet/mobile order: logo | (space) | Contact Us | hamburger. The widget itself is hidden; only its <style> applies.
+    // Fixed id (no uid() call) so adding this widget doesn't renumber every element after it.
+    { id: 'a7f30c1', elType: 'widget', widgetType: 'html', isInner: false, settings: { html: headerLayoutCss, _css_classes: 'rpf-style-only' }, elements: [] },
   ]),
 ];
 
@@ -193,6 +208,8 @@ const newsletterForm = `<form class="rpf-pill-form" onsubmit="return false;">
   <input id="rpf-newsletter-email" type="email" name="email" placeholder="Email Adress..." required>
   <button type="submit" class="rpf-pill-btn" style="font-size:16px;line-height:24px;padding:12px 32px;border-radius:999px">Join now</button>
 </form>`;
+// Two footer columns side by side below desktop; accounts for the row gap.
+const halfCol = { unit: 'custom', size: 'calc(50% - 12px)', sizes: [] };
 const footer = [
   section({
     content_width: 'boxed', ...col(), flex_gap: gap(64), padding: box(48, 112), padding_tablet: box(48, 32), padding_mobile: box(40, 16),
@@ -211,9 +228,9 @@ const footer = [
         icon_size: px(22), icon_padding: { unit: 'px', size: 13 }, icon_spacing: px(20), hover_primary_color: '#514150', hover_secondary_color: '#FFFFFF',
       }),
     ]),
-    con({ ...row({ flex_wrap_mobile: 'wrap' }), flex_justify_content: 'space-between', flex_gap: gap(24) }, [
-      con({ ...col(), flex_gap: gap(16), ...widthPx(400) }, [footerColTitle('Home'), footerMenu('footer-home')]),
-      con({ ...col(), flex_gap: gap(16), ...widthPx(400) }, [footerColTitle('Legal'), footerMenu('footer-legal')]),
+    con({ ...row({ flex_direction_mobile: 'row', flex_wrap: 'nowrap' }), flex_wrap_tablet: 'wrap', flex_wrap_mobile: 'wrap', flex_justify_content: 'space-between', flex_gap: gap(24), flex_gap_mobile: { unit: 'px', size: 32, column: '16', row: '32', isLinked: false } }, [
+      con({ ...col(), flex_gap: gap(16), ...widthPx(400, { width_tablet: halfCol, width_mobile: halfCol }) }, [footerColTitle('Home'), footerMenu('footer-home')]),
+      con({ ...col(), flex_gap: gap(16), ...widthPx(400, { width_tablet: halfCol, width_mobile: halfCol }) }, [footerColTitle('Legal'), footerMenu('footer-legal')]),
       con({ ...col(), flex_gap: gap(16), ...widthPx(373) }, [
         footerColTitle('Newsletter'),
         text('<p>Get tasty updates and exclusive deals — no spam, just wagging tails.</p>', { color: 'rpf_grey' }),
@@ -225,15 +242,50 @@ const footer = [
 ];
 
 // ---------- Home page ----------
-const heroForm = `<form class="rpf-pill-form rpf-pill-form--dark" action="#products">
-  <label class="screen-reader-text" for="rpf-animal">Choose your animal</label>
-  <select id="rpf-animal" name="animal">
-    <option value="">Choose your animal</option>
-    <option value="dog">Dog</option>
-    <option value="cat">Cat</option>
-  </select>
+// Custom listbox instead of a native <select>: mobile browsers place the native picker wherever they like.
+const chevron = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`;
+const heroForm = `<form class="rpf-pill-form rpf-pill-form--dark rpf-animal-form" action="#products">
+  <input type="hidden" name="animal" value="">
+  <div class="rpf-select">
+    <div class="rpf-select__btn" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false"><span class="rpf-select__label">Choose your animal</span></div>
+    <ul class="rpf-select__list" role="listbox" aria-label="Choose your animal" hidden>
+      <li role="option" tabindex="-1" aria-selected="false" data-value="dog">Dog</li>
+      <li role="option" tabindex="-1" aria-selected="false" data-value="cat">Cat</li>
+    </ul>
+  </div>
   <a class="rpf-pill-btn" href="#products">Shop Now</a>
-</form>`;
+</form>
+<style>
+.rpf-select{position:relative;flex:1 1 auto;min-width:0}
+.rpf-select__btn{box-sizing:border-box;display:block;margin:0;border:0;border-radius:0;background-color:transparent;user-select:none;width:100%;padding-right:26px;cursor:pointer;color:#fff;font:600 16px/24px "Source Sans Pro",sans-serif;letter-spacing:-.16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:${chevron} no-repeat right center}
+.rpf-select__btn[aria-expanded="true"]{background-image:${chevron.replace("d='m6 9 6 6 6-6'", "d='m6 15 6-6 6 6'")}}
+.rpf-select__btn:focus-visible{outline:2px solid #fff;outline-offset:4px;border-radius:4px}
+.rpf-select__list{position:absolute;left:-16px;right:0;top:calc(100% + 18px);z-index:30;margin:0;padding:8px;list-style:none;background:#fff;border-radius:16px;box-shadow:0 16px 32px rgba(14,18,27,.2)}
+.rpf-select__list[hidden]{display:none}
+.rpf-select__list li{margin:0;padding:10px 12px;border-radius:10px;color:#514150;font:600 16px/24px "Source Sans Pro",sans-serif;cursor:pointer}
+.rpf-select__list li:hover,.rpf-select__list li:focus,.rpf-select__list li[aria-selected="true"]{background:#F5F7FA;color:#B4544E;outline:none}
+@media (max-width:480px){.rpf-animal-form{padding-left:14px;gap:8px}.rpf-animal-form .rpf-pill-btn{padding:10px 16px}.rpf-select__btn{font-size:14px;padding-right:22px;background-size:18px}}
+</style>
+<script>
+(function(){document.querySelectorAll('.rpf-animal-form:not([data-ready])').forEach(function(f){
+  f.setAttribute('data-ready','1');
+  var btn=f.querySelector('.rpf-select__btn'),list=f.querySelector('.rpf-select__list'),label=f.querySelector('.rpf-select__label'),input=f.querySelector('input[name=animal]'),opts=[].slice.call(list.querySelectorAll('[role=option]'));
+  function toggle(open){list.hidden=!open;btn.setAttribute('aria-expanded',open?'true':'false');if(open){(list.querySelector('[aria-selected=true]')||opts[0]).focus();}}
+  function pick(o){opts.forEach(function(x){x.setAttribute('aria-selected',x===o?'true':'false');});label.textContent=o.textContent;input.value=o.getAttribute('data-value');toggle(false);btn.focus();}
+  btn.addEventListener('click',function(){toggle(list.hidden);});
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '||e.key==='ArrowDown'){e.preventDefault();toggle(true);}else if(e.key==='Escape'){toggle(false);}});
+  opts.forEach(function(o,i){
+    o.addEventListener('click',function(){pick(o);});
+    o.addEventListener('keydown',function(e){
+      if(e.key==='ArrowDown'){e.preventDefault();(opts[i+1]||opts[0]).focus();}
+      else if(e.key==='ArrowUp'){e.preventDefault();(opts[i-1]||opts[opts.length-1]).focus();}
+      else if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(o);}
+      else if(e.key==='Escape'||e.key==='Tab'){toggle(false);btn.focus();}
+    });
+  });
+  document.addEventListener('click',function(e){if(!f.contains(e.target)){toggle(false);}});
+});})();
+</script>`;
 
 const benefitItem = (t) => ({ _id: uid(), text: t, selected_icon: icon('fas fa-heart') });
 const callout = (title, body, rotate) => con({
@@ -364,7 +416,7 @@ const home = [
   section(SEC({ _element_id: 'sustainability', padding: box(24, 112, 112, 112), padding_tablet: box(24, 32, 64, 32), padding_mobile: box(16, 16, 48, 16), background_background: 'classic', background_color: '#FFFFFF' }), [
     con({
       content_width: 'full', ...col(), flex_justify_content: 'center', flex_align_items: 'center', flex_gap: gap(48),
-      min_height: px(507), padding: box(112), padding_tablet: box(80, 200, 80, 220), padding_mobile: box(48, 20, 260, 20), border_radius: box(24),
+      min_height: px(507), padding: box(112), padding_tablet: box(80, 200, 80, 220), padding_mobile: box(48, 20, 290, 20), border_radius: box(24),
       background_background: 'classic', background_color: '#62B6CF', background_image: img(MEDIA.ocean),
       background_position: 'center left', background_position_mobile: 'bottom left', background_size: 'cover', background_size_mobile: 'initial',
       background_bg_width_mobile: { unit: 'px', size: 640, sizes: [] }, background_repeat: 'no-repeat',
@@ -373,7 +425,7 @@ const home = [
       background_overlay_position: 'center right', background_overlay_position_mobile: 'bottom right',
       background_overlay_repeat: 'no-repeat', background_overlay_size: 'contain',
       background_overlay_size_tablet: 'initial', background_overlay_bg_width_tablet: { unit: 'px', size: 190, sizes: [] },
-      background_overlay_size_mobile: 'initial', background_overlay_bg_width_mobile: { unit: 'px', size: 170, sizes: [] },
+      background_overlay_size_mobile: 'initial', background_overlay_bg_width_mobile: { unit: 'px', size: 150, sizes: [] },
       background_overlay_opacity: { unit: 'px', size: 1, sizes: [] },
     }, [
       // Text never runs under the seafood images on either edge; the heading wraps on small laptops instead.
@@ -442,7 +494,7 @@ const home = [
           box_shadow_box_shadow_type: 'yes', box_shadow_box_shadow: { horizontal: 0, vertical: 2, blur: 2, spread: 0, color: 'rgba(10,13,20,0.1)' },
           css_classes: 'rpf-review',
         }, [
-          w('star-rating', { rating_scale: '5', rating: '5', star_style: 'star_fontawesome', unmarked_star_style: 'solid', align: 'center', icon_size: px(26), icon_space: px(18), stars_color: '#FFA600' }),
+          w('star-rating', { rating_scale: '5', rating: '5', star_style: 'star_fontawesome', unmarked_star_style: 'solid', align: 'center', icon_size: px(26), icon_size_mobile: px(20), icon_space: px(18), icon_space_mobile: px(8), stars_color: '#FFA600' }),
           con({ ...col(), flex_gap: gap(16) }, [
             text('<p>“Our golden retriever, Luna, used to be a picky eater. Since switching to Raw Petfoods, she finishes every bowl and her coat looks incredible. You can literally see the difference in just a few weeks.”</p>', { type: 'secondary', align: 'center' }),
             text('<p>Martha B.</p>', { color: 'rpf_grey', align: 'center' }),
