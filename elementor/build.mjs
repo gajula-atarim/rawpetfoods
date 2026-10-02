@@ -152,7 +152,7 @@ const header = [
   ]),
   section({
     content_width: 'full', ...row({ flex_direction_mobile: 'row' }), flex_justify_content: 'space-between', flex_align_items: 'center',
-    flex_gap: gap(54), padding: box(16, 42), padding_tablet: box(12, 24), padding_mobile: box(10, 16),
+    flex_gap: gap(24), padding: box(16, 42), padding_tablet: box(12, 24), padding_mobile: box(10, 16),
     background_background: 'classic', background_color: '#FFFFFF', css_classes: 'rpf-header',
   }, [
     image(MEDIA.logo, { link_to: 'custom', link: link(`${SITE}/`), width: px(103), width_mobile: px(80), _flex_size: 'none' }),
@@ -169,7 +169,8 @@ const header = [
       dropdown_typography_typography: 'custom', dropdown_typography_font_family: 'Source Sans Pro', dropdown_typography_font_weight: '600',
       dropdown_typography_font_size: px(16),
       toggle_color: '#514150', toggle_size: px(24),
-      _flex_size: 'grow',
+      // Grow AND shrink so the menu wraps instead of pushing the CTA off-screen on small laptops (1025-1200px).
+      _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1,
       css_classes: 'rpf-nav',
     }),
     smallButton('Contact Us', '#contact', { _flex_size: 'none', hide_mobile: 'hidden-mobile', css_classes: 'rpf-header-cta' }),
@@ -391,8 +392,9 @@ const home = [
         callout('Real seafood', 'Only premium salmon belly fins — rich in protein, calcium, and vitamin D.', -2),
         callout('Vet-approved nutrition', 'Balanced and safe for pets of all ages — backed by science, trusted by owners.', 2),
       ]),
-      // Widgets in a row default to 100% wide, so pin the pack shot's own width for the overlap maths.
-      image({ ...MEDIA.pack }, { width: pct(100), _element_width: 'initial', _element_custom_width: px(927), _element_width_tablet: 'inherit', _margin: box(26, -218, 0, -217), _margin_tablet: box(0), _flex_size: 'none', _flex_size_tablet: 'none', z_index: 1, css_classes: 'rpf-pack' }),
+      // Pack shot fills the gap between the two 362px callout columns and tucks 218px under each,
+      // so the row always sums to 100% (927px at the 1216px container) and the pack stays centred.
+      image({ ...MEDIA.pack }, { width: pct(100), _element_width: 'initial', _element_custom_width: { unit: 'custom', size: 'calc(100% - 288px)', sizes: [] }, _element_width_tablet: 'inherit', _margin: box(26, -218, 0, -218), _margin_tablet: box(0), _flex_size: 'none', _flex_size_tablet: 'none', z_index: 1, css_classes: 'rpf-pack' }),
       con({ ...col(), flex_justify_content: 'space-between', flex_align_items: 'flex-end', flex_gap: gap(16), z_index: 2, flex_direction_tablet: 'row', flex_wrap_tablet: 'wrap', flex_direction_mobile: 'column', _flex_size: 'none', ...widthPx(362), order_tablet: 'end', css_classes: 'rpf-callouts' }, [
         callout('Responsibly sourced', 'Harvested from sustainable local waters with care for your pet.', 2),
         callout('Freshly packed', 'Sealed for freshness to lock in every drop of natural flavor and benefit.', -2),
