@@ -149,6 +149,10 @@ export const kit = {
 // ---------- Header (UAE) ----------
 const headerLayoutCss = `<style>
 .rpf-header > .rpf-style-only{display:none!important}
+/* Hidden off-canvas bits (e.g. the closed mobile sub-menus) must never widen the page: on phones that zooms the
+   whole site out and shows a white strip down the right-hand side. clip (unlike hidden) keeps sticky/anchors working. */
+html,body{max-width:100%;overflow-x:clip}
+@supports not (overflow-x:clip){body{overflow-x:hidden}}
 @media (max-width:1024px){
   body .rpf-header > .elementor-widget-image{flex:0 0 auto!important;order:1!important;margin-right:auto!important;width:auto!important;min-width:0!important}
   body .rpf-header > .rpf-header-cta{flex:0 0 auto!important;order:2!important}
