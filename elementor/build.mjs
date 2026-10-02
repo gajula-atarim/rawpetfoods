@@ -245,7 +245,7 @@ const footer = [
         social_icon_list: [
           { _id: uid(), social_icon: icon('fab fa-facebook', 'fa-brands'), link: link('https://www.facebook.com/', true) },
           { _id: uid(), social_icon: icon('fab fa-instagram', 'fa-brands'), link: link('https://www.instagram.com/', true), item_icon_color: 'custom', item_icon_primary_color: '#E4405F', item_icon_secondary_color: '#FFFFFF' },
-          { _id: uid(), social_icon: icon('fab fa-x-twitter', 'fa-brands'), link: link('https://x.com/', true), item_icon_color: 'custom', item_icon_primary_color: '#1DA1F2', item_icon_secondary_color: '#FFFFFF' },
+          { _id: uid(), social_icon: icon('fab fa-x-twitter', 'fa-brands'), link: link('https://x.com/', true), item_icon_color: 'custom', item_icon_primary_color: '#000000', item_icon_secondary_color: '#FFFFFF' },
         ],
         shape: 'circle', align: 'center', icon_color: 'default', icon_size: px(20), icon_padding: { unit: 'px', size: 12 }, icon_spacing: px(16),
       }),
