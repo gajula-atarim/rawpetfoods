@@ -12,6 +12,7 @@ const MEDIA = {
   pawBg: { id: 10, url: `${SITE}/wp-content/uploads/2026/10/paw-pattern-background.jpg` },
   dog: { id: 11, url: `${SITE}/wp-content/uploads/2026/10/dog-with-raw-pet-foods-sign.jpg` },
   ocean: { id: 12, url: `${SITE}/wp-content/uploads/2026/10/ocean-seafood-banner.jpg` },
+  oceanRight: { id: 51, url: `${SITE}/wp-content/uploads/2026/10/ocean-banner-salmon-right.webp` },
   productBg: { id: 13, url: `${SITE}/wp-content/uploads/2026/10/product-section-background.jpg` },
   pack: { id: 14, url: `${SITE}/wp-content/uploads/2026/10/salmon-belly-fin-pack.webp` },
   about: { id: 15, url: `${SITE}/wp-content/uploads/2026/10/woman-hugging-cat.jpg` },
@@ -363,12 +364,20 @@ const home = [
   section(SEC({ _element_id: 'sustainability', padding: box(24, 112, 112, 112), padding_tablet: box(24, 32, 64, 32), padding_mobile: box(16, 16, 48, 16), background_background: 'classic', background_color: '#FFFFFF' }), [
     con({
       content_width: 'full', ...col(), flex_justify_content: 'center', flex_align_items: 'center', flex_gap: gap(48),
-      min_height: px(507), padding: box(112), padding_tablet: box(80, 48, 80, 220), padding_mobile: box(48, 20, 260, 20), border_radius: box(24),
+      min_height: px(507), padding: box(112), padding_tablet: box(80, 200, 80, 220), padding_mobile: box(48, 20, 260, 20), border_radius: box(24),
       background_background: 'classic', background_color: '#62B6CF', background_image: img(MEDIA.ocean),
       background_position: 'center left', background_position_mobile: 'bottom left', background_size: 'cover', background_size_mobile: 'initial',
       background_bg_width_mobile: { unit: 'px', size: 640, sizes: [] }, background_repeat: 'no-repeat',
+      // Second seafood image on the right edge, layered via the background overlay (full opacity).
+      background_overlay_background: 'classic', background_overlay_image: img(MEDIA.oceanRight),
+      background_overlay_position: 'center right', background_overlay_position_mobile: 'bottom right',
+      background_overlay_repeat: 'no-repeat', background_overlay_size: 'contain',
+      background_overlay_size_tablet: 'initial', background_overlay_bg_width_tablet: { unit: 'px', size: 190, sizes: [] },
+      background_overlay_size_mobile: 'initial', background_overlay_bg_width_mobile: { unit: 'px', size: 170, sizes: [] },
+      background_overlay_opacity: { unit: 'px', size: 1, sizes: [] },
     }, [
-      con({ ...col(), flex_align_items: 'center', flex_gap: gap(24), width: px(600), width_tablet: pct(100), width_mobile: pct(100) }, [
+      // Text never runs under the seafood images on either edge; the heading wraps on small laptops instead.
+      con({ ...col(), flex_align_items: 'center', flex_gap: gap(24), width: { unit: 'custom', size: 'min(600px, calc(100% - 380px))', sizes: [] }, width_tablet: pct(100), width_mobile: pct(100) }, [
         heading('Powered by the ocean’s best', { color: 'rpf_white', align: 'center' }),
         text('<p>Every ingredient serves a purpose — rich proteins for strength, omega oils for glossy coats, and natural minerals for a longer, happier life.</p>', { color: 'rpf_white', align: 'center' }),
       ]),
