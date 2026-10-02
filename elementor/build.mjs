@@ -226,7 +226,9 @@ const contactHtml = `<div class="rpf-contact">
   <p><strong>Orders &amp; product enquiries</strong><br><a href="mailto:${EMAIL_ORDERS}">${EMAIL_ORDERS}</a></p>
   <p><strong>General &amp; partnership enquiries</strong><br><a href="mailto:${EMAIL_INFO}">${EMAIL_INFO}</a></p>
 </div>
-<style>.rpf-contact p{margin:0 0 14px;font:600 15px/22px "Source Sans Pro",sans-serif;color:#9E9E9E}.rpf-contact strong{color:#534251}.rpf-contact a{color:#B4544E;word-break:break-word}.rpf-contact a:hover{color:#514150}</style>`;
+<style>.rpf-contact p{margin:0 0 14px;font:600 15px/22px "Source Sans Pro",sans-serif;color:#9E9E9E}.rpf-contact strong{color:#534251}.rpf-contact a{color:#B4544E;word-break:break-word}.rpf-contact a:hover{color:#514150}
+/* Instagram's brand gradient (the widget's colour setting only takes a flat colour, #E4405F is the fallback). */
+.elementor-social-icon-instagram{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)!important}</style>`;
 // Two footer columns side by side below desktop; accounts for the row gap.
 const halfCol = { unit: 'custom', size: 'calc(50% - 12px)', sizes: [] };
 const pctCol = (d) => ({ width: pct(d), width_tablet: halfCol, width_mobile: halfCol });
@@ -242,8 +244,8 @@ const footer = [
       w('social-icons', {
         social_icon_list: [
           { _id: uid(), social_icon: icon('fab fa-facebook', 'fa-brands'), link: link('https://www.facebook.com/', true) },
-          { _id: uid(), social_icon: icon('fab fa-instagram', 'fa-brands'), link: link('https://www.instagram.com/', true) },
-          { _id: uid(), social_icon: icon('fab fa-x-twitter', 'fa-brands'), link: link('https://x.com/', true) },
+          { _id: uid(), social_icon: icon('fab fa-instagram', 'fa-brands'), link: link('https://www.instagram.com/', true), item_icon_color: 'custom', item_icon_primary_color: '#E4405F', item_icon_secondary_color: '#FFFFFF' },
+          { _id: uid(), social_icon: icon('fab fa-x-twitter', 'fa-brands'), link: link('https://x.com/', true), item_icon_color: 'custom', item_icon_primary_color: '#1DA1F2', item_icon_secondary_color: '#FFFFFF' },
         ],
         shape: 'circle', align: 'center', icon_color: 'default', icon_size: px(20), icon_padding: { unit: 'px', size: 12 }, icon_spacing: px(16),
       }),
