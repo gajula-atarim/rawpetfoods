@@ -262,6 +262,7 @@ const heroForm = `<form class="rpf-pill-form rpf-pill-form--dark rpf-animal-form
 .rpf-select__btn:focus-visible{outline:2px solid #fff;outline-offset:4px;border-radius:4px}
 .rpf-select__list{position:absolute;left:-16px;right:0;top:calc(100% + 18px);z-index:30;margin:0;padding:8px;list-style:none;background:#fff;border-radius:16px;box-shadow:0 16px 32px rgba(14,18,27,.2)}
 .rpf-select__list[hidden]{display:none}
+.rpf-select__list.is-up{top:auto;bottom:calc(100% + 18px)}
 .rpf-select__list li{margin:0;padding:10px 12px;border-radius:10px;color:#514150;font:600 16px/24px "Source Sans Pro",sans-serif;cursor:pointer}
 .rpf-select__list li:hover,.rpf-select__list li:focus,.rpf-select__list li[aria-selected="true"]{background:#F5F7FA;color:#B4544E;outline:none}
 @media (max-width:480px){.rpf-animal-form{padding-left:14px;gap:8px}.rpf-animal-form .rpf-pill-btn{padding:10px 16px}.rpf-select__btn{font-size:14px;padding-right:22px;background-size:18px}}
@@ -270,7 +271,9 @@ const heroForm = `<form class="rpf-pill-form rpf-pill-form--dark rpf-animal-form
 (function(){document.querySelectorAll('.rpf-animal-form:not([data-ready])').forEach(function(f){
   f.setAttribute('data-ready','1');
   var btn=f.querySelector('.rpf-select__btn'),list=f.querySelector('.rpf-select__list'),label=f.querySelector('.rpf-select__label'),input=f.querySelector('input[name=animal]'),opts=[].slice.call(list.querySelectorAll('[role=option]'));
-  function toggle(open){list.hidden=!open;btn.setAttribute('aria-expanded',open?'true':'false');if(open){(list.querySelector('[aria-selected=true]')||opts[0]).focus();}}
+  // The hero clips overflow (rounded corners), so open upwards when the list won't fit below the field.
+  function place(){list.classList.remove('is-up');var box=f.closest('.rpf-hero')||document.documentElement,lim=Math.min(box.getBoundingClientRect().bottom,window.innerHeight);if(list.getBoundingClientRect().bottom>lim-8){list.classList.add('is-up');}}
+  function toggle(open){list.hidden=!open;if(open){place();}btn.setAttribute('aria-expanded',open?'true':'false');if(open){(list.querySelector('[aria-selected=true]')||opts[0]).focus();}}
   function pick(o){opts.forEach(function(x){x.setAttribute('aria-selected',x===o?'true':'false');});label.textContent=o.textContent;input.value=o.getAttribute('data-value');toggle(false);btn.focus();}
   btn.addEventListener('click',function(){toggle(list.hidden);});
   btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '||e.key==='ArrowDown'){e.preventDefault();toggle(true);}else if(e.key==='Escape'){toggle(false);}});
