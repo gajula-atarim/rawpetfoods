@@ -1,0 +1,458 @@
+FRAME "Raw Petfoods" 1440x8079 @0,0 [VERTICAL gap=0 pad=0/0//]
+  FRAME "Frame 2095587729" 1440x64 @0,0 fill=#7EC78E [HORIZONTAL gap=10 pad=16/16/16/16]
+    TEXT "Get a discount code with your first order — limited time only! 🐾" 558x32 @441,16 fill=#FFFFFF | Source Sans Pro Black 20/32px ls=-1%  «Get a discount code with your first order — limited time only! 🐾»
+  FRAME "Frame 2095587491" 1440x886 @0,64 fill=#FFFFFF [VERTICAL gap=10 pad=10/10/10/10]
+    FRAME "Frame 2095587671" 1420x101 @10,74 fill=#FFFFFF [HORIZONTAL gap=54 pad=16/32/16/32]
+      FRAME "Frame 2095587649" 103x69 @42,90 [HORIZONTAL gap=16 pad=0/0//]
+        FRAME "Group" 103x69 @42,90
+          FRAME "Group" 94x46 @47,113
+            FRAME "Group" 94x46 @47,113
+              VECTOR "Vector" 2x4 @82,124 fill=#B4544E
+              VECTOR "Vector" 40x34 @71,113 fill=#B4544E
+              FRAME "Group" 94x10 @47,149
+                VECTOR "Vector" 7x10 @47,149 fill=#B4544E
+                VECTOR "Vector" 6x7 @55,152 fill=#B4544E
+                VECTOR "Vector" 4x6 @62,152 fill=#B4544E
+                VECTOR "Vector" 5x6 @67,152 fill=#B4544E
+                VECTOR "Vector" 6x7 @73,152 fill=#B4544E
+                VECTOR "Vector" 4x10 @80,149 fill=#B4544E
+                VECTOR "Vector" 2x5 @86,153 fill=#B4544E
+                VECTOR "Vector" 2x2 @87,150 fill=#B4544E
+                VECTOR "Vector" 4x8 @88,151 fill=#B4544E
+                VECTOR "Vector" 2x2 @94,150 fill=#B4544E
+                VECTOR "Vector" 2x5 @93,153 fill=#B4544E
+                VECTOR "Vector" 5x6 @96,152 fill=#B4544E
+                VECTOR "Vector" 6x7 @102,152 fill=#B4544E
+                VECTOR "Vector" 5x6 @109,153 fill=#B4544E
+                VECTOR "Vector" 3x10 @115,149 fill=#B4544E
+                VECTOR "Vector" 5x10 @120,149 fill=#B4544E
+                VECTOR "Vector" 5x6 @126,152 fill=#B4544E
+                VECTOR "Vector" 5x6 @131,152 fill=#B4544E
+                VECTOR "Vector" 4x6 @137,152 fill=#B4544E
+          FRAME "Group" 103x58 @42,90
+            FRAME "Group" 103x58 @42,90
+              VECTOR "Vector" 11x11 @43,136 fill=#514150
+              VECTOR "Vector" 9x11 @52,131 fill=#514150
+              VECTOR "Vector" 12x13 @59,125 fill=#514150
+              VECTOR "Vector" 9x11 @110,123 fill=#514150
+              VECTOR "Vector" 8x11 @116,126 fill=#514150
+              VECTOR "Vector" 9x11 @122,129 fill=#514150
+              VECTOR "Vector" 10x11 @128,131 fill=#514150
+              VECTOR "Vector" 10x10 @134,136 fill=#514150
+              VECTOR "Vector" 11x16 @64,100 fill=#514150
+              VECTOR "Vector" 11x16 @107,100 fill=#514150
+              VECTOR "Vector" 13x20 @77,90 fill=#514150
+              VECTOR "Vector" 13x20 @92,90 fill=#514150
+              VECTOR "Vector" 19x8 @64,139 fill=#514150
+              VECTOR "Vector" 2x2 @42,145 fill=#514150
+              VECTOR "Vector" 2x2 @143,145 fill=#514150
+              FRAME "Group" 19x8 @103,139
+                VECTOR "Vector" 1x1 @113,142 fill=#514150
+                VECTOR "Vector" 19x8 @103,139 fill=#514150
+                VECTOR "Vector" 1x1 @118,142 fill=#514150
+      FRAME "Frame 2095587721" 749x24 @328,112 [HORIZONTAL gap=32 pad=0/0//]
+        TEXT "About Us" 66x24 @328,112 fill=#3C3C3C | Source Sans Pro SemiBold 16/24px ls=0%  « About Us»
+        FRAME "Frame 2095587650" 154x24 @426,112 [HORIZONTAL gap=4 pad=0/0//]
+          TEXT "Our Product Range" 130x24 @426,112 fill=#3C3C3C | Source Sans Pro SemiBold 16/24px ls=0%  «Our Product Range»
+          INSTANCE "chevron-down" 20x20 @560,114
+            (instance of "chevron-down")
+        TEXT "Sustainability" 95x24 @612,112 fill=#3C3C3C | Source Sans Pro SemiBold 16/24px ls=0%  «Sustainability»
+        TEXT "Health Benefits" 106x24 @739,112 fill=#3C3C3C | Source Sans Pro SemiBold 16/24px ls=0%  «Health Benefits»
+        TEXT "FAQs" 34x24 @877,112 fill=#3C3C3C | Source Sans Pro SemiBold 16/24px ls=0%  «FAQs»
+        TEXT "Blog" 31x24 @943,112 fill=#3C3C3C | Source Sans Pro SemiBold 16/24px ls=0%  «Blog»
+        TEXT "Wholesale" 71x24 @1006,112 fill=#3C3C3C | Source Sans Pro SemiBold 16/24px ls=0%  «Wholesale»
+      FRAME "Frame" 139x48 @1259,100 fill=#B4544E r=24 [HORIZONTAL gap=8 pad=12/32/12/32]
+        TEXT "Contact Us" 75x24 @1291,112 fill=#FFFFFF | Source Sans Pro SemiBold 16/24px ls=0%  «Contact Us»
+    FRAME "Frame 2095587487" 1420x700 @10,185 fill=IMG:a0d01baf(STRETCH),#000000@0.4 r=30 [VERTICAL gap=0 pad=80/80/80/80]
+      FRAME "Frame 2095587739" 1260x296 @90,509 [HORIZONTAL gap=0 pad=0/0//]
+        FRAME "Content" 547x296 @90,509 [VERTICAL gap=48 pad=0/0//]
+          FRAME "Frame 883378451" 547x296 @90,509 [VERTICAL gap=24 pad=0/0//]
+            FRAME "Frame 427322254" 547x32 @90,509 r=16 [HORIZONTAL gap=250 pad=0/0//]
+              FRAME "Frame 427322257" 547x28 @90,511 [HORIZONTAL gap=12 pad=0/0//]
+                FRAME "Frame 2095586159" 259x28 @90,511 [HORIZONTAL gap=16 pad=0/0//]
+                  FRAME "Frame 427322256" 136x28 @90,511 [HORIZONTAL gap=8 pad=0/0//]
+                    FRAME "Star" 32x28 @90,511
+                      VECTOR "Vector" 32x28 @90,511 fill=#00B67A
+                      VECTOR "Vector" 7x4 @106,528 fill=#005128
+                    FRAME "Type" 96x19 @130,520
+                      FRAME "Group" 96x19 @130,520
+                        VECTOR "Vector" 96x19 @130,520 fill=#FFFFFF
+                  FRAME "Trustpilot ratings 5star RGB" 107x20 @242,515 [VERTICAL gap=8 pad=0/0//]
+                    FRAME "Group" 107x20 @242,515
+                      VECTOR "Rectangle path" 20x20 @242,515 fill=#219653
+                      VECTOR "Rectangle path" 20x20 @264,515 fill=#219653
+                      VECTOR "Rectangle path" 20x20 @285,515 fill=#219653
+                      VECTOR "Rectangle path" 20x20 @307,515 fill=#219653
+                      VECTOR "Rectangle path" 20x20 @329,515 fill=#565656
+                      VECTOR "Rectangle path" 13x20 @329,515 fill=#219653
+                      VECTOR "Shape" 14x13 @245,518 fill=#FFFFFF
+                      VECTOR "Shape" 14x13 @267,518 fill=#FFFFFF
+                      VECTOR "Shape" 14x13 @288,518 fill=#FFFFFF
+                      VECTOR "Shape" 14x13 @310,518 fill=#FFFFFF
+                      VECTOR "Shape" 14x13 @332,518 fill=#FFFFFF
+                TEXT "Text" 255x28 @361,511 fill=#FFFFFF | Source Sans Pro Bold 18/28px ls=-4%  «We’ve rated 4.9 across 200 reviews!»
+            TEXT "Text" 547x144 @90,565 fill=#FFFFFF | Source Sans Pro Bold 64/72px ls=-2%  «Made for pets who deserve better.»
+            TEXT "Text" 547x72 @90,733 fill=#FFFFFF | Source Sans Pro SemiBold 16/24px ls=-1%  «We craft premium seafood meals packed with natural protein and nutrients — giving pets the same quality we expect for ourselves. Straight from the source, straight to their bowl.»
+        FRAME "Frame 2095587738" 488x208 @862,597 fill=#000000@0.24 r=48 [VERTICAL gap=16 pad=32/32/32/32] fx=BACKGROUND_BLUR(0,4,24,#000000@0.25)
+          TEXT "Take 2 minutes and get a personalized plan and price" 424x64 @894,629 fill=#FFFFFF | Source Sans Pro SemiBold 24/32px ls=-1%  «Take 2 minutes and get a personalized plan and price»
+          FRAME "Frame 2095587737" 424x64 @894,709 r=999 stroke=1#FFFFFF@0.24 [HORIZONTAL gap=140 pad=8/16/8/8]
+            FRAME "Frame 2095587650" 160x24 @910,729 [HORIZONTAL gap=4 pad=0/0//]
+              TEXT "Choose your animal" 136x24 @910,729 fill=#FFFFFF | Source Sans Pro SemiBold 16/24px ls=0%  «Choose your animal»
+              INSTANCE "chevron-down" 20x20 @1050,731
+                (instance of "chevron-down")
+            FRAME "Frame" 133x48 @1177,717 fill=#B4544E r=24 [HORIZONTAL gap=8 pad=12/32/12/32]
+              TEXT "Shop Now" 69x24 @1209,729 fill=#FFFFFF | Source Sans Pro SemiBold 16/24px ls=-1%  «Shop Now»
+  FRAME "Frame 2095587730" 1440x730 @0,950 fill=#FFFFFF,IMG:a31187a0(FILL) [VERTICAL gap=24 pad=80/112/80/112]
+    FRAME "Content" 1168x570 @136,1030 r=12 [HORIZONTAL gap=64 pad=0/0//]
+      FRAME "Content" 547x452 @136,1089 [VERTICAL gap=48 pad=0/0//]
+        FRAME "Frame 2095587736" 547x344 @136,1089 [VERTICAL gap=24 pad=0/0//]
+          FRAME "Frame 883378451" 547x184 @136,1089 [VERTICAL gap=24 pad=0/0//]
+            TEXT "Text" 547x112 @136,1089 fill=#514150 | Source Sans Pro Bold 48/56px ls=-2%  «Healthy eating made simple»
+            TEXT "Text" 547x48 @136,1225 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=-1%  «Every ingredient serves a purpose — rich proteins for strength, omega oils for glossy coats, and natural minerals for a longer, happier life.»
+          FRAME "Frame 2095587734" 230x136 @136,1297 [VERTICAL gap=8 pad=0/0//]
+            FRAME "Frame 2095587732" 214x28 @136,1297 [HORIZONTAL gap=16 pad=0/0//]
+              FRAME "solar:heart-bold" 24x24 @136,1299
+                VECTOR "Vector" 20x17 @138,1302 fill=#7EC78E
+              TEXT "Text" 174x28 @176,1297 fill=#534251 | Source Sans Pro SemiBold 20/28px ls=-1%  «Healthier skin & coat»
+            FRAME "Frame 2095587733" 200x28 @136,1333 [HORIZONTAL gap=16 pad=0/0//]
+              FRAME "solar:heart-bold" 24x24 @136,1335
+                VECTOR "Vector" 20x17 @138,1338 fill=#7EC78E
+              TEXT "Text" 160x28 @176,1333 fill=#534251 | Source Sans Pro SemiBold 20/28px ls=-1%  «Stronger immunity»
+            FRAME "Frame 2095587734" 230x28 @136,1369 [HORIZONTAL gap=16 pad=0/0//]
+              FRAME "tabler:star-filled" 24x24 @136,1371
+                FRAME "solar:heart-bold" 24x24 @136,1369
+                  VECTOR "Vector" 20x17 @138,1372 fill=#7EC78E
+              TEXT "Text" 190x28 @176,1369 fill=#534251 | Source Sans Pro SemiBold 20/28px ls=-1%  «More energy every day»
+            FRAME "Frame 2095587735" 161x28 @136,1405 [HORIZONTAL gap=16 pad=0/0//]
+              FRAME "solar:heart-bold" 24x24 @136,1407
+                VECTOR "Vector" 20x17 @138,1410 fill=#7EC78E
+              TEXT "Text" 121x28 @176,1405 fill=#534251 | Source Sans Pro SemiBold 20/28px ls=-1%  «Easy digestion»
+        FRAME "Frame" 186x60 @136,1481 fill=#B4544E r=999 [HORIZONTAL gap=8 pad=16/48/16/48]
+          TEXT "Order now" 90x28 @184,1497 fill=#FFFFFF | Source Sans Pro SemiBold 20/28px ls=-1%  «Order now»
+      FRAME "Frame 2095587762" 557x570 @747,1030 r=21.375
+        ROUNDED_RECTANGLE "2147787323 2" 557x662 @747,984 fill=IMG:c1d7597d(STRETCH)
+        ROUNDED_RECTANGLE "Curved UI Render" 167x138 @983,1435 fill=IMG:d196bbb0(FILL)
+  FRAME "Frame 2095587745" 1440x643 @0,1680 fill=#FFFFFF [VERTICAL gap=10 pad=24/112/112/112]
+    FRAME "Frame 2095587732" 1216x507 @112,1704 fill=#62B6CF r=24 [VERTICAL gap=24 pad=112/112/112/112]
+      ROUNDED_RECTANGLE "image 8" 507x549 @661,1704 fill=IMG:57da5b2c(STRETCH)
+      FRAME "Mask group" 645x697 @954,1609
+        VECTOR "Vector 1" 645x697 @954,1609 fill=#D9D9D9
+        ROUNDED_RECTANGLE "image 7" 1024x683 @580,1612 fill=IMG:3abfa4d9(FILL)
+      FRAME "Frame 883378451" 992x236 @224,1840 [VERTICAL gap=48 pad=0/0//]
+        FRAME "Frame 2095587759" 600x128 @420,1840 [VERTICAL gap=24 pad=0/0//]
+          TEXT "Text" 600x56 @420,1840 fill=#FFFFFF | Source Sans Pro Bold 48/56px ls=-2% CENTER «Powered by the ocean’s best»
+          TEXT "Text" 529x48 @456,1920 fill=#FFFFFF | Source Sans Pro SemiBold 16/24px ls=-1% CENTER «Every ingredient serves a purpose — rich proteins for strength, omega oils for glossy coats, and natural minerals for a longer, happier life.»
+        FRAME "Frame" 186x60 @627,2016 fill=#B4544E r=999 [HORIZONTAL gap=8 pad=16/48/16/48]
+          TEXT "Order now" 90x28 @675,2032 fill=#FFFFFF | Source Sans Pro SemiBold 20/28px ls=-1%  «Order now»
+  FRAME "Frame 2095587757" 1440x1033 @0,2323 fill=#FFFCF9,IMG:ddf36df3(STRETCH) [VERTICAL gap=32 pad=112/112/112/112]
+    FRAME "Frame 883378452" 1216x212 @112,2435 [VERTICAL gap=48 pad=0/0//]
+      FRAME "Frame 883378451" 1216x212 @112,2435 [VERTICAL gap=24 pad=0/0//]
+        TEXT "Text" 1216x56 @112,2435 fill=#514150 | Source Sans Pro Bold 48/56px ls=-2% CENTER «Rethink what pet food should be»
+        TEXT "Text" 650x48 @395,2515 fill=#514150 | Source Sans Pro SemiBold 16/24px ls=-1% CENTER «Most pet meals are overly processed and stripped of natural goodness. Ours are different — made from real seafood cuts, rich in Omega-3 and natural nutrients pets truly need.»
+        FRAME "Frame" 186x60 @627,2587 fill=#B4544E r=999 [HORIZONTAL gap=8 pad=16/48/16/48]
+          TEXT "Order now" 90x28 @675,2603 fill=#FFFFFF | Source Sans Pro SemiBold 20/28px ls=-1%  «Order now»
+    ROUNDED_RECTANGLE "Pack shot example 2 9345-Print Arch00480 1" 927x565 @257,2679 fill=IMG:dc0783eb(STRETCH) fx=DROP_SHADOW(0,16,32,#0E121B@0.10)
+    FRAME "Frame 2095587749" 362x120 @124,3119 fill=#FFFFFF r=20 [HORIZONTAL gap=16 pad=16/24/16/24] fx=DROP_SHADOW(0,16,32,#0E121B@0.10)
+      FRAME "material-symbols:check" 32x32 @148,3135 fill=#B4544E r=999
+        VECTOR "Vector" 18x13 @155,3145 fill=#FFFFFF
+      FRAME "Frame 2095587746" 266x88 @196,3135 [VERTICAL gap=8 pad=0/0//]
+        TEXT "Vet-approved nutrition" 243x32 @196,3135 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «Vet-approved nutrition»
+        TEXT "Balanced and safe for pets of all ages — backed by science, trusted by owners." 266x48 @196,3175 fill=#514150 | Source Sans Pro SemiBold 16/24px ls=-1%  «Balanced and safe for pets of all ages — backed by science, trusted by owners.»
+    FRAME "Frame 2095587750" 362x120 @116,2653 fill=#FFFFFF r=20 [HORIZONTAL gap=16 pad=16/24/16/24] fx=DROP_SHADOW(0,16,32,#0E121B@0.10)
+      FRAME "material-symbols:check" 32x32 @140,2669 fill=#B4544E r=999
+        VECTOR "Vector" 18x13 @147,2679 fill=#FFFFFF
+      FRAME "Frame 2095587747" 266x88 @188,2669 [VERTICAL gap=8 pad=0/0//]
+        TEXT "Real seafood" 243x32 @188,2669 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «Real seafood»
+        TEXT "Only premium salmon belly fins — rich in protein, calcium, and vitamin D." 266x48 @188,2709 fill=#514150 | Source Sans Pro SemiBold 16/24px ls=-1%  «Only premium salmon belly fins — rich in protein, calcium, and vitamin D.»
+    FRAME "Frame 2095587751" 362x120 @973,3159 fill=#FFFFFF r=20 [HORIZONTAL gap=16 pad=16/24/16/24] fx=DROP_SHADOW(0,16,32,#0E121B@0.10)
+      FRAME "material-symbols:check" 32x32 @997,3175 fill=#B4544E r=999
+        VECTOR "Vector" 18x13 @1004,3185 fill=#FFFFFF
+      FRAME "Frame 2095587748" 266x88 @1045,3175 [VERTICAL gap=8 pad=0/0//]
+        TEXT "Freshly packed" 243x32 @1045,3175 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «Freshly packed»
+        TEXT "Sealed for freshness to lock in every drop of natural flavor and benefit." 266x48 @1045,3215 fill=#514150 | Source Sans Pro SemiBold 16/24px ls=-1%  «Sealed for freshness to lock in every drop of natural flavor and benefit.»
+    FRAME "Frame 2095587752" 362x120 @981,2646 fill=#FFFFFF r=20 [HORIZONTAL gap=16 pad=16/24/16/24] fx=DROP_SHADOW(0,16,32,#0E121B@0.10)
+      FRAME "material-symbols:check" 32x32 @1005,2662 fill=#B4544E r=999
+        VECTOR "Vector" 18x13 @1012,2672 fill=#FFFFFF
+      FRAME "Frame 2095587746" 265x88 @1053,2662 [VERTICAL gap=8 pad=0/0//]
+        TEXT "Responsibly sourced" 243x32 @1053,2662 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «Responsibly sourced»
+        TEXT "Harvested from sustainable local waters with care for your pet." 265x48 @1053,2702 fill=#514150 | Source Sans Pro SemiBold 16/24px ls=-1%  «Harvested from sustainable local waters with care for your pet.»
+  FRAME "Frame 2095587672" 1440x630 @0,3356 fill=#FFFFFF [VERTICAL gap=24 pad=80/112/80/112]
+    FRAME "Content" 1168x470 @136,3436 r=12 [HORIZONTAL gap=0 pad=1/1/1/1]
+      FRAME "Content" 532x468 @137,3437 fill=IMG:0c077649(FILL) r=12 [VERTICAL gap=24 pad=24/24/24/24]
+      FRAME "Content" 547x420 @756,3461 [VERTICAL gap=48 pad=0/0//]
+        FRAME "Frame 883378451" 547x208 @756,3513 [VERTICAL gap=24 pad=0/0//]
+          TEXT "Text" 547x112 @756,3513 fill=#514150 | Source Sans Pro Bold 48/56px ls=-2%  «Crafted by experts. Trusted by pets.»
+          TEXT "Text" 547x72 @756,3649 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=-1%  «We’re more than a brand — we’re a dedicated manufacturer passionate about real nutrition and transparency. Our recipes are developed, tested, and packed with care for pets across Australia.»
+        FRAME "Frame" 257x60 @756,3769 fill=#B4544E r=999 [HORIZONTAL gap=8 pad=16/48/16/48]
+          TEXT "Meet Raw Petfoods" 161x28 @804,3785 fill=#FFFFFF | Source Sans Pro SemiBold 20/28px ls=-1%  «Meet Raw Petfoods»
+  FRAME "Content" 1440x640 @0,3986 fill=#7EC78E [VERTICAL gap=80 pad=112/112/112/112]
+    FRAME "Frame 2095587758" 1317x691 @59,3975
+      FRAME "Group" 127x129 @491,4189
+        VECTOR "Vector" 40x30 @507,4190 fill=#BEE6F1
+        VECTOR "Vector" 36x38 @541,4280 fill=#BEE6F1
+        VECTOR "Vector" 76x91 @542,4189 fill=#BEE6F1
+        VECTOR "Vector" 43x34 @491,4225 fill=#BEE6F1
+        VECTOR "Vector" 43x36 @504,4262 fill=#BEE6F1
+      FRAME "Group" 127x129 @1230,4447
+        VECTOR "Vector" 40x30 @1246,4448 fill=#BEE6F1
+        VECTOR "Vector" 36x38 @1280,4538 fill=#BEE6F1
+        VECTOR "Vector" 76x91 @1281,4447 fill=#BEE6F1
+        VECTOR "Vector" 43x34 @1230,4483 fill=#BEE6F1
+        VECTOR "Vector" 43x36 @1243,4520 fill=#BEE6F1
+      FRAME "Group" 127x129 @67,4425
+        VECTOR "Vector" 40x30 @83,4523 fill=#BEE6F1
+        VECTOR "Vector" 36x38 @117,4425 fill=#BEE6F1
+        VECTOR "Vector" 76x91 @118,4463 fill=#BEE6F1
+        VECTOR "Vector" 43x34 @67,4485 fill=#BEE6F1
+        VECTOR "Vector" 43x36 @80,4446 fill=#BEE6F1
+      FRAME "Group" 76x77 @384,4485
+        VECTOR "Vector" 24x18 @394,4544 fill=#BEE6F1
+        VECTOR "Vector" 22x23 @414,4485 fill=#BEE6F1
+        VECTOR "Vector" 46x55 @414,4508 fill=#BEE6F1
+        VECTOR "Vector" 26x20 @384,4521 fill=#BEE6F1
+        VECTOR "Vector" 26x22 @392,4497 fill=#BEE6F1
+      FRAME "Group" 76x77 @706,3975
+        VECTOR "Vector" 24x18 @716,4034 fill=#BEE6F1
+        VECTOR "Vector" 22x23 @736,3975 fill=#BEE6F1
+        VECTOR "Vector" 46x55 @736,3998 fill=#BEE6F1
+        VECTOR "Vector" 26x20 @706,4011 fill=#BEE6F1
+        VECTOR "Vector" 26x22 @714,3987 fill=#BEE6F1
+      FRAME "Group" 76x77 @903,4501
+        VECTOR "Vector" 24x18 @913,4560 fill=#BEE6F1
+        VECTOR "Vector" 22x23 @933,4501 fill=#BEE6F1
+        VECTOR "Vector" 46x55 @933,4524 fill=#BEE6F1
+        VECTOR "Vector" 26x20 @903,4537 fill=#BEE6F1
+        VECTOR "Vector" 26x22 @911,4513 fill=#BEE6F1
+      FRAME "Group" 127x129 @1151,4059
+        VECTOR "Vector" 40x30 @1167,4060 fill=#BEE6F1
+        VECTOR "Vector" 36x38 @1201,4150 fill=#BEE6F1
+        VECTOR "Vector" 76x91 @1202,4059 fill=#BEE6F1
+        VECTOR "Vector" 43x34 @1151,4095 fill=#BEE6F1
+        VECTOR "Vector" 43x36 @1164,4132 fill=#BEE6F1
+      FRAME "Group" 127x129 @59,4103
+        VECTOR "Vector" 40x30 @75,4201 fill=#BEE6F1
+        VECTOR "Vector" 36x38 @109,4103 fill=#BEE6F1
+        VECTOR "Vector" 76x91 @110,4141 fill=#BEE6F1
+        VECTOR "Vector" 43x34 @59,4163 fill=#BEE6F1
+        VECTOR "Vector" 43x36 @72,4124 fill=#BEE6F1
+      FRAME "Group" 76x77 @373,4033
+        VECTOR "Vector" 24x18 @383,4092 fill=#BEE6F1
+        VECTOR "Vector" 22x23 @403,4033 fill=#BEE6F1
+        VECTOR "Vector" 46x55 @403,4056 fill=#BEE6F1
+        VECTOR "Vector" 26x20 @373,4069 fill=#BEE6F1
+        VECTOR "Vector" 26x22 @381,4045 fill=#BEE6F1
+      FRAME "Group" 76x77 @867,4182
+        VECTOR "Vector" 24x18 @877,4241 fill=#BEE6F1
+        VECTOR "Vector" 22x23 @897,4182 fill=#BEE6F1
+        VECTOR "Vector" 46x55 @897,4205 fill=#BEE6F1
+        VECTOR "Vector" 26x20 @867,4218 fill=#BEE6F1
+        VECTOR "Vector" 26x22 @875,4194 fill=#BEE6F1
+      FRAME "Group" 76x78 @1281,4280
+        VECTOR "Vector" 24x18 @1291,4339 fill=#BEE6F1
+        VECTOR "Vector" 22x23 @1311,4280 fill=#BEE6F1
+        VECTOR "Vector" 46x55 @1311,4303 fill=#BEE6F1
+        VECTOR "Vector" 26x20 @1281,4316 fill=#BEE6F1
+        VECTOR "Vector" 26x22 @1289,4292 fill=#BEE6F1
+      FRAME "Group" 127x129 @586,4539
+        VECTOR "Vector" 40x30 @602,4540 fill=#BEE6F1
+        VECTOR "Vector" 36x38 @636,4630 fill=#BEE6F1
+        VECTOR "Vector" 76x91 @637,4539 fill=#BEE6F1
+        VECTOR "Vector" 43x34 @586,4575 fill=#BEE6F1
+        VECTOR "Vector" 43x36 @599,4612 fill=#BEE6F1
+    TEXT "Text" 1216x56 @112,4098 fill=#FFFFFF | Source Sans Pro Bold 48/56px ls=-2% CENTER «Difference you can see»
+    FRAME "Frame 2095587582" 1216x280 @112,4234 [HORIZONTAL gap=48 pad=0/0//]
+      FRAME "Frame 2095587556" 56x56 @216,4346 fill=#FFFFFF r=30 [HORIZONTAL gap=10 pad=12/12/12/12]
+        INSTANCE "chevron-left" 32x32 @228,4358
+          (instance of "chevron-left")
+      FRAME "Frame 2095587516" 800x280 @320,4234 fill=#FFFFFF r=24 stroke=1#E1E4EA [VERTICAL gap=32 pad=40/40/40/40] fx=DROP_SHADOW(0,2,2,#0A0D14@0.10)
+        FRAME "Frame 2095587515" 208x32 @616,4274 [HORIZONTAL gap=12 pad=0/0//]
+          FRAME "Frame 2095587497" 32x32 @616,4274 [HORIZONTAL gap=10 pad=10/10/10/10]
+            VECTOR "Vector" 24x24 @620,4278 fill=#FFA600
+          FRAME "Frame 2095587503" 32x32 @660,4274 [HORIZONTAL gap=10 pad=10/10/10/10]
+            VECTOR "Vector" 24x24 @664,4278 fill=#FFA600
+          FRAME "Frame 2095587504" 32x32 @704,4274 [HORIZONTAL gap=10 pad=10/10/10/10]
+            VECTOR "Vector" 24x24 @708,4278 fill=#FFA600
+          FRAME "Frame 2095587505" 32x32 @748,4274 [HORIZONTAL gap=10 pad=10/10/10/10]
+            VECTOR "Vector" 24x24 @752,4278 fill=#FFA600
+          FRAME "Frame 2095587506" 32x32 @792,4274 [HORIZONTAL gap=10 pad=10/10/10/10]
+            VECTOR "Vector" 24x24 @796,4278 fill=#FFA600
+        FRAME "Frame 2095587514" 720x136 @360,4338 [VERTICAL gap=16 pad=0/0//]
+          TEXT "Text" 720x96 @360,4338 fill=#534251 | Source Sans Pro SemiBold 24/32px ls=-1% CENTER «“Our golden retriever, Luna, used to be a picky eater. Since switching to Raw Petfoods, she finishes every bowl and her coat looks incredible. You can literally see the difference in just a few weeks.”»
+          TEXT "Text" 720x24 @360,4450 fill=#9E9E9E | Source Sans Pro SemiBold 16/24px ls=-1% CENTER «Martha B.»
+      FRAME "Frame 2095587555" 56x56 @1168,4346 fill=#FFFFFF r=30 [HORIZONTAL gap=10 pad=12/12/12/12]
+        INSTANCE "chevron-right" 32x32 @1180,4358
+          (instance of "chevron-right")
+  FRAME "Frame 2095587749" 1440x694 @0,4626 fill=#FFFFFF [VERTICAL gap=24 pad=112/112/112/112]
+    FRAME "Content" 1168x470 @136,4738 r=12 [HORIZONTAL gap=0 pad=1/1/1/1]
+      FRAME "Content" 547x420 @137,4763 [VERTICAL gap=48 pad=0/0//]
+        FRAME "Frame 883378451" 547x128 @137,4855 [VERTICAL gap=24 pad=0/0//]
+          TEXT "Text" 547x56 @137,4855 fill=#514150 | Source Sans Pro Bold 48/56px ls=-2%  «Join our partner network»
+          TEXT "Text" 547x48 @137,4935 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=-1%  «We supply premium pet food to trusted retailers and distributors across the country. If you share our passion for quality and care, let’s grow together.»
+        FRAME "Frame" 245x60 @137,5031 fill=#B4544E r=999 [HORIZONTAL gap=8 pad=16/48/16/48]
+          TEXT "Become a Partner" 149x28 @185,5047 fill=#FFFFFF | Source Sans Pro SemiBold 20/28px ls=-1%  «Become a Partner»
+      FRAME "Content" 532x468 @771,4739 fill=IMG:398ac093(FILL) r=12 [VERTICAL gap=24 pad=24/24/24/24]
+  FRAME "Content" 1440x1004 @0,5320 fill=#F5F7FA [VERTICAL gap=48 pad=112/112/112/112]
+    FRAME "Content" 860x128 @290,5432 [VERTICAL gap=24 pad=0/0//]
+      TEXT "Text" 860x56 @290,5432 fill=#514150 | Source Sans Pro Bold 48/56px ls=-2% CENTER «Pet care wisdom, straight from the source»
+      TEXT "Text" 664x48 @388,5512 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=-1% CENTER «Explore expert tips, feeding guides, and behind-the-scenes stories about how we bring ocean-fresh nutrition to every meal.»
+    FRAME "Content" 1216x604 @112,5608 [HORIZONTAL gap=32 pad=0/0//]
+      FRAME "Content" 384x604 @112,5608 fill=#FFFFFF stroke=1#534251@0.24 [VERTICAL gap=16 pad=16/16/16/16]
+        ROUNDED_RECTANGLE "transportation-wood-truck-with-trailer-driver-fixes-logs-trailer-industrial-truck-transporting-timber-accident-while-transporting-timber-fallen-logs-road" 352x308 @128,5624 fill=IMG:33ea522e(FILL)
+        FRAME "Content" 352x248 @128,5948 [VERTICAL gap=24 pad=16/16/16/16]
+          FRAME "Frame 2095587725" 320x20 @144,5964 [HORIZONTAL gap=8 pad=0/0//]
+            INSTANCE "calendar" 20x20 @144,5964
+              (instance of "calendar")
+            TEXT "October 18, 2025" 292x20 @172,5964 fill=#514150 | Source Sans Pro Regular 14/20px ls=-1%  «October 18, 2025»
+          FRAME "Frame 2095587747" 320x120 @144,6008 [VERTICAL gap=8 pad=0/0//]
+            TEXT "Why real seafood is more attractive for pets?" 320x64 @144,6008 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «Why real seafood is more attractive for pets?»
+            TEXT "Fish isn’t just delicious — it’s a powerhouse of omega-3s, minerals, and lean protein that support heart health, shiny coats, and strong joints. Learn why seafood-based diets help pets live longer, happier lives." 320x48 @144,6080 fill=#9E9E9E | Source Sans Pro SemiBold 16/24px ls=-1%  «Fish isn’t just delicious — it’s a powerhouse of omega-3s, minerals, and lean protein that support heart health, shiny coats, and strong joints. Learn why seafood-based diets help pets live longer, happier lives.»
+          FRAME "Content" 102x28 @144,6152 stroke=1#B4544E [HORIZONTAL gap=4 pad=0/0/4/]
+            TEXT "Text" 74x24 @144,6152 fill=#B4544E | Source Sans Pro SemiBold 16/24px ls=0  «Read more»
+            INSTANCE "arrow-top-right" 24x24 @222,6152
+              (instance of "arrow-top-right")
+      FRAME "Content" 384x604 @528,5608 fill=#FFFFFF stroke=1#534251@0.24 [VERTICAL gap=16 pad=16/16/16/16]
+        ROUNDED_RECTANGLE "transportation-wood-truck-with-trailer-driver-fixes-logs-trailer-industrial-truck-transporting-timber-accident-while-transporting-timber-fallen-logs-road" 352x308 @544,5624 fill=IMG:d8930c85(FILL)
+        FRAME "Content" 352x248 @544,5948 [VERTICAL gap=24 pad=16/16/16/16]
+          FRAME "Frame 2095587725" 320x20 @560,5964 [HORIZONTAL gap=8 pad=0/0//]
+            INSTANCE "calendar" 20x20 @560,5964
+              (instance of "calendar")
+            TEXT "October 26, 2025" 292x20 @588,5964 fill=#514150 | Source Sans Pro Regular 14/20px ls=-1%  «October 26, 2025»
+          FRAME "Frame 2095587747" 320x120 @560,6008 [VERTICAL gap=8 pad=0/0//]
+            TEXT "How to Tell if Your Pet’s Food Is Truly “Natural”" 320x64 @560,6008 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «How to Tell if Your Pet’s Food Is Truly “Natural”»
+            TEXT "Not all pet food labeled “natural” lives up to the claim. We break down what to look for on the label, how to spot fillers, and what real ingredients should look like in your pet’s bowl." 320x48 @560,6080 fill=#9E9E9E | Source Sans Pro SemiBold 16/24px ls=-1%  «Not all pet food labeled “natural” lives up to the claim. We break down what to look for on the label, how to spot fillers, and what real ingredients should look like in your pet’s bowl.⏎»
+          FRAME "Content" 102x28 @560,6152 stroke=1#B4544E [HORIZONTAL gap=4 pad=0/0/4/]
+            TEXT "Text" 74x24 @560,6152 fill=#B4544E | Source Sans Pro SemiBold 16/24px ls=0  «Read more»
+            INSTANCE "arrow-top-right" 24x24 @638,6152
+              (instance of "arrow-top-right")
+      FRAME "Content" 384x604 @944,5608 fill=#FFFFFF stroke=1#534251@0.24 [VERTICAL gap=16 pad=16/16/16/16]
+        ROUNDED_RECTANGLE "transportation-wood-truck-with-trailer-driver-fixes-logs-trailer-industrial-truck-transporting-timber-accident-while-transporting-timber-fallen-logs-road" 352x308 @960,5624 fill=IMG:9178bce8(STRETCH)
+        FRAME "Content" 352x248 @960,5948 [VERTICAL gap=24 pad=16/16/16/16]
+          FRAME "Frame 2095587725" 320x20 @976,5964 [HORIZONTAL gap=8 pad=0/0//]
+            INSTANCE "calendar" 20x20 @976,5964
+              (instance of "calendar")
+            TEXT "December 6, 2025" 292x20 @1004,5964 fill=#514150 | Source Sans Pro Regular 14/20px ls=-1%  «December 6, 2025»
+          FRAME "Frame 2095587747" 320x120 @976,6008 [VERTICAL gap=8 pad=0/0//]
+            TEXT "Sustainable Feeding: Good for Pets, Better for the Planet" 320x64 @976,6008 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «Sustainable Feeding: Good for Pets, Better for the Planet»
+            TEXT "From responsibly sourced seafood to recyclable packaging, every choice matters. See how Raw Petfoods is reducing waste while keeping your pet’s nutrition uncompromised." 320x48 @976,6080 fill=#9E9E9E | Source Sans Pro SemiBold 16/24px ls=-1%  «From responsibly sourced seafood to recyclable packaging, every choice matters. See how Raw Petfoods is reducing waste while keeping your pet’s nutrition uncompromised.⏎»
+          FRAME "Content" 102x28 @976,6152 stroke=1#B4544E [HORIZONTAL gap=4 pad=0/0/4/]
+            TEXT "Text" 74x24 @976,6152 fill=#B4544E | Source Sans Pro SemiBold 16/24px ls=0  «Read more»
+            INSTANCE "arrow-top-right" 24x24 @1054,6152
+              (instance of "arrow-top-right")
+  FRAME "FAQ section" 1440x888 @0,6324 fill=#FFFFFF [VERTICAL gap=0 pad=112/112/112/112]
+    FRAME "Frame 1000004033" 1216x664 @112,6436 [VERTICAL gap=64 pad=0/0//]
+      FRAME "Container" 1280x56 @80,6436 [VERTICAL gap=32 pad=0/32//32]
+        TEXT "Text" 1216x56 @112,6436 fill=#514150 | Source Sans Pro Bold 48/56px ls=-2% CENTER «Curious? We’ve got answers.»
+      FRAME "Container" 800x544 @320,6556 [VERTICAL gap=16 pad=0/0//]
+        FRAME "Content" 800x96 @320,6556 fill=#FFFFFF r=2 stroke=1#534251@0.24 [HORIZONTAL gap=24 pad=32/32/32/32]
+          FRAME "Content" 736x32 @352,6588 [HORIZONTAL gap=24 pad=0/0//]
+            TEXT "What makes Raw Petfoods different?" 688x32 @352,6588 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «What makes Raw Petfoods different?»
+            FRAME "plus-circle" 24x24 @1064,6588
+              VECTOR "Icon" 20x20 @1066,6590 stroke=2#7EC78E
+        FRAME "Content" 800x96 @320,6668 fill=#FFFFFF r=2 stroke=1#534251@0.24 [HORIZONTAL gap=24 pad=32/32/32/32]
+          FRAME "Content" 736x32 @352,6700 [HORIZONTAL gap=24 pad=0/0//]
+            TEXT "How fresh is your seafood?" 688x32 @352,6700 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «How fresh is your seafood?»
+            FRAME "plus-circle" 24x24 @1064,6700
+              VECTOR "Icon" 20x20 @1066,6702 stroke=2#7EC78E
+        FRAME "Content" 800x96 @320,6780 fill=#FFFFFF r=2 stroke=1#534251@0.24 [HORIZONTAL gap=24 pad=32/32/32/32]
+          FRAME "Content" 736x32 @352,6812 [HORIZONTAL gap=24 pad=0/0//]
+            TEXT "Can I order in bulk or subscribe?" 688x32 @352,6812 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «Can I order in bulk or subscribe?»
+            FRAME "plus-circle" 24x24 @1064,6812
+              VECTOR "Icon" 20x20 @1066,6814 stroke=2#7EC78E
+        FRAME "Content" 800x96 @320,6892 fill=#FFFFFF r=2 stroke=1#534251@0.24 [HORIZONTAL gap=24 pad=32/32/32/32]
+          FRAME "Content" 736x32 @352,6924 [HORIZONTAL gap=24 pad=0/0//]
+            TEXT "How do I store the food?" 688x32 @352,6924 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «How do I store the food?»
+            FRAME "plus-circle" 24x24 @1064,6924
+              VECTOR "Icon" 20x20 @1066,6926 stroke=2#7EC78E
+        FRAME "Content" 800x96 @320,7004 fill=#FFFFFF r=2 stroke=1#534251@0.24 [HORIZONTAL gap=24 pad=32/32/32/32]
+          FRAME "Content" 736x32 @352,7036 [HORIZONTAL gap=24 pad=0/0//]
+            TEXT "Do you ship to my area?" 688x32 @352,7036 fill=#514150 | Source Sans Pro SemiBold 24/32px ls=-1%  «Do you ship to my area?»
+            FRAME "plus-circle" 24x24 @1064,7036
+              VECTOR "Icon" 20x20 @1066,7038 stroke=2#7EC78E
+  FRAME "Frame 65" 1440x867 @0,7212 fill=#FFFFFF [VERTICAL gap=64 pad=48/112/48/112]
+    FRAME "Frame 33943" 1160x267 @112,7260 [VERTICAL gap=24 pad=0/0//]
+      FRAME "Frame 2095587754" 1160x195 @112,7260 [VERTICAL gap=16 pad=0/0//]
+        FRAME "Frame 2095587649" 232x155 @576,7260 [HORIZONTAL gap=35.98172378540039 pad=0/0//]
+          FRAME "Group" 232x155 @576,7260
+            FRAME "Group" 211x104 @587,7311
+              FRAME "Group" 211x104 @587,7311
+                VECTOR "Vector" 6x8 @665,7335 fill=#B4544E
+                VECTOR "Vector" 90x78 @641,7311 fill=#B4544E
+                FRAME "Group" 211x23 @587,7392
+                  VECTOR "Vector" 15x23 @587,7392 fill=#B4544E
+                  VECTOR "Vector" 14x15 @606,7399 fill=#B4544E
+                  VECTOR "Vector" 10x14 @621,7400 fill=#B4544E
+                  VECTOR "Vector" 10x14 @633,7400 fill=#B4544E
+                  VECTOR "Vector" 14x15 @646,7399 fill=#B4544E
+                  VECTOR "Vector" 10x22 @661,7392 fill=#B4544E
+                  VECTOR "Vector" 4x12 @674,7401 fill=#B4544E
+                  VECTOR "Vector" 4x5 @676,7394 fill=#B4544E
+                  VECTOR "Vector" 9x18 @680,7396 fill=#B4544E
+                  VECTOR "Vector" 4x5 @693,7394 fill=#B4544E
+                  VECTOR "Vector" 4x12 @691,7401 fill=#B4544E
+                  VECTOR "Vector" 10x14 @697,7400 fill=#B4544E
+                  VECTOR "Vector" 14x15 @710,7399 fill=#B4544E
+                  VECTOR "Vector" 11x13 @726,7400 fill=#B4544E
+                  VECTOR "Vector" 6x23 @739,7392 fill=#B4544E
+                  VECTOR "Vector" 12x23 @752,7392 fill=#B4544E
+                  VECTOR "Vector" 10x14 @764,7400 fill=#B4544E
+                  VECTOR "Vector" 11x15 @776,7400 fill=#B4544E
+                  VECTOR "Vector" 10x14 @788,7400 fill=#B4544E
+            FRAME "Group" 232x130 @576,7260
+              FRAME "Group" 232x130 @576,7260
+                VECTOR "Vector" 24x25 @579,7363 fill=#514150
+                VECTOR "Vector" 21x26 @600,7352 fill=#514150
+                VECTOR "Vector" 27x29 @614,7338 fill=#514150
+                VECTOR "Vector" 19x24 @729,7335 fill=#514150
+                VECTOR "Vector" 18x24 @743,7341 fill=#514150
+                VECTOR "Vector" 20x24 @757,7347 fill=#514150
+                VECTOR "Vector" 22x25 @769,7353 fill=#514150
+                VECTOR "Vector" 22x23 @783,7364 fill=#514150
+                VECTOR "Vector" 25x36 @626,7281 fill=#514150
+                VECTOR "Vector" 25x36 @722,7281 fill=#514150
+                VECTOR "Vector" 30x44 @654,7260 fill=#514150
+                VECTOR "Vector" 30x44 @689,7260 fill=#514150
+                VECTOR "Vector" 42x19 @624,7370 fill=#514150
+                VECTOR "Vector" 5x5 @576,7383 fill=#514150
+                VECTOR "Vector" 5x5 @803,7384 fill=#514150
+                FRAME "Group" 42x19 @712,7370
+                  VECTOR "Vector" 2x3 @735,7377 fill=#514150
+                  VECTOR "Vector" 42x19 @712,7370 fill=#514150
+                  VECTOR "Vector" 2x3 @745,7377 fill=#514150
+        TEXT "Raw Petfoods — Real seafood nutrition, made with care for pets and the planet." 1160x24 @112,7431 fill=#9E9E9E | Source Sans Pro SemiBold 16/24px ls=-1% CENTER «Raw Petfoods — Real seafood nutrition, made with care for pets and the planet.»
+      FRAME "Content" 184x48 @600,7479 [HORIZONTAL gap=20 pad=0/0//]
+        FRAME "Icon" 48x48 @600,7479
+          ROUNDED_RECTANGLE "Vector" 48x48 @600,7479 fill=#B4544E r=100
+          INSTANCE "Major Brand Logos [1.0]" 24x24 @612,7491
+            (instance of "🏢 Company=Facebook, 🏵️ Style=White")
+        FRAME "Icon" 48x48 @668,7479
+          ROUNDED_RECTANGLE "Vector" 48x48 @668,7479 fill=#B4544E r=100
+          INSTANCE "Major Brand Logos [1.0]" 24x24 @680,7491
+            (instance of "🏢 Company=Instagram, 🏵️ Style=White")
+        FRAME "Icon" 48x48 @736,7479
+          ROUNDED_RECTANGLE "Vector" 48x48 @736,7479 fill=#B4544E r=100
+          INSTANCE "Major Brand Logos [1.0]" 24x24 @748,7491
+            (instance of "🏢 Company=X-Twitter, 🏵️ Style=White")
+    FRAME "Frame 33944" 1216x352 @112,7591 [HORIZONTAL gap=24 pad=0/0//]
+      FRAME "Content" 142x352 @112,7591 [VERTICAL gap=16 pad=0/0//]
+        TEXT "Home" 142x32 @112,7591 fill=#3C3C3C | Source Sans Pro SemiBold 24/32px ls=-1%  «Home»
+        TEXT "About Us" 142x24 @112,7639 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=0%  « About Us»
+        TEXT "Our Product Range" 142x24 @112,7679 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=0%  «Our Product Range»
+        TEXT "Sustainability" 142x24 @112,7719 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=0%  «Sustainability»
+        TEXT "Health Benefits" 142x24 @112,7759 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=0%  «Health Benefits»
+        TEXT "Wholesale" 142x24 @112,7799 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=0%  «Wholesale»
+        TEXT "FAQs" 142x24 @112,7839 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=0%  «FAQs»
+        TEXT "Blog" 142x24 @112,7879 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=0%  «Blog»
+        TEXT "Contact" 142x24 @112,7919 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=0%  «Contact»
+      FRAME "Content" 131x112 @539,7591 [VERTICAL gap=16 pad=0/0//]
+        TEXT "Legal" 131x32 @539,7591 fill=#3C3C3C | Source Sans Pro SemiBold 24/32px ls=-1%  «Legal»
+        TEXT "Privacy Policy" 131x24 @539,7639 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=-1%  «Privacy Policy»
+        TEXT "Terms & Conditions" 131x24 @539,7679 fill=#534251 | Source Sans Pro SemiBold 16/24px ls=-1%  «Terms & Conditions»
+      FRAME "Content" 373x168 @955,7591 [VERTICAL gap=16 pad=0/0//]
+        TEXT "Newsletter" 373x24 @955,7591 fill=#3C3C3C | Source Sans Pro SemiBold 24/24px ls=-1%  «Newsletter»
+        TEXT "Get tasty updates and exclusive deals — no spam, just wagging tails." 373x48 @955,7631 fill=#9E9E9E | Source Sans Pro SemiBold 16/24px ls=-1%  «Get tasty updates and exclusive deals — no spam, just wagging tails.»
+        FRAME "Frame 2095587737" 373x64 @955,7695 r=999 stroke=1#E1E4EA [HORIZONTAL gap=140 pad=8/16/8/8]
+          TEXT "Email Adress..." 223x24 @971,7715 fill=#000000@0.4 | Source Sans Pro Regular 16/24px ls=-1%  «Email Adress...»
+          FRAME "Frame" 126x48 @1194,7703 fill=#B4544E r=24 [HORIZONTAL gap=8 pad=12/32/12/32]
+            TEXT "Join now" 62x24 @1226,7715 fill=#FFFFFF | Source Sans Pro SemiBold 16/24px ls=-1%  «Join now»
+    FRAME "Frame 33805" 1216x24 @112,8007 [HORIZONTAL gap=4 pad=0/0//]
+      TEXT "© 2025 Raw Petfoods | All rights reserved." 1216x24 @112,8007 fill=#534251@0.5 | Source Sans Pro SemiBold 16/24px ls=-1% CENTER «© 2025 Raw Petfoods | All rights reserved.»
