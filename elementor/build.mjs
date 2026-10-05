@@ -211,6 +211,20 @@ p,li,blockquote,figcaption,.elementor-icon-list-text,.elementor-icon-box-descrip
   /* Home hero: show the dogs and the cat as a photo band at the top, fading into the dark text area below. */
   .home .rpf-hero{background-image:linear-gradient(180deg,rgba(26,30,38,0) 200px,#1A1E26 345px),url(https://rawpetfoods.wsdfy.com/wp-content/uploads/2026/10/golden-retrievers-and-cat-relaxing.jpg)!important;background-size:100% 100%,165% auto!important;background-position:0 0,48% 0!important;background-repeat:no-repeat!important;background-color:#1A1E26!important;padding-top:330px!important}
   .home .rpf-hero h1.elementor-heading-title{font-size:30px!important;line-height:1.15!important}
+  /* Home hero: run edge to edge on phones (no white side gutters). */
+  #home.e-con{padding-left:0!important;padding-right:0!important}
+  .home .rpf-hero{border-radius:0!important;margin:0!important;width:100%!important;max-width:100%!important}
+  /* Hero feeding-plan card: photo flush with the heading, heading kept on one line. */
+  .rpf-glass > .elementor-widget-image{width:100%!important;max-width:100%!important;align-self:stretch!important;text-align:left!important}
+  .rpf-glass > .elementor-widget-image img{width:100%!important;max-width:100%!important;display:block;margin:0!important}
+  .rpf-glass .elementor-heading-title{white-space:nowrap!important;text-wrap:nowrap!important;font-size:clamp(17px,5.2vw,22px)!important;line-height:1.3!important}
+  /* Home Our Range: storage note as a tidy card, icon badge left and text left-aligned. */
+  #products .elementor-widget-icon-list{width:100%!important;max-width:420px}
+  #products .elementor-widget-icon-list .elementor-icon-list-items{display:block!important;margin:0!important}
+  #products .elementor-widget-icon-list .elementor-icon-list-item{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:12px;margin:0!important;padding:14px 16px!important;background:#FFFFFF;border:1px solid #E1E4EA;border-radius:16px;text-align:left!important}
+  #products .elementor-widget-icon-list .elementor-icon-list-item::after{display:none!important}
+  #products .elementor-widget-icon-list .elementor-icon-list-icon{flex:0 0 36px;width:36px;height:36px;border-radius:50%;background:#E6F3F8;display:flex!important;align-items:center;justify-content:center;padding:0!important;margin:0!important}
+  #products .elementor-widget-icon-list .elementor-icon-list-text{text-align:left!important;padding-left:0!important;font-size:14px!important;line-height:20px!important}
   /* Trust badges: tidy 2x2 grid of equal cards. */
   #trust.e-con-full,#trust.e-con-boxed > .e-con-inner{display:grid!important;grid-template-columns:1fr 1fr;gap:12px!important;align-items:stretch}
   #trust .elementor-widget-icon-box{width:auto!important;max-width:none!important;margin:0!important;height:100%;box-sizing:border-box;padding:16px 10px;background:#F5FAFC;border:1px solid #E1E4EA;border-radius:16px}
