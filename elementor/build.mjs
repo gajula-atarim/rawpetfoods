@@ -174,6 +174,62 @@ p,li,blockquote,figcaption,.elementor-icon-list-text,.elementor-icon-box-descrip
 .rpf-posts .hfe-post-content{display:flex;flex-direction:column;flex:1 1 auto}
 .rpf-posts .hfe-read-more{margin-top:auto;align-self:flex-start}
 @media (min-width:768px){.page-id-105 .elementor-widget-button{flex-shrink:0}.page-id-105 .elementor-widget-button .elementor-button{white-space:nowrap}}
+/* Health Benefits page: keep side-by-side button labels on one line. */
+.page-id-253 .elementor-widget-button{flex-shrink:0}
+.page-id-253 .elementor-button{white-space:nowrap}
+/* Editable blocks (text-editor widgets) styled by their widget class. */
+/* Portion tables (Home + Feeding Guide). */
+.rpf-feed table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid #E1E4EA;border-radius:16px;overflow:hidden;font:600 16px/24px "Source Sans Pro",sans-serif;color:#534251;margin:0}
+.rpf-feed th,.rpf-feed td{padding:12px 16px;text-align:left;border:0;border-bottom:1px solid #E1E4EA;background:transparent}
+.rpf-feed th{background:#EAF6FA;color:#514150;font-weight:700}
+.rpf-feed tr:last-child td{border-bottom:0}
+.rpf-feed td:last-child{color:#B4544E;font-weight:700;white-space:nowrap}
+.rpf-feed p{margin:12px 0 0;font:600 14px/20px "Source Sans Pro",sans-serif;color:#9E9E9E}
+@media (max-width:480px){.rpf-feed th,.rpf-feed td{padding:10px 12px;font-size:15px}}
+/* Feeding Guide: switch-over plan. */
+.rpf-plan table{width:100%;border-collapse:separate;border-spacing:0 12px;margin:-12px 0;font:600 15px/22px "Source Sans Pro",sans-serif;color:#534251}
+.rpf-plan thead{display:none}
+.rpf-plan td{background:#fff;border:1px solid #E1E4EA;border-width:1px 0;padding:16px 20px;vertical-align:middle;text-align:left}
+.rpf-plan td:first-child{border-left-width:1px;border-radius:16px 0 0 16px;font:700 16px/24px "Source Sans Pro",sans-serif;color:#514150;white-space:nowrap;width:110px}
+.rpf-plan td:last-child{border-right-width:1px;border-radius:0 16px 16px 0}
+.rpf-plan td:nth-child(2){width:120px}
+.rpf-plan td:nth-child(2) strong,.rpf-plan td:nth-child(2) b{display:inline-block;padding:6px 14px;border-radius:999px;background:#62B6CF;color:#fff;font:700 14px/20px "Source Sans Pro",sans-serif;white-space:nowrap}
+.rpf-plan tbody tr:nth-child(1) td:nth-child(2) strong{background:#A9D8E6;color:#2F7F99}
+.rpf-plan tbody tr:nth-child(2) td:nth-child(2) strong{background:#86C7DB}
+@media (max-width:767px){.rpf-plan table,.rpf-plan tbody,.rpf-plan tr,.rpf-plan td{display:block;width:auto!important}.rpf-plan table{margin:0}.rpf-plan tr{background:#fff;border:1px solid #E1E4EA;border-radius:16px;padding:14px 16px;margin-bottom:12px}.rpf-plan td{border:0!important;border-radius:0!important;padding:0 0 6px;background:transparent}.rpf-plan td:last-child{padding:0}}
+/* Why Raw: Raw vs Processed table. */
+.rpf-compare{overflow-x:auto}
+.rpf-compare table{width:100%;min-width:560px;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid #E1E4EA;border-radius:20px;overflow:hidden;font:600 16px/24px "Source Sans Pro",sans-serif;color:#534251;margin:0}
+.rpf-compare th,.rpf-compare td{padding:16px 20px;text-align:left;vertical-align:top;border:0;border-bottom:1px solid #E1E4EA;background:transparent}
+.rpf-compare th{background:#514150;color:#fff;font-weight:700}
+.rpf-compare th:nth-child(2){background:#3E9AB8}
+.rpf-compare td:first-child{color:#514150;font-weight:700;white-space:nowrap}
+.rpf-compare td:nth-child(2){background:#F5FAFC;color:#2F7F99;font-weight:700}
+.rpf-compare tr:last-child td{border-bottom:0}
+/* Footer contact emails. */
+.rpf-contact p{margin:0 0 14px;font:600 15px/22px "Source Sans Pro",sans-serif;color:#9E9E9E}.rpf-contact strong{color:#534251}.rpf-contact a{color:#B4544E;word-break:break-word}.rpf-contact a:hover{color:#514150}
+/* Instagram's brand gradient (the widget's colour setting only takes a flat colour). */
+.elementor-social-icon-instagram{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)!important}
+/* Contact Form 7 forms (Contact + Wholesale). */
+.rpf-cf7 .wpcf7-form{display:flex;flex-direction:column;gap:20px;margin:0}
+.rpf-cf7 .wpcf7-form p{margin:0}
+.rpf-cf7 .wpcf7-form br{display:none}
+.rpf-cf7-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rpf-cf7-grid > p{display:contents}
+.rpf-cf7-full{grid-column:1/-1}
+.rpf-cf7 label{display:flex;flex-direction:column;gap:6px;font:700 14px/20px "Source Sans Pro",sans-serif;color:#514150}
+.rpf-cf7 .wpcf7-form-control-wrap{display:block}
+.rpf-cf7 input:not([type=submit]),.rpf-cf7 select,.rpf-cf7 textarea{font:600 16px/24px "Source Sans Pro",sans-serif;color:#514150;padding:12px 16px;border:1px solid #E1E4EA;border-radius:12px;background:#fff;box-shadow:none;width:100%;box-sizing:border-box}
+.rpf-cf7 textarea{min-height:120px;resize:vertical}
+.rpf-cf7 input:focus,.rpf-cf7 select:focus,.rpf-cf7 textarea:focus{outline:2px solid #62B6CF;outline-offset:1px;border-color:#62B6CF}
+.rpf-cf7 .wpcf7-not-valid{border-color:#B4544E}
+.rpf-cf7 .wpcf7-not-valid-tip{font:600 13px/18px "Source Sans Pro",sans-serif;color:#B4544E;margin-top:4px}
+.rpf-cf7 .wpcf7-submit{font:700 16px/24px "Source Sans Pro",sans-serif;color:#fff;background:#B4544E;border:0;border-radius:999px;padding:14px 40px;cursor:pointer;transition:background .2s}
+.rpf-cf7 .wpcf7-submit:hover,.rpf-cf7 .wpcf7-submit:focus{background:#514150}
+.rpf-cf7 .wpcf7-spinner{margin:0 12px}
+.rpf-cf7 .wpcf7-response-output{margin:0!important;padding:12px 16px!important;border-radius:12px;font:600 15px/22px "Source Sans Pro",sans-serif;color:#514150}
+.rpf-cf7 .wpcf7 form.sent .wpcf7-response-output{border-color:#7EC88E!important;background:#EEF8F0}
+@media (max-width:600px){.rpf-cf7-grid{grid-template-columns:1fr}.rpf-cf7 .wpcf7-submit{width:100%}}
 @media (max-width:1024px){
   body .rpf-header > .elementor-widget-image{flex:0 0 auto!important;order:1!important;margin-right:auto!important;width:auto!important;min-width:0!important}
   body .rpf-header > .rpf-header-cta{flex:0 0 auto!important;order:2!important}
@@ -204,9 +260,6 @@ p,li,blockquote,figcaption,.elementor-icon-list-text,.elementor-icon-box-descrip
 @media (max-width:767px){
   /* Buttons and headings sized for small screens. */
   .elementor-button{font-size:14px!important;letter-spacing:0!important;padding:12px 22px!important}
-  /* Health Benefits: the long order label is shortened to "Order Now" on phones (full text stays for screen readers). */
-  #health-benefits .elementor-button-text{font-size:0!important;line-height:0!important}
-  #health-benefits .elementor-button-text::after{content:"Order Now";font-size:14px;line-height:20px;display:inline-block}
   .elementor-widget-heading h2.elementor-heading-title{font-size:28px!important;line-height:34px!important;letter-spacing:-0.4px!important}
   /* Home hero: show the dogs and the cat as a photo band at the top, fading into the dark text area below. */
   .home .rpf-hero{background-image:linear-gradient(180deg,rgba(26,30,38,0) 200px,#1A1E26 345px),url(https://rawpetfoods.wsdfy.com/wp-content/uploads/2026/10/golden-retrievers-and-cat-relaxing.jpg)!important;background-size:100% 100%,165% auto!important;background-position:0 0,48% 0!important;background-repeat:no-repeat!important;background-color:#1A1E26!important;padding-top:330px!important}
@@ -671,7 +724,7 @@ const home = [
         space_between: px(8), icon_size: px(20), text_indent: px(12), icon_color: '#62B6CF',
         __globals__: { text_color: gColor('text'), icon_typography_typography: gType('rpf_lead') },
       }),
-      ctaBtn('Order Now – Freshness Delivered Frozen', `${SITE}/contact/`, { _margin: box(16, 0, 0, 0) }),
+      ctaBtn('Explore Health Benefits', `${SITE}/health-benefits/`, { _margin: box(16, 0, 0, 0), selected_icon: icon('fas fa-arrow-right'), icon_align: 'row-reverse', icon_indent: px(8) }),
     ]),
     image(MEDIA.dog, { width: px(557), width_tablet: pct(100), image_border_radius: box(21), _flex_size: 'none', _flex_size_tablet: 'shrink' }),
   ]),
