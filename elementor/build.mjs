@@ -170,15 +170,21 @@ html,body{max-width:100%;overflow-x:clip}
   body .rpf-header > .rpf-header-cta{flex:0 0 auto!important;order:2!important}
   body .rpf-header > .rpf-nav{flex:0 0 auto!important;order:3!important;width:auto!important;max-width:60px!important}
 }
-/* Small laptops: keep all top-level menu items on one line. */
-@media (min-width:1025px) and (max-width:1279px){
+/* Laptops: keep all nine top-level menu items on one line. */
+@media (min-width:1025px) and (max-width:1399px){
   .rpf-header{padding-left:24px!important;padding-right:24px!important;gap:16px!important}
   .rpf-header > .elementor-widget-image img{width:88px!important}
-  .rpf-nav .hfe-nav-menu > li > a.hfe-menu-item,.rpf-nav .hfe-nav-menu > li > .hfe-has-submenu-container > a.hfe-menu-item{padding-left:9px!important;padding-right:9px!important;font-size:15px!important}
-  .rpf-header > .rpf-header-cta .elementor-button{padding:12px 20px!important}
+  .rpf-nav .hfe-nav-menu > li > a.hfe-menu-item,.rpf-nav .hfe-nav-menu > li > .hfe-has-submenu-container > a.hfe-menu-item{padding-left:10px!important;padding-right:10px!important;font-size:15px!important}
+  .rpf-header .rpf-header-cta .elementor-button{padding:12px 20px!important}
 }
-@media (min-width:1025px) and (max-width:1120px){
-  .rpf-nav .hfe-nav-menu > li > a.hfe-menu-item,.rpf-nav .hfe-nav-menu > li > .hfe-has-submenu-container > a.hfe-menu-item{padding-left:7px!important;padding-right:7px!important;font-size:14px!important}
+@media (min-width:1025px) and (max-width:1199px){
+  .rpf-header > .elementor-widget-image img{width:76px!important}
+  .rpf-nav .hfe-nav-menu > li > a.hfe-menu-item,.rpf-nav .hfe-nav-menu > li > .hfe-has-submenu-container > a.hfe-menu-item{padding-left:6px!important;padding-right:6px!important;font-size:14px!important}
+  .rpf-header .rpf-header-cta .elementor-button{padding:10px 16px!important;font-size:14px!important}
+}
+@media (min-width:1025px) and (max-width:1099px){
+  .rpf-header{gap:10px!important}
+  .rpf-nav .hfe-nav-menu > li > a.hfe-menu-item,.rpf-nav .hfe-nav-menu > li > .hfe-has-submenu-container > a.hfe-menu-item{padding-left:4px!important;padding-right:4px!important;font-size:13.5px!important}
 }
 @media (max-width:767px){
   .rpf-header{gap:12px!important}
