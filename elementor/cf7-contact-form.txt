@@ -1,0 +1,17 @@
+<div class="rpf-cf7-grid">
+<label>Your name*
+[text* your-name autocomplete:name]</label>
+<label>Email*
+[email* your-email autocomplete:email]</label>
+<label>Phone
+[tel your-phone autocomplete:tel]</label>
+<label>Postcode
+[text your-postcode autocomplete:postal-code]</label>
+<label>I'm enquiring about
+[select enquiry-type "General question|info@rawpetfoods.com.au" "Order or product enquiry|orders@rawpetfoods.com.au" "Delivery|orders@rawpetfoods.com.au" "Wholesale / stockist|info@rawpetfoods.com.au" "Feedback|info@rawpetfoods.com.au"]</label>
+<label>My pet
+[select pet-type "Dog" "Cat" "Dog and cat" "Other"]</label>
+<label class="rpf-cf7-full">Message*
+[textarea* your-message x5]</label>
+</div>
+[submit "Send Message"]

@@ -1394,6 +1394,71 @@ const ourRange = [
   ctaBand('Ready to start your pet’s raw journey?', 'Ocean-fresh, snap-frozen salmon belly fins — delivered frozen to your door.', 'Order Now – Freshness Delivered Frozen', ORDER_URL),
 ];
 
+// ---------- Contact page ----------
+// The form is Contact Form 7 (form template kept in elementor/cf7-contact-form.txt). Its select uses CF7 "pipes",
+// so order/delivery enquiries are emailed to orders@ and everything else to info@.
+const CF7_CONTACT_ID = '__CF7_ID__';
+const contactFormCss = w('html', { css_classes: 'rpf-style-only', html: `<style>
+.rpf-cf7 .wpcf7-form{display:flex;flex-direction:column;gap:20px;margin:0}
+.rpf-cf7 .wpcf7-form p{margin:0}
+.rpf-cf7 .wpcf7-form br{display:none}
+.rpf-cf7-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rpf-cf7-full{grid-column:1/-1}
+.rpf-cf7 label{display:flex;flex-direction:column;gap:6px;font:700 14px/20px "Source Sans Pro",sans-serif;color:#514150}
+.rpf-cf7 .wpcf7-form-control-wrap{display:block}
+.rpf-cf7 input:not([type=submit]),.rpf-cf7 select,.rpf-cf7 textarea{font:600 16px/24px "Source Sans Pro",sans-serif;color:#514150;padding:12px 16px;border:1px solid #E1E4EA;border-radius:12px;background:#fff;box-shadow:none;width:100%;box-sizing:border-box}
+.rpf-cf7 textarea{min-height:140px;resize:vertical}
+.rpf-cf7 input:focus,.rpf-cf7 select:focus,.rpf-cf7 textarea:focus{outline:2px solid #62B6CF;outline-offset:1px;border-color:#62B6CF}
+.rpf-cf7 .wpcf7-not-valid{border-color:#B4544E}
+.rpf-cf7 .wpcf7-not-valid-tip{font:600 13px/18px "Source Sans Pro",sans-serif;color:#B4544E;margin-top:4px}
+.rpf-cf7 .wpcf7-submit{font:700 16px/24px "Source Sans Pro",sans-serif;color:#fff;background:#B4544E;border:0;border-radius:999px;padding:14px 40px;cursor:pointer;transition:background .2s}
+.rpf-cf7 .wpcf7-submit:hover,.rpf-cf7 .wpcf7-submit:focus{background:#514150}
+.rpf-cf7 .wpcf7-spinner{margin:0 12px}
+.rpf-cf7 .rpf-cf7-note{font:600 14px/20px "Source Sans Pro",sans-serif;color:#9E9E9E}
+.rpf-cf7 .wpcf7-response-output{margin:0!important;padding:12px 16px!important;border-radius:12px;font:600 15px/22px "Source Sans Pro",sans-serif;color:#514150}
+.rpf-cf7 .wpcf7 form.sent .wpcf7-response-output{border-color:#7EC88E!important;background:#EEF8F0}
+.e-con > .rpf-style-only{display:none!important}
+@media (max-width:600px){.rpf-cf7-grid{grid-template-columns:1fr}.rpf-cf7 .wpcf7-submit{width:100%}}
+</style>` });
+const contactCard = (ic, title, body) => con({ ...row({ flex_direction_mobile: 'row' }), flex_gap: gap(16), flex_align_items: 'flex-start', padding: box(20, 24), border_radius: box(16), background_background: 'classic', background_color: '#FFFFFF', border_border: 'solid', border_width: box(1), border_color: '#E1E4EA' }, [
+  w('icon', { selected_icon: icon(ic), view: 'stacked', shape: 'circle', primary_color: '#EAF6FA', secondary_color: '#3E9AB8', size: px(20), icon_padding: px(12), _flex_size: 'none' }),
+  con({ ...col(), flex_gap: gap(4), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+    heading(title, { tag: 'h3', type: 'secondary' }),
+    text(`<p>${body}</p>`),
+  ]),
+]);
+const contactPage = [
+  pageHero('Contact Us', 'We’d love to hear from you', 'Questions about raw feeding, your order or stocking our range? Send us a message and our team will get back to you.', MEDIA.about),
+  // Form + details
+  section(SEC({ ...row(), flex_align_items: 'flex-start', flex_gap: gap(48), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'contact-form' }), [
+    con({ ...col(), flex_gap: gap(20), ...widthPx(420), _flex_size: 'none', _flex_size_tablet: 'shrink' }, [
+      eyebrow('Get in Touch'),
+      heading('How can we help?'),
+      text('<p>Fill in the form and we’ll point your message to the right person. Prefer email? Reach us directly below.</p>'),
+      con({ ...col(), flex_gap: gap(14), _margin: box(8, 0, 0, 0) }, [
+        contactCard('fas fa-shopping-basket', 'Orders &amp; product enquiries', `<a href="mailto:${EMAIL_ORDERS}">${EMAIL_ORDERS}</a>`),
+        contactCard('fas fa-envelope', 'General &amp; partnership enquiries', `<a href="mailto:${EMAIL_INFO}">${EMAIL_INFO}</a>`),
+        contactCard('fas fa-store', 'Wholesale &amp; stockists', `Retailers and groomers, see our <a href="${SITE}/wholesale/">wholesale page</a>.`),
+      ]),
+    ]),
+    con({ ...col(), flex_gap: gap(20), padding: box(40), padding_mobile: box(24), border_radius: box(24), background_background: 'classic', background_color: '#F5FAFC', border_border: 'solid', border_width: box(1), border_color: '#E1E4EA', _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1, width_tablet: pct(100) }, [
+      heading('Send us a message', { tag: 'h2', type: 'secondary' }),
+      w('shortcode', { shortcode: `[contact-form-7 id="${CF7_CONTACT_ID}" html_class="rpf-cf7-form"]`, css_classes: 'rpf-cf7' }),
+      contactFormCss,
+    ]),
+  ]),
+  // Quick help
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#F5FAFC' }), [
+    introBlock('Quick Help', 'Looking for a fast answer?', 'Many questions are already answered in our guides.', 'center'),
+    cardsRow([
+      topicCard('fas fa-question-circle', 'Frequently asked questions', 'Safety, storage, refreezing, switching to raw and more.', 'Read the FAQ', `${SITE}/faq/`),
+      topicCard('fas fa-truck', 'Delivery &amp; storage', 'Where we deliver and how to keep your order fresh from freezer to bowl.', 'Delivery info', `${SITE}/delivery-info/`),
+      topicCard('fas fa-balance-scale', 'Feeding guide', 'Portion sizes, a switch-over plan and a handy portion calculator.', 'Open the feeding guide', `${SITE}/feeding-guide/`),
+    ]),
+  ]),
+  ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love — delivered frozen to your door.', 'Explore Our Range', `${SITE}/our-range/`),
+];
+
 fs.mkdirSync(new URL('./dist/', import.meta.url), { recursive: true });
 const out = (name, data) => {
   const json = JSON.stringify(data);
@@ -1412,3 +1477,4 @@ out('feeding-guide', feedingGuide);
 out('blog', blog);
 out('why-raw', whyRaw);
 out('our-range', ourRange);
+out('contact', contactPage);
