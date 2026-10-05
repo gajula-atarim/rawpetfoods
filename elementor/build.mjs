@@ -200,6 +200,40 @@ p,li,blockquote,figcaption,.elementor-icon-list-text,.elementor-icon-box-descrip
   /* Phones: no Contact Us button in the header (Contact is in the menu). */
   body .rpf-header > .rpf-header-cta{display:none!important}
 }
+/* ---------- Phones (<=767px) ---------- */
+@media (max-width:767px){
+  /* Buttons and headings sized for small screens. */
+  .elementor-button{font-size:15px!important;letter-spacing:0!important}
+  .elementor-widget-heading h2.elementor-heading-title{font-size:28px!important;line-height:34px!important;letter-spacing:-0.4px!important}
+  /* Home hero: frame the pets better and keep the headline compact. */
+  .home .rpf-hero{background-position:40% 30%!important}
+  .home .rpf-hero h1.elementor-heading-title{font-size:30px!important;line-height:1.15!important}
+  /* Trust badges: tidy 2x2 grid of equal cards. */
+  #trust.e-con-full,#trust.e-con-boxed > .e-con-inner{display:grid!important;grid-template-columns:1fr 1fr;gap:12px!important;align-items:stretch}
+  #trust .elementor-widget-icon-box{width:auto!important;max-width:none!important;margin:0!important;height:100%;box-sizing:border-box;padding:16px 10px;background:#F5FAFC;border:1px solid #E1E4EA;border-radius:16px}
+  #trust .elementor-icon-box-icon{margin-bottom:10px!important}
+  #trust .elementor-icon-box-title{font-size:15px!important;line-height:20px!important;margin-bottom:4px!important}
+  #trust .elementor-icon-box-description{font-size:13px!important;line-height:18px!important}
+  /* Home Our Range: smaller callout cards, two per row, equal heights. */
+  .home .rpf-callouts{flex-direction:row!important;flex-wrap:nowrap!important;align-items:stretch!important;gap:10px!important;width:100%!important}
+  .home .rpf-callouts > .e-con{flex:1 1 0!important;width:auto!important;min-width:0;flex-direction:column!important;gap:8px!important;padding:14px 12px!important;border-radius:16px!important}
+  .home .rpf-callouts h3.elementor-heading-title{font-size:15px!important;line-height:20px!important}
+  .home .rpf-callouts p{font-size:13px!important;line-height:18px!important}
+  /* Home feeding guide: hide the two images. */
+  #feeding-guide.e-con-full > .e-con:first-child,#feeding-guide.e-con-boxed > .e-con-inner > .e-con:first-child{display:none!important}
+  /* Testimonials: full-width card, arrows below, stars on one line. */
+  #reviews .e-con:has(> .rpf-review-track){flex-wrap:wrap!important;justify-content:center!important;gap:16px!important}
+  #reviews .rpf-review-track{order:-1;flex:0 0 100%!important;width:100%!important;max-width:100%!important}
+  #reviews .rpf-review{padding:24px 18px!important}
+  #reviews .elementor-star-rating{white-space:nowrap}
+  #reviews .rpf-review .e-con > .elementor-widget-text-editor:first-child p{font-size:17px!important;line-height:26px!important}
+}
+/* Home hero form: on narrow phones stack the animal picker above the button so the label shows in full. */
+@media (max-width:480px){
+  .rpf-animal-form{flex-wrap:wrap!important;border-radius:20px!important;padding:10px!important;gap:8px!important}
+  .rpf-animal-form .rpf-select{flex:1 1 100%!important;padding:6px 8px}
+  .rpf-animal-form .rpf-pill-btn{flex:1 1 100%!important;text-align:center;justify-content:center}
+}
 </style>
 <script>
 /* Orphan fallback for browsers without text-wrap:pretty (e.g. older Safari): glue a short last word to the one before it. */
