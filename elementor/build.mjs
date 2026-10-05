@@ -191,7 +191,8 @@ p,li,blockquote,figcaption,.elementor-icon-list-text,.elementor-icon-box-descrip
 }
 @media (max-width:767px){
   .rpf-header{gap:12px!important}
-  .rpf-header > .rpf-header-cta .elementor-button{font-size:15px}
+  /* Phones: no Contact Us button in the header (Contact is in the menu). */
+  body .rpf-header > .rpf-header-cta{display:none!important}
 }
 </style>
 <script>
