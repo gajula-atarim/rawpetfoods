@@ -1606,6 +1606,77 @@ const sustainabilityPage = [
   ctaBand('Feed well, tread lightly', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love, made with care for the planet.', 'Explore Our Range', `${SITE}/our-range/`),
 ];
 
+// ---------- Health Benefits page ----------
+// Claims kept general and hedged ("helps support") — no medical promises.
+const HEALTH_FAQS = [
+  faq('How soon will I notice a difference?', 'Many owners notice keener eating straight away. Changes to coat, energy and digestion usually show over a few weeks, but every pet is different.'),
+  faq('Is raw seafood suitable for cats and dogs?', 'Yes. Our seafood meals are made for both dogs and cats. Cats in particular tend to love the taste of fish.'),
+  faq('Can raw seafood help a fussy eater?', 'Often, yes. The fresh smell and taste of real seafood appeal to many picky pets. Mix a little into their usual food to start.'),
+  faq('Should I talk to my vet first?', 'If your pet is a puppy or kitten, is pregnant, or has a health condition, check with your vet before changing their diet.'),
+];
+const healthBenefitsPage = [
+  pageHero('Health Benefits', 'Visible results, from nose to tail', 'Real seafood, prepared raw and snap-frozen, gives your pet natural nutrition they can really use. Here’s how it helps.', MEDIA.hero),
+  // Benefits overview
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'benefits' }), [
+    introBlock('Nose to Tail', 'Six ways raw seafood supports your pet', 'Every ingredient serves a purpose: rich proteins for strength, omega oils for glossy coats, and natural minerals for a longer, happier life.', 'center'),
+    cardsRow([
+      benefitCard('fas fa-star', 'Healthier skin &amp; shinier coat', 'Natural omega-3 fatty acids help nourish skin from the inside and give coats a healthy shine.'),
+      benefitCard('fas fa-shield-alt', 'Stronger immunity', 'Natural vitamins, minerals and quality protein help support your pet’s everyday defences.'),
+      benefitCard('fas fa-bolt', 'More energy every day', 'Lean, easy-to-use protein supports strong muscles and steady energy for play and walks.'),
+    ]),
+    cardsRow([
+      benefitCard('fas fa-smile', 'Easy, gentle digestion', 'Simple seafood meals with no fillers or grains are gentle on sensitive tummies.'),
+      benefitCard('fas fa-bone', 'Joints, bones &amp; teeth', 'Omega-3s, calcium and vitamin D from salmon belly fins help support joints, bones and teeth.'),
+      benefitCard('fas fa-tint', 'Better hydration', 'Raw food keeps its natural moisture, which helps keep pets, especially cats, well hydrated.'),
+    ]),
+  ]),
+  // Nutrients
+  section(SEC({ ...row(), flex_align_items: 'center', flex_gap: gap(64), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#F5FAFC', _element_id: 'nutrition' }), [
+    image(MEDIA.salmonIce, { width: px(500), width_tablet: pct(100), height: px(520), height_tablet: px(400), height_mobile: px(280), 'object-fit': 'cover', image_border_radius: box(24), _flex_size: 'none', _flex_size_tablet: 'shrink', _element_width_tablet: 'inherit' }),
+    con({ ...col(), flex_gap: gap(20), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+      eyebrow('What’s Inside'),
+      heading('The nutrients behind the results'),
+      text('<p>Our salmon belly fins are a naturally nutrient-rich cut. Prepared raw and snap-frozen, they keep the goodness that cooking can take away.</p>'),
+      con({ ...col(), flex_gap: gap(18), _margin: box(8, 0, 0, 0) }, [
+        pillar('fas fa-fish', 'Omega-3 fatty acids', 'For skin, coat, joints and brain health.'),
+        pillar('fas fa-dumbbell', 'High-quality protein', 'For lean muscle, growth and repair.'),
+        pillar('fas fa-bone', 'Calcium &amp; vitamin D', 'For strong bones and healthy teeth.'),
+        pillar('fas fa-leaf', 'Nothing artificial', 'No fillers, grains or artificial preservatives.'),
+      ]),
+    ]),
+  ]),
+  // What owners notice over time
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'timeline' }), [
+    introBlock('After the Switch', 'What owners often notice', 'Every pet is different, but this is what many owners tell us after moving to raw seafood.', 'center'),
+    cardsRow([
+      stepTile('01', 'In the first days', 'Keener eaters and cleaner bowls. Most pets love the fresh taste straight away.'),
+      stepTile('02', 'After a few weeks', 'Steadier energy and more comfortable digestion as their body adjusts.'),
+      stepTile('03', 'Over the months', 'A softer, shinier coat and healthier-looking skin.'),
+    ]),
+    text('<p><em>Results vary between pets. If your pet has a health condition, check with your vet before changing their diet.</em></p>', { color: 'rpf_grey', align: 'center' }),
+  ]),
+  // Dogs and cats
+  section(SEC({ ...row(), flex_align_items: 'center', flex_gap: gap(64), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFCF9', _element_id: 'dogs-cats' }), [
+    con({ ...col(), flex_gap: gap(20), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+      eyebrow('For Dogs &amp; Cats'),
+      heading('Made for both, loved by both'),
+      text('<p>Dogs get lean protein for active days and omega-3s for joints and coat. Cats, natural fish lovers, get the moisture and protein their bodies are built for.</p>'),
+      bullets(['Suitable for dogs and cats', 'Great for fussy eaters', 'Easy to portion with our feeding guide', 'Vet-approved and made in NSW']),
+      con({ ...row({ flex_direction_mobile: 'column' }), flex_gap: gap(16), flex_align_items_mobile: 'stretch', _margin: box(8, 0, 0, 0) }, [
+        ctaBtn('Order Now', `${SITE}/contact/`),
+        ctaBtn('See the Feeding Guide', `${SITE}/feeding-guide/`, { selected_icon: icon('fas fa-arrow-right'), icon_align: 'row-reverse', icon_indent: px(8), background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
+      ]),
+    ]),
+    image(MEDIA.about, { width: px(500), width_tablet: pct(100), height: px(520), height_tablet: px(400), height_mobile: px(280), 'object-fit': 'cover', image_border_radius: box(24), _flex_size: 'none', _flex_size_tablet: 'shrink', _element_width_tablet: 'inherit' }),
+  ]),
+  // FAQ
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', __globals__: { background_color: gColor('rpf_light') } }), [
+    introBlock('Health FAQ', 'Questions about health benefits', `More questions? See <a href="${SITE}/why-raw/">Why Raw</a> or email <a href="mailto:${EMAIL_ORDERS}">${EMAIL_ORDERS}</a>.`, 'center'),
+    makeAccordion(HEALTH_FAQS),
+  ]),
+  ctaBand('Give your pet the ocean’s best', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love, delivered frozen to your door.', 'Order Now – Freshness Delivered Frozen', `${SITE}/contact/`),
+];
+
 fs.mkdirSync(new URL('./dist/', import.meta.url), { recursive: true });
 const out = (name, data) => {
   const json = JSON.stringify(data);
@@ -1626,3 +1697,4 @@ out('why-raw', whyRaw);
 out('our-range', ourRange);
 out('contact', contactPage);
 out('sustainability', sustainabilityPage);
+out('health-benefits', healthBenefitsPage);
