@@ -388,9 +388,9 @@ const faqs = [
   faq('What makes Raw Pet Foods different?', `We’re ${'Australia’s first ocean-fresh raw seafood meals for pets'}: real seafood cuts like salmon belly fins instead of fillers, snap-frozen to lock in nutrition, vet-approved and responsibly sourced. <a href="${BLOG.sustainable}">How we feed pets sustainably →</a>`),
   faq('Do you deliver interstate?', `We’re expanding our delivery areas. Check <a href="${SITE}/delivery-info/">Delivery Info</a> for the latest, or email <a href="mailto:${EMAIL_ORDERS}">${EMAIL_ORDERS}</a> with your postcode and we’ll confirm delivery to you.`),
 ];
-const makeAccordion = () => {
+const makeAccordion = (list = faqs) => {
   const acc = w('nested-accordion', {
-    items: faqs.map((f) => ({ _id: uid(), item_title: f.q })),
+    items: list.map((f) => ({ _id: uid(), item_title: f.q })),
     title_tag: 'h3', faq_schema: 'yes', default_state: 'all_collapsed', max_items_expended: 'one',
     accordion_item_title_icon: icon('fas fa-plus-circle'), accordion_item_title_icon_active: icon('fas fa-minus-circle'),
     accordion_item_title_icon_position: 'end', accordion_item_title_position_horizontal: 'stretch',
@@ -410,7 +410,7 @@ const makeAccordion = () => {
     content_padding: box(0, 32, 28, 32), content_padding_mobile: box(0, 20, 20, 20),
     _element_width: 'initial', _element_custom_width: px(860), _element_custom_width_tablet: pct(100),
   });
-  acc.elements = faqs.map((f) => con({ content_width: 'full', ...col() }, [text(`<p>${f.a}</p>`, { color: 'text' })]));
+  acc.elements = list.map((f) => con({ content_width: 'full', ...col() }, [text(`<p>${f.a}</p>`, { color: 'text' })]));
   return acc;
 };
 
@@ -644,6 +644,7 @@ const home = [
       heading('Storage &amp; handling', { tag: 'h3', type: 'secondary' }),
       storageSteps,
       ctaBtn('Get Your Custom Feeding Plan', `mailto:${EMAIL_ORDERS}?subject=Custom%20feeding%20plan`, { _margin: box(8, 0, 0, 0) }),
+      ctaBtn('View the Full Feeding Guide', `${SITE}/feeding-guide/`, { selected_icon: icon('fas fa-arrow-right'), icon_align: 'row-reverse', icon_indent: px(8), background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
     ]),
   ]),
 
@@ -720,6 +721,7 @@ const home = [
       blogCard(MEDIA.blog2, 'October 26, 2025', 'How to Tell if Your Pet’s Food Is Truly “Natural”', 'Not all pet food labeled “natural” lives up to the claim. We break down what to look for on the label, how to spot fillers, and what real ingredients should look like in your pet’s bowl.', BLOG.natural),
       blogCard(MEDIA.blog3, 'December 6, 2025', 'Sustainable Feeding: Good for Pets, Better for the Planet', 'From responsibly sourced seafood to recyclable packaging, every choice matters. See how Raw Petfoods is reducing waste while keeping your pet’s nutrition uncompromised.', BLOG.sustainable),
     ]),
+    ctaBtn('Visit the Blog', `${SITE}/blog/`, { align: 'center' }),
   ]),
 
   // 12. FAQ
@@ -987,6 +989,219 @@ const delivery = [
   ]),
 ];
 
+// ---------- Feeding Guide page ----------
+// Portion maths matches the homepage table and FAQ: 2–3% of an adult pet's ideal body weight per day.
+const feedCalc = `<div class="rpf-calc">
+  <div class="rpf-calc__grid">
+    <label>Your pet<select name="pet"><option value="dog">Dog</option><option value="cat">Cat</option></select></label>
+    <label>Ideal adult weight (kg)<input name="kg" type="number" min="1" max="90" step="0.5" value="10" inputmode="decimal"></label>
+    <label class="rpf-calc__full">Activity level<select name="act"><option value="0.02">Less active / senior (about 2%)</option><option value="0.025" selected>Moderately active (about 2.5%)</option><option value="0.03">Very active / working (about 3%)</option></select></label>
+  </div>
+  <div class="rpf-calc__out" role="status" aria-live="polite">
+    <p class="rpf-calc__label">Suggested daily amount</p>
+    <p class="rpf-calc__value"><span data-out="day">250 g</span> per day</p>
+    <p class="rpf-calc__meals">That’s about <span data-out="meal">125 g</span> per meal, split across <span data-out="n">2 meals</span>.</p>
+  </div>
+  <p class="rpf-calc__note">A starting point for healthy adult pets only. Puppies, kittens, pregnant or nursing pets and pets with health conditions have different needs — please check with your vet.</p>
+</div>
+<style>
+.rpf-calc{display:flex;flex-direction:column;gap:20px}
+.rpf-calc__grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rpf-calc label{display:flex;flex-direction:column;gap:6px;font:700 14px/20px "Source Sans Pro",sans-serif;color:#514150}
+.rpf-calc input,.rpf-calc select{font:600 16px/24px "Source Sans Pro",sans-serif;color:#514150;padding:12px 16px;border:1px solid #E1E4EA;border-radius:12px;background:#fff;box-shadow:none;width:100%;box-sizing:border-box}
+.rpf-calc input:focus,.rpf-calc select:focus{outline:2px solid #62B6CF;outline-offset:1px;border-color:#62B6CF}
+.rpf-calc__full{grid-column:1/-1}
+.rpf-calc__out{background:#514150;border-radius:20px;padding:24px 28px;color:#fff}
+.rpf-calc__out p{margin:0}
+.rpf-calc__label{font:700 13px/18px "Source Sans Pro",sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:#BFE6F2}
+.rpf-calc__value{font:700 34px/42px "Source Sans Pro",sans-serif;margin:6px 0 4px!important}
+.rpf-calc__value span{color:#62B6CF}
+.rpf-calc__meals{font:600 16px/24px "Source Sans Pro",sans-serif;color:rgba(255,255,255,.85)}
+.rpf-calc__note{margin:0;font:600 14px/20px "Source Sans Pro",sans-serif;color:#9E9E9E}
+@media (max-width:600px){.rpf-calc__grid{grid-template-columns:1fr}.rpf-calc__value{font-size:28px;line-height:36px}}
+</style>
+<script>
+(function(){document.querySelectorAll('.rpf-calc:not([data-ready])').forEach(function(c){
+  c.setAttribute('data-ready','1');
+  var q=function(n){return c.querySelector('[name='+n+']');},o=function(n){return c.querySelector('[data-out='+n+']');};
+  function round(g){return g<100?Math.round(g/5)*5:Math.round(g/10)*10;}
+  function calc(){
+    var kg=parseFloat(q('kg').value)||0,pct=parseFloat(q('act').value),cat=q('pet').value==='cat';
+    if(kg<=0){o('day').textContent='—';o('meal').textContent='—';return;}
+    var day=round(kg*1000*pct),meals=cat||kg<5?3:2;
+    o('day').textContent=day+' g';o('meal').textContent=Math.round(day/meals/5)*5+' g';o('n').textContent=meals+' meals';
+  }
+  ['pet','kg','act'].forEach(function(n){q(n).addEventListener('input',calc);q(n).addEventListener('change',calc);});
+  calc();
+});})();
+</script>`;
+const stepTile = (num, title, body) => con({ ...col(), flex_gap: gap(10), padding: box(28), border_radius: box(20), background_background: 'classic', background_color: '#FFFFFF', border_border: 'solid', border_width: box(1), border_color: '#E1E4EA', width: pct(32), width_tablet: pct(100), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+  w('heading', { title: num, header_size: 'p', title_color: '#62B6CF', typography_typography: 'custom', typography_font_family: 'Source Sans Pro', typography_font_weight: '700', typography_font_size: px(40), typography_line_height: px(44) }),
+  heading(title, { tag: 'h3', type: 'secondary' }),
+  text(`<p>${body}</p>`),
+]);
+// Transition plan as a simple four-step timeline (HTML so the progress bars line up on every screen size).
+const transitionPlan = `<div class="rpf-plan">
+  <div class="rpf-plan__row"><p class="rpf-plan__days">Days 1–3</p><div class="rpf-plan__bar"><span style="width:25%">25% raw</span></div><p class="rpf-plan__tip">Mix a small amount of raw seafood into their usual food.</p></div>
+  <div class="rpf-plan__row"><p class="rpf-plan__days">Days 4–6</p><div class="rpf-plan__bar"><span style="width:50%">50% raw</span></div><p class="rpf-plan__tip">Half and half. Keep an eye on appetite and digestion.</p></div>
+  <div class="rpf-plan__row"><p class="rpf-plan__days">Days 7–9</p><div class="rpf-plan__bar"><span style="width:75%">75% raw</span></div><p class="rpf-plan__tip">Mostly raw now — slow down if their tummy needs more time.</p></div>
+  <div class="rpf-plan__row"><p class="rpf-plan__days">Day 10+</p><div class="rpf-plan__bar"><span style="width:100%">100% raw</span></div><p class="rpf-plan__tip">Fully switched. Weigh your pet regularly and adjust portions.</p></div>
+</div>
+<style>
+.rpf-plan{display:flex;flex-direction:column;gap:14px}
+.rpf-plan__row{display:grid;grid-template-columns:110px 1fr 1.2fr;gap:20px;align-items:center;background:#fff;border:1px solid #E1E4EA;border-radius:16px;padding:16px 20px}
+.rpf-plan p{margin:0}
+.rpf-plan__days{font:700 16px/24px "Source Sans Pro",sans-serif;color:#514150}
+.rpf-plan__bar{height:34px;background:#EAF6FA;border-radius:999px;overflow:hidden}
+.rpf-plan__bar span{display:flex;align-items:center;height:100%;padding:0 14px;background:#62B6CF;color:#fff;border-radius:999px;font:700 14px/20px "Source Sans Pro",sans-serif;white-space:nowrap;box-sizing:border-box;min-width:86px}
+.rpf-plan__tip{font:600 15px/22px "Source Sans Pro",sans-serif;color:#534251}
+@media (max-width:767px){.rpf-plan__row{grid-template-columns:1fr;gap:10px}}
+</style>`;
+const FEEDING_FAQS = [
+  faq('How much should I feed my pet?', 'As a general guide, healthy adult pets need about 2–3% of their ideal body weight in raw food each day, split across meals. Use the calculator above as a starting point, then adjust to keep your pet at a healthy weight.'),
+  faqs[3],
+  faq('How many meals a day?', 'Most adult dogs do well on two meals a day. Cats and small dogs often prefer smaller meals, so splitting the daily amount into two or three serves works well.'),
+  faqs[1],
+  faqs[2],
+  faq('Should I serve it straight from the fridge?', 'Serve it thawed and fridge-cool. Never microwave raw food or leave it sitting out — pick up anything your pet doesn’t finish and keep leftovers covered in the fridge.'),
+];
+const feedingGuide = [
+  pageHero('Feeding Guide', 'How to feed raw seafood, the simple way', 'Portion sizes, a gradual switch-over plan and safe storage tips — everything you need to start your pet’s raw journey with confidence.', MEDIA.blog2),
+  // Quick start
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#F5FAFC' }), [
+    introBlock('Quick Start', 'Feeding raw in three easy steps', 'You don’t need to be a nutrition expert. Start with your pet’s weight, work out a daily amount, and split it into meals.', 'center'),
+    cardsRow([
+      stepTile('01', 'Weigh your pet', 'Start with your pet’s ideal adult body weight. If you’re unsure what that is, your vet can help.'),
+      stepTile('02', 'Work out the daily amount', 'Most healthy adult pets need about 2–3% of their ideal body weight in raw food each day.'),
+      stepTile('03', 'Split it into meals', 'Divide the daily amount into two meals for most dogs, or two to three smaller meals for cats and small dogs.'),
+    ]),
+  ]),
+  // Calculator + table
+  section(SEC({ ...row(), flex_align_items: 'flex-start', flex_gap: gap(48), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'portions' }), [
+    con({ ...col(), flex_gap: gap(20), padding: box(36), padding_mobile: box(24), border_radius: box(24), background_background: 'classic', background_color: '#F5FAFC', border_border: 'solid', border_width: box(1), border_color: '#E1E4EA', _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1, width_tablet: pct(100) }, [
+      eyebrow('Portion Calculator'),
+      heading('How much does my pet need?', { tag: 'h2', type: 'secondary' }),
+      w('html', { html: feedCalc }),
+    ]),
+    con({ ...col(), flex_gap: gap(20), ...widthPx(520), _flex_size: 'none', _flex_size_tablet: 'shrink' }, [
+      eyebrow('Portion Guide'),
+      heading('Daily portions at a glance'),
+      text(`<p>${STORAGE_LINE} Use this table as a starting point and adjust to keep your pet at a healthy weight.</p>`),
+      w('html', { html: feedingTable }),
+    ]),
+  ]),
+  // Transition plan
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFCF9', _element_id: 'transition' }), [
+    introBlock('Switching to Raw', 'Make the switch gradually over 7–10 days', 'Changing food too quickly can upset sensitive tummies. Increase the share of raw seafood a little at a time, and slow down if your pet needs longer.', 'center'),
+    con({ ...col(), width: px(960), width_tablet: pct(100) }, [w('html', { html: transitionPlan })]),
+    text('<p>Puppies, kittens and pets with health conditions should switch under your vet’s guidance.</p>', { color: 'rpf_grey', align: 'center' }),
+  ]),
+  // Storage & safe handling
+  section(SEC({ ...row(), flex_align_items: 'center', flex_gap: gap(64), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'storage' }), [
+    image(MEDIA.salmonIce, { width: px(480), width_tablet: pct(100), height: px(460), height_tablet: px(380), height_mobile: px(260), 'object-fit': 'cover', image_border_radius: box(24), _flex_size: 'none', _flex_size_tablet: 'shrink' }),
+    con({ ...col(), flex_gap: gap(20), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+      eyebrow('Storage &amp; Safe Handling'),
+      heading('Keep it fresh from freezer to bowl'),
+      text(`<p>${STORAGE_LINE}</p>`),
+      con({ ...col(), flex_gap: gap(18), _margin: box(8, 0, 0, 0) }, [
+        pillar('fas fa-snowflake', 'Keep frozen until needed', 'Pop your order straight into the freezer when it arrives.'),
+        pillar('fas fa-temperature-low', 'Thaw overnight in the fridge', 'Move one portion to the fridge the night before. Never thaw at room temperature or in the microwave.'),
+        pillar('fas fa-ban', 'Never refreeze', 'Once thawed, keep it covered in the fridge and use it within the time shown on the pack.'),
+        pillar('fas fa-hands-wash', 'Handle it like any raw protein', 'Wash bowls, surfaces and hands after serving, and pick up anything your pet doesn’t finish.'),
+      ]),
+    ]),
+  ]),
+  // Dogs vs cats
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#F5FAFC' }), [
+    introBlock('Tips for Dogs &amp; Cats', 'Every pet is a little different', 'A few simple tips to help your dog or cat settle into raw seafood meals.', 'center'),
+    con({ ...row({ flex_direction_tablet: 'column' }), flex_gap: gap(24), flex_align_items: 'stretch', width: pct(100) }, [
+      con({ ...col(), flex_gap: gap(16), padding: box(32), padding_mobile: box(24), border_radius: box(24), background_background: 'classic', background_color: '#FFFFFF', border_border: 'solid', border_width: box(1), border_color: '#E1E4EA', width: pct(49), width_tablet: pct(100), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+        w('icon', { selected_icon: icon('fas fa-dog'), view: 'stacked', shape: 'circle', primary_color: '#62B6CF', secondary_color: '#FFFFFF', size: px(24), icon_padding: px(18), align: 'left' }),
+        heading('Feeding dogs', { tag: 'h3', type: 'secondary' }),
+        bullets(['Two meals a day suits most adult dogs', 'Active and working dogs may need closer to 3%', 'Weigh them every few weeks and adjust portions', 'Always have fresh water available']),
+      ]),
+      con({ ...col(), flex_gap: gap(16), padding: box(32), padding_mobile: box(24), border_radius: box(24), background_background: 'classic', background_color: '#FFFFFF', border_border: 'solid', border_width: box(1), border_color: '#E1E4EA', width: pct(49), width_tablet: pct(100), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+        w('icon', { selected_icon: icon('fas fa-cat'), view: 'stacked', shape: 'circle', primary_color: '#62B6CF', secondary_color: '#FFFFFF', size: px(24), icon_padding: px(18), align: 'left' }),
+        heading('Feeding cats', { tag: 'h3', type: 'secondary' }),
+        bullets(['Cats often prefer two to three smaller meals', 'Be patient — some cats take a little longer to switch', 'Serve fridge-cool, never microwaved', 'Always have fresh water available']),
+      ]),
+    ]),
+  ]),
+  // Feeding FAQ
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF' }), [
+    introBlock('Feeding FAQ', 'Common feeding questions', `More questions? See our <a href="${SITE}/faq/">full FAQ</a> or email <a href="mailto:${EMAIL_ORDERS}">${EMAIL_ORDERS}</a>.`, 'center'),
+    makeAccordion(FEEDING_FAQS),
+  ]),
+  // CTA
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(20), padding: box(80, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', __globals__: { background_color: gColor('accent') } }), [
+    heading('Get your custom feeding plan', { color: 'rpf_white', align: 'center' }),
+    text('<p>Tell us about your pet and we’ll help you work out the right portions — then start their raw journey with ocean-fresh, snap-frozen seafood.</p>', { color: 'rpf_white', align: 'center', extra: { _element_width: 'initial', _element_custom_width: px(640), _element_custom_width_tablet: pct(100) } }),
+    con({ ...row({ flex_direction_mobile: 'column' }), flex_gap: gap(16), flex_justify_content: 'center', flex_align_items: 'center', flex_align_items_mobile: 'stretch' }, [
+      ctaBtn('Get Your Custom Feeding Plan', `mailto:${EMAIL_ORDERS}?subject=Custom%20feeding%20plan`, { background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
+      ctaBtn('Order Now – Freshness Delivered Frozen', `${SITE}/#products`),
+    ]),
+  ]),
+];
+
+// ---------- Blog page ----------
+// The post grid is UAE's Basic Posts widget, so new posts appear automatically (each needs a featured image).
+const topicCard = (ic, title, body, label, url) => con({ ...col(), flex_gap: gap(12), padding: box(28), border_radius: box(20), background_background: 'classic', background_color: '#FFFFFF', border_border: 'solid', border_width: box(1), border_color: '#E1E4EA', width: pct(32), width_tablet: pct(100), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+  w('icon', { selected_icon: icon(ic), view: 'stacked', shape: 'circle', primary_color: '#EAF6FA', secondary_color: '#3E9AB8', size: px(22), icon_padding: px(14), align: 'left' }),
+  heading(title, { tag: 'h3', type: 'secondary' }),
+  text(`<p>${body}</p>`),
+  w('button', { text: label, link: link(url), selected_icon: icon('fas fa-arrow-right'), icon_align: 'row-reverse', icon_indent: px(4), text_padding: box(0, 0, 4, 0), background_background: 'classic', background_color: 'rgba(0,0,0,0)', button_background_hover_background: 'classic', button_background_hover_color: 'rgba(0,0,0,0)', button_text_color: '#B4544E', hover_color: '#514150', border_radius: box(0), border_border: 'solid', border_width: box(0, 0, 1, 0), border_color: '#B4544E', __globals__: { typography_typography: gType('rpf_nav') }, align: 'left', _margin: box(4, 0, 0, 0) }),
+]);
+const postsGrid = w('hfe-basic-posts', {
+  posts_per_page: 9, columns: '3', orderby: 'date', order: 'desc', show_image: 'yes', image_size: 'medium_large',
+  show_title: 'yes', title_tag: 'h3', show_meta: 'yes', show_date: 'yes', show_author: '', show_comments: '',
+  show_excerpt: 'yes', excerpt_length: 22, show_read_more: 'yes', read_more_text: 'Read more →',
+  column_gap: px(32), row_gap: px(32),
+  card_background_background: 'classic', card_background_color: '#FFFFFF',
+  card_border_border: 'solid', card_border_width: box(1), card_border_color: 'rgba(83,66,81,0.24)', card_border_radius: box(16),
+  card_padding: box(16),
+  title_color: '#514150', title_hover_color: '#B4544E', title_typography_typography: 'custom', title_typography_font_family: 'Source Sans Pro', title_typography_font_weight: '600', title_typography_font_size: px(22), title_typography_line_height: px(30), title_spacing: px(8),
+  meta_color: '#9E9E9E', meta_typography_typography: 'custom', meta_typography_font_family: 'Source Sans Pro', meta_typography_font_weight: '600', meta_typography_font_size: px(14), meta_spacing: px(10),
+  excerpt_color: '#9E9E9E', excerpt_typography_typography: 'custom', excerpt_typography_font_family: 'Source Sans Pro', excerpt_typography_font_weight: '600', excerpt_typography_font_size: px(16), excerpt_typography_line_height: px(24), excerpt_spacing: px(16),
+  read_more_color: '#B4544E', read_more_hover_color: '#514150', read_more_typography_typography: 'custom', read_more_typography_font_family: 'Source Sans Pro', read_more_typography_font_weight: '600', read_more_typography_font_size: px(16),
+  css_classes: 'rpf-posts',
+});
+// Tidy the UAE post cards (rounded images, equal heights, single column on phones).
+const postsCss = w('html', { css_classes: 'rpf-style-only', html: `<style>
+.rpf-posts .hfe-post-image img,.rpf-posts img{width:100%;aspect-ratio:16/11;object-fit:cover;border-radius:10px}
+.rpf-posts .hfe-post-title a{color:inherit;text-decoration:none}
+.rpf-posts .hfe-read-more{text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.e-con > .rpf-style-only{display:none!important}
+@media (max-width:1024px){.rpf-posts .hfe-posts-grid{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:767px){.rpf-posts .hfe-posts-grid{grid-template-columns:1fr!important}}
+</style>` });
+const blog = [
+  pageHero('Feeding Guide &amp; Blog', 'Pet care wisdom, straight from the source', 'Expert tips, feeding guides and behind-the-scenes stories about how we bring ocean-fresh nutrition to every meal.', MEDIA.seafoodPlatter),
+  // Start here
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF' }), [
+    introBlock('Start Here', 'New to raw seafood?', 'These guides cover the essentials — how much to feed, how to switch over, and how to store and serve raw food safely.', 'center'),
+    cardsRow([
+      topicCard('fas fa-balance-scale', 'Feeding guide &amp; portion calculator', 'Work out how much to feed your dog or cat each day, with a simple calculator and portion table.', 'Open the feeding guide', `${SITE}/feeding-guide/`),
+      topicCard('fas fa-exchange-alt', 'Switching to raw', 'A gentle 7–10 day plan to move your pet from their usual food to raw seafood.', 'See the switch-over plan', `${SITE}/feeding-guide/#transition`),
+      topicCard('fas fa-snowflake', 'Storage &amp; delivery', 'Delivered frozen to preserve raw nutrition. Learn how to store, thaw and serve it safely.', 'Read delivery info', `${SITE}/delivery-info/`),
+    ]),
+  ]),
+  // Latest articles
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', __globals__: { background_color: gColor('rpf_light') }, _element_id: 'articles' }), [
+    introBlock('Latest Articles', 'From the Raw Pet Foods blog', 'Nutrition, sustainability and practical tips for health-conscious pet owners.', 'center'),
+    con({ ...col(), width: pct(100) }, [postsGrid, postsCss]),
+  ]),
+  // FAQ teaser
+  section(SEC({ ...row(), flex_align_items: 'center', flex_justify_content: 'space-between', flex_gap: gap(40), padding: box(80, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF' }), [
+    con({ ...col(), flex_gap: gap(12), ...widthPx(640) }, [
+      eyebrow('Got a Question?'),
+      heading('Answers to the questions pet owners ask most'),
+      text('<p>Is raw seafood safe? Can I refreeze it? Do you deliver interstate? Find quick answers in our FAQ.</p>'),
+    ]),
+    ctaBtn('Read the FAQ', `${SITE}/faq/`),
+  ]),
+  ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love.', 'Order Now – Freshness Delivered Frozen', `${SITE}/#products`),
+];
+
 fs.mkdirSync(new URL('./dist/', import.meta.url), { recursive: true });
 const out = (name, data) => {
   const json = JSON.stringify(data);
@@ -1001,3 +1216,5 @@ out('about', about);
 out('wholesale', wholesale);
 out('faq', faqPage);
 out('delivery', delivery);
+out('feeding-guide', feedingGuide);
+out('blog', blog);
