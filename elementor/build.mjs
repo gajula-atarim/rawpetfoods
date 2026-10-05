@@ -31,6 +31,7 @@ const MEDIA = {
   petPro: { id: 102, url: `${SITE}/wp-content/uploads/2026/10/pet-care-professional-with-dog.jpg` },
   // Why Raw page (Pexels, free licence).
   dogHome: { id: 134, url: `${SITE}/wp-content/uploads/2026/10/dog-eating-from-bowl-at-home.jpg` },
+  beachCatch: { id: 201, url: `${SITE}/wp-content/uploads/2026/10/dog-on-beach-with-fresh-catch.jpg` },
   catTreat: { id: 132, url: `${SITE}/wp-content/uploads/2026/10/cat-taking-treat-from-owner.jpg` },
   blog1: { id: 18, url: `${SITE}/wp-content/uploads/2026/10/blog-real-seafood.jpg` },
   blog2: { id: 19, url: `${SITE}/wp-content/uploads/2026/10/blog-natural-pet-food.jpg` },
@@ -1315,7 +1316,7 @@ const RANGE_FAQS = [
   faqs[5],
 ];
 const ourRange = [
-  pageHero('Our Range', 'Ocean-fresh raw seafood meals for pets', 'Real seafood cuts, prepared raw and snap-frozen in NSW. Simple, honest nutrition your dog or cat will love.', MEDIA.salmonIce),
+  pageHero('Our Range', 'Ocean-fresh raw seafood meals for pets', 'Real seafood cuts, prepared raw and snap-frozen in NSW. Simple, honest nutrition your dog or cat will love.', MEDIA.beachCatch),
   // Featured product
   section(SEC({ ...row(), flex_align_items: 'center', flex_gap: gap(64), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'salmon-belly-fin' }), [
     con({ ...col(), flex_align_items: 'center', flex_justify_content: 'center', padding: box(40), padding_mobile: box(24), border_radius: box(30), background_background: 'classic', background_color: '#F5FAFC', border_border: 'solid', border_width: box(1), border_color: '#E1E4EA', ...widthPx(520) }, [
