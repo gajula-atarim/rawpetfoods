@@ -611,7 +611,7 @@ const home = [
         icon_color: '#3E9AB8', icon_size: px(18), text_indent: px(10), icon_align: 'center',
         __globals__: { text_color: gColor('primary'), icon_typography_typography: gType('text') }, css_classes: 'rpf-storage-pill',
       }),
-      ctaBtn('Order Now', '#products', { align: 'center' }),
+      ctaBtn('Explore Our Range', `${SITE}/our-range/`, { align: 'center', selected_icon: icon('fas fa-arrow-right'), icon_align: 'row-reverse', icon_indent: px(8) }),
     ]),
     con({ ...row({ flex_direction_tablet: 'column' }), flex_justify_content: 'space-between', flex_align_items: 'stretch', flex_gap: gap(0), flex_gap_tablet: gap(16), width: pct(100) }, [
       con({ ...col(), flex_justify_content: 'space-between', flex_align_items: 'flex-start', flex_gap: gap(16), z_index: 2, flex_direction_tablet: 'row', flex_wrap_tablet: 'wrap', flex_direction_mobile: 'column', _flex_size: 'none', ...widthPx(362), order_tablet: 'end', css_classes: 'rpf-callouts' }, [
@@ -1304,6 +1304,96 @@ const whyRaw = [
   ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love — delivered frozen to your door.', 'Order Now – Freshness Delivered Frozen', `${SITE}/#products`),
 ];
 
+// ---------- Our Range page ----------
+const ORDER_URL = `mailto:${EMAIL_ORDERS}?subject=Order%20enquiry%20-%20Salmon%20Belly%20Fin`;
+const RANGE_FAQS = [
+  faq('What’s in a Salmon Belly Fin pack?', 'Premium salmon belly fins, prepared raw and snap-frozen — no fillers, grains or artificial additives. The pack size and contents are printed on every label.'),
+  faq('Is it suitable for dogs and cats?', `Yes. Salmon belly fins suit both dogs and cats as a meal, a topper or a tasty reward. See our <a href="${SITE}/feeding-guide/">feeding guide</a> for how much to serve.`),
+  faq('How long will a pack last?', `It depends on your pet’s size and how you serve it. Use the <a href="${SITE}/feeding-guide/#portions">portion calculator</a> to work out a daily amount, then check it against the pack size on the label.`),
+  faqs[1],
+  faqs[2],
+  faqs[5],
+];
+const ourRange = [
+  pageHero('Our Range', 'Ocean-fresh raw seafood meals for pets', 'Real seafood cuts, prepared raw and snap-frozen in NSW. Simple, honest nutrition your dog or cat will love.', MEDIA.salmonIce),
+  // Featured product
+  section(SEC({ ...row(), flex_align_items: 'center', flex_gap: gap(64), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'salmon-belly-fin' }), [
+    con({ ...col(), flex_align_items: 'center', flex_justify_content: 'center', padding: box(40), padding_mobile: box(24), border_radius: box(30), background_background: 'classic', background_color: '#F5FAFC', border_border: 'solid', border_width: box(1), border_color: '#E1E4EA', ...widthPx(520) }, [
+      image(MEDIA.pack, { width: pct(100), _element_width: 'inherit' }),
+    ]),
+    con({ ...col(), flex_gap: gap(20), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+      eyebrow('Featured · Dogs &amp; Cats'),
+      heading('Salmon Belly Fin', { tag: 'h2' }),
+      text('<p>Our signature cut. Salmon belly fins are naturally rich in protein, healthy fats and minerals — a single, wholesome seafood ingredient that pets go wild for.</p>'),
+      bullets(['100% premium salmon belly fins — nothing added', 'Naturally rich in protein, omega-3s, calcium and vitamin D', 'Prepared raw and snap-frozen to lock in freshness', 'Vet-approved and responsibly sourced from Australian waters']),
+      w('icon-list', {
+        view: 'inline', icon_list: [{ _id: uid(), text: STORAGE_LINE, selected_icon: icon('fas fa-snowflake') }],
+        icon_color: '#3E9AB8', icon_size: px(18), text_indent: px(10),
+        __globals__: { text_color: gColor('primary'), icon_typography_typography: gType('text') }, css_classes: 'rpf-storage-pill',
+      }),
+      con({ ...row({ flex_direction_mobile: 'column' }), flex_gap: gap(16), flex_align_items: 'center', flex_align_items_mobile: 'stretch', _margin: box(8, 0, 0, 0) }, [
+        ctaBtn('Order Now', ORDER_URL),
+        ctaBtn('How Much to Feed', `${SITE}/feeding-guide/`, { selected_icon: icon('fas fa-arrow-right'), icon_align: 'row-reverse', icon_indent: px(8), background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
+      ]),
+    ]),
+  ]),
+  // What's inside
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#F5FAFC', _element_id: 'nutrition' }), [
+    introBlock('What’s Inside', 'Real seafood, real nutrition', 'No fillers, no grains, no artificial preservatives. Just ocean-fresh seafood and the goodness that comes with it.', 'center'),
+    cardsRow([
+      benefitCard('fas fa-dumbbell', 'Quality protein', 'Easy-to-digest seafood protein supports strong muscles and steady energy.'),
+      benefitCard('fas fa-fish', 'Natural omega-3s', 'Healthy fats from salmon help support skin, coat, joints and brain health.'),
+      benefitCard('fas fa-bone', 'Calcium &amp; vitamin D', 'Naturally present in salmon belly fins to help support healthy bones and teeth.'),
+    ]),
+    text(`<p>Want to know more about the benefits? <a href="${SITE}/why-raw/">Read why raw seafood works →</a></p>`, { align: 'center' }),
+  ]),
+  // Ways to serve
+  section(SEC({ ...row(), flex_align_items: 'center', flex_gap: gap(64), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'serving' }), [
+    con({ ...col(), flex_gap: gap(20), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+      eyebrow('Ways to Serve'),
+      heading('One cut, plenty of ways to feed it'),
+      text('<p>Whether you’re going fully raw or just adding a little ocean goodness to your pet’s bowl, salmon belly fins fit right in.</p>'),
+      con({ ...col(), flex_gap: gap(18), _margin: box(8, 0, 0, 0) }, [
+        pillar('fas fa-utensils', 'As a main meal', 'Serve as part of a raw diet, using our feeding guide to get the portions right.'),
+        pillar('fas fa-plus-circle', 'As a meal topper', 'Add a portion on top of your pet’s usual food for extra flavour and nutrition.'),
+        pillar('fas fa-heart', 'As a tasty reward', 'Offer a small piece as a healthy, high-value treat.'),
+        pillar('fas fa-temperature-low', 'Always fridge-thawed', 'Thaw in the fridge overnight and serve cool. Never cook or microwave.'),
+      ]),
+    ]),
+    image(MEDIA.catTreat, { width: px(500), width_tablet: pct(100), height: px(520), height_tablet: px(400), height_mobile: px(280), 'object-fit': 'cover', image_border_radius: box(24), _flex_size: 'none', _flex_size_tablet: 'shrink', _element_width_tablet: 'inherit' }),
+  ]),
+  // How to order
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#514150', _element_id: 'order' }), [
+    con({ ...col(), flex_gap: gap(16), flex_align_items: 'center', width: px(800), width_tablet: pct(100) }, [
+      w('heading', { title: 'How to Order', header_size: 'p', align: 'center', title_color: '#BFE6F2', typography_typography: 'custom', typography_font_family: 'Source Sans Pro', typography_font_weight: '700', typography_font_size: px(14), typography_line_height: px(20), typography_letter_spacing: px(1.6), typography_text_transform: 'uppercase' }),
+      heading('From our freezer to yours', { color: 'rpf_white', align: 'center' }),
+    ]),
+    con({ ...row({ flex_direction_tablet: 'row' }), flex_wrap: 'nowrap', flex_wrap_tablet: 'wrap', flex_gap: gap(24), flex_align_items: 'stretch', width: pct(100) }, [
+      stepCard('01', 'Send your order', `Email <a href="${ORDER_URL}" style="color:#BFE6F2">${EMAIL_ORDERS}</a> with what you’d like and your postcode.`),
+      stepCard('02', 'We confirm delivery', 'We’ll confirm availability, delivery to your area and the details of your order.'),
+      stepCard('03', 'Delivered frozen', 'Your seafood arrives frozen to preserve raw nutrition. Pop it straight in the freezer.'),
+      stepCard('04', 'Thaw &amp; serve', 'Move a portion to the fridge the night before, then serve fridge-cool.'),
+    ]),
+    ctaBtn('Order Now', ORDER_URL, { align: 'center' }),
+  ]),
+  trustBadges('#FFFFFF'),
+  // Wholesale teaser
+  section(SEC({ ...row(), flex_align_items: 'center', flex_justify_content: 'space-between', flex_gap: gap(40), padding: box(80, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFCF9' }), [
+    con({ ...col(), flex_gap: gap(12), ...widthPx(640) }, [
+      eyebrow('For Retailers &amp; Groomers'),
+      heading('Stock our range in your store'),
+      text('<p>Join our network of select pet retailers and groomers offering premium raw seafood meals to health-conscious pet owners.</p>'),
+    ]),
+    ctaBtn('Wholesale Enquiries', `${SITE}/wholesale/`),
+  ]),
+  // FAQ
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', __globals__: { background_color: gColor('rpf_light') } }), [
+    introBlock('Product FAQ', 'Questions about our range', `Can’t see your answer? See our <a href="${SITE}/faq/">full FAQ</a> or email <a href="mailto:${EMAIL_ORDERS}">${EMAIL_ORDERS}</a>.`, 'center'),
+    makeAccordion(RANGE_FAQS),
+  ]),
+  ctaBand('Ready to start your pet’s raw journey?', 'Ocean-fresh, snap-frozen salmon belly fins — delivered frozen to your door.', 'Order Now – Freshness Delivered Frozen', ORDER_URL),
+];
+
 fs.mkdirSync(new URL('./dist/', import.meta.url), { recursive: true });
 const out = (name, data) => {
   const json = JSON.stringify(data);
@@ -1321,3 +1411,4 @@ out('delivery', delivery);
 out('feeding-guide', feedingGuide);
 out('blog', blog);
 out('why-raw', whyRaw);
+out('our-range', ourRange);
