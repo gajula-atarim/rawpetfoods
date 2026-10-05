@@ -31,6 +31,9 @@ const MEDIA = {
   petPro: { id: 102, url: `${SITE}/wp-content/uploads/2026/10/pet-care-professional-with-dog.jpg` },
   // Why Raw page (Pexels, free licence).
   dogHome: { id: 134, url: `${SITE}/wp-content/uploads/2026/10/dog-eating-from-bowl-at-home.jpg` },
+  // Sustainability page (Pexels, free licence).
+  coastline: { id: 204, url: `${SITE}/wp-content/uploads/2026/10/australian-coastline-great-ocean-road.jpg` },
+  fisherNet: { id: 205, url: `${SITE}/wp-content/uploads/2026/10/fisherman-hauling-net-at-sunset.jpg` },
   beachCatch: { id: 201, url: `${SITE}/wp-content/uploads/2026/10/dog-on-beach-with-fresh-catch.jpg` },
   catTreat: { id: 132, url: `${SITE}/wp-content/uploads/2026/10/cat-taking-treat-from-owner.jpg` },
   blog1: { id: 18, url: `${SITE}/wp-content/uploads/2026/10/blog-real-seafood.jpg` },
@@ -1450,6 +1453,58 @@ const contactPage = [
   ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love — delivered frozen to your door.', 'Explore Our Range', `${SITE}/our-range/`),
 ];
 
+// ---------- Sustainability page ----------
+// Claims kept general (no certifications or packaging specifics) until the client confirms details.
+const sustainabilityPage = [
+  pageHero('Sustainability', 'Good for pets, better for the planet', 'Feeding your pet well and caring for our oceans go hand in hand. Here’s how we do our part, from the way we source to the way we deliver.', MEDIA.coastline),
+  // Our approach
+  section(SEC({ ...row(), flex_align_items: 'center', flex_gap: gap(64), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'approach' }), [
+    image(MEDIA.fisherNet, { width: px(520), width_tablet: pct(100), height: px(480), height_tablet: px(400), height_mobile: px(280), 'object-fit': 'cover', image_border_radius: box(24), _flex_size: 'none', _flex_size_tablet: 'shrink', _element_width_tablet: 'inherit' }),
+    con({ ...col(), flex_gap: gap(20), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+      eyebrow('Our Approach'),
+      heading('Respect for the ocean, from the very first catch'),
+      text('<p>Our food starts with the sea, so looking after it matters to us. We choose seafood from Australian waters, prepare it simply and freeze it fast, so nothing is wasted along the way.</p><p>It’s a short, honest journey from ocean to bowl, and one we’re always looking to improve.</p>'),
+      bullets(['Responsibly sourced Australian seafood', 'Prepared and snap-frozen locally in NSW', 'Real seafood cuts, no fillers or additives', 'Portion-friendly packs that help reduce waste']),
+    ]),
+  ]),
+  // Commitments
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#F5FAFC', _element_id: 'commitments' }), [
+    introBlock('Our Commitments', 'Small choices that add up', 'Sustainability isn’t one big gesture. It’s lots of careful decisions, made every day.', 'center'),
+    cardsRow([
+      benefitCard('fas fa-fish', 'Responsibly sourced', 'Seafood from Australian waters, chosen with care for the health of the oceans it comes from.'),
+      benefitCard('fas fa-recycle', 'Making the most of every fish', 'Salmon belly fins are a nutritious cut. Feeding them to pets means more of each fish is put to good use.'),
+      benefitCard('fas fa-map-marker-alt', 'Made locally in NSW', 'Preparing and freezing our food close to home keeps the journey from ocean to bowl short.'),
+    ]),
+    cardsRow([
+      benefitCard('fas fa-snowflake', 'Less waste at home', 'Snap-frozen portions keep for longer, so you only thaw what your pet needs.'),
+      benefitCard('fas fa-leaf', 'Simple ingredients', 'Real seafood with no fillers means nothing in the bowl that doesn’t need to be there.'),
+      benefitCard('fas fa-handshake', 'Supporting Australian producers', 'Buying local helps support Australian fishing and food businesses.'),
+    ]),
+  ]),
+  // Your part
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'your-part' }), [
+    introBlock('Your Part', 'Simple ways to feed sustainably', 'A few easy habits help your pet’s food go further, with less waste.', 'center'),
+    cardsRow([
+      stepTile('01', 'Feed the right amount', `Use our <a href="${SITE}/feeding-guide/">feeding guide</a> to portion meals, so nothing is over-served or thrown away.`),
+      stepTile('02', 'Thaw only what you need', 'Keep packs frozen and move one portion to the fridge the night before. Never refreeze.'),
+      stepTile('03', 'Dispose of packaging thoughtfully', 'Check your local council’s recycling guidelines for the packaging your order arrives in.'),
+    ]),
+  ]),
+  // Always improving
+  section(SEC({ ...row(), flex_align_items: 'center', flex_justify_content: 'space-between', flex_gap: gap(40), padding: box(80, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFCF9' }), [
+    con({ ...col(), flex_gap: gap(12), ...widthPx(640) }, [
+      eyebrow('Always Improving'),
+      heading('We’re not finished yet'),
+      text('<p>We’re always looking for ways to reduce our footprint, from packaging to delivery. Have an idea? We’d love to hear it.</p>'),
+    ]),
+    con({ ...row({ flex_direction_mobile: 'column' }), flex_gap: gap(16), flex_align_items: 'center', flex_align_items_mobile: 'stretch' }, [
+      ctaBtn('Share Your Idea', `${SITE}/contact/`),
+      ctaBtn('Read Our Blog Post', BLOG.sustainable, { selected_icon: icon('fas fa-arrow-right'), icon_align: 'row-reverse', icon_indent: px(8), background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
+    ]),
+  ]),
+  ctaBand('Feed well, tread lightly', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love, made with care for the planet.', 'Explore Our Range', `${SITE}/our-range/`),
+];
+
 fs.mkdirSync(new URL('./dist/', import.meta.url), { recursive: true });
 const out = (name, data) => {
   const json = JSON.stringify(data);
@@ -1469,3 +1524,4 @@ out('blog', blog);
 out('why-raw', whyRaw);
 out('our-range', ourRange);
 out('contact', contactPage);
+out('sustainability', sustainabilityPage);
