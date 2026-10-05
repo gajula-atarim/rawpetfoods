@@ -175,8 +175,9 @@ p,li,blockquote,figcaption,.elementor-icon-list-text,.elementor-icon-box-descrip
 .rpf-posts .hfe-read-more{margin-top:auto;align-self:flex-start}
 @media (min-width:768px){.page-id-105 .elementor-widget-button{flex-shrink:0}.page-id-105 .elementor-widget-button .elementor-button{white-space:nowrap}}
 /* Health Benefits page: keep side-by-side button labels on one line. */
-.page-id-253 .elementor-widget-button{flex-shrink:0}
-.page-id-253 .elementor-button{white-space:nowrap}
+@media (min-width:768px){.page-id-253 .elementor-widget-button{flex-shrink:0}.page-id-253 .elementor-button{white-space:nowrap}}
+/* Phones/tablets: hard stop on sideways scrolling, also in browsers without overflow:clip (older iOS Safari). */
+@media (max-width:1024px){html,body{overflow-x:hidden!important;max-width:100%!important}body{position:relative}img,video,iframe,table{max-width:100%}}
 /* Home blog cards: content fills the card so every Read more sits at the same height. */
 #blog .e-con:has(> .rpf-readmore){flex:1 1 auto!important}
 #blog .rpf-readmore{margin-top:auto!important}
