@@ -1296,7 +1296,6 @@ const whyRaw = [
     ]),
     ctaBtn('How to Feed Raw – Feeding Guide', `${SITE}/feeding-guide/`, { align: 'center', background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
   ]),
-  trustBadges('#FFFFFF'),
   // FAQ
   section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', __globals__: { background_color: gColor('rpf_light') } }), [
     introBlock('Raw Feeding FAQ', 'Questions about raw feeding', `More questions? See our <a href="${SITE}/faq/">full FAQ</a> or email <a href="mailto:${EMAIL_ORDERS}">${EMAIL_ORDERS}</a>.`, 'center'),
