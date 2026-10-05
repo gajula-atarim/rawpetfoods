@@ -211,6 +211,9 @@ p,li,blockquote,figcaption,.elementor-icon-list-text,.elementor-icon-box-descrip
   /* Home hero: show the dogs and the cat as a photo band at the top, fading into the dark text area below. */
   .home .rpf-hero{background-image:linear-gradient(180deg,rgba(26,30,38,0) 200px,#1A1E26 345px),url(https://rawpetfoods.wsdfy.com/wp-content/uploads/2026/10/golden-retrievers-and-cat-relaxing.jpg)!important;background-size:100% 100%,165% auto!important;background-position:0 0,48% 0!important;background-repeat:no-repeat!important;background-color:#1A1E26!important;padding-top:330px!important}
   .home .rpf-hero h1.elementor-heading-title{font-size:30px!important;line-height:1.15!important}
+  /* Home hero: centre the Order Now button. */
+  .home .rpf-hero .elementor-widget-button{align-self:stretch!important;width:100%!important;max-width:100%!important;text-align:center!important}
+  .home .rpf-hero .elementor-widget-button .elementor-button-wrapper{display:flex;justify-content:center}
   /* Home hero: run edge to edge on phones (no white side gutters). */
   #home.e-con{padding-left:0!important;padding-right:0!important}
   .home .rpf-hero{border-radius:0!important;margin:0!important;width:100%!important;max-width:100%!important}
