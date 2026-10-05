@@ -204,7 +204,7 @@ const header = [
       _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1,
       css_classes: 'rpf-nav',
     }),
-    smallButton('Contact Us', '#contact', { _flex_size: 'none', text_padding_mobile: box(10, 18), css_classes: 'rpf-header-cta' }),
+    smallButton('Contact Us', `${SITE}/contact/`, { _flex_size: 'none', text_padding_mobile: box(10, 18), css_classes: 'rpf-header-cta' }),
     // Tablet/mobile order: logo | (space) | Contact Us | hamburger. The widget itself is hidden; only its <style> applies.
     // Fixed id (no uid() call) so adding this widget doesn't renumber every element after it.
     { id: 'a7f30c1', elType: 'widget', widgetType: 'html', isInner: false, settings: { html: headerLayoutCss, _css_classes: 'rpf-style-only' }, elements: [] },
@@ -1397,12 +1397,13 @@ const ourRange = [
 // ---------- Contact page ----------
 // The form is Contact Form 7 (form template kept in elementor/cf7-contact-form.txt). Its select uses CF7 "pipes",
 // so order/delivery enquiries are emailed to orders@ and everything else to info@.
-const CF7_CONTACT_ID = '__CF7_ID__';
+const CF7_CONTACT_ID = '183';
 const contactFormCss = w('html', { css_classes: 'rpf-style-only', html: `<style>
 .rpf-cf7 .wpcf7-form{display:flex;flex-direction:column;gap:20px;margin:0}
 .rpf-cf7 .wpcf7-form p{margin:0}
 .rpf-cf7 .wpcf7-form br{display:none}
 .rpf-cf7-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rpf-cf7-grid > p{display:contents}
 .rpf-cf7-full{grid-column:1/-1}
 .rpf-cf7 label{display:flex;flex-direction:column;gap:6px;font:700 14px/20px "Source Sans Pro",sans-serif;color:#514150}
 .rpf-cf7 .wpcf7-form-control-wrap{display:block}
