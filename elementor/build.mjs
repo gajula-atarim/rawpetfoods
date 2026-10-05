@@ -228,6 +228,18 @@ p,li,blockquote,figcaption,.elementor-icon-list-text,.elementor-icon-box-descrip
   #products .elementor-widget-icon-list .elementor-icon-list-item::after{display:none!important}
   #products .elementor-widget-icon-list .elementor-icon-list-icon{flex:0 0 36px;width:36px;height:36px;border-radius:50%;background:#E6F3F8;display:flex!important;align-items:center;justify-content:center;padding:0!important;margin:0!important}
   #products .elementor-widget-icon-list .elementor-icon-list-text{text-align:left!important;padding-left:0!important;font-size:14px!important;line-height:20px!important}
+  /* Why Raw: Raw vs Processed table becomes stacked cards (no sideways scrolling). */
+  .rpf-compare{overflow:visible!important}
+  .rpf-compare table{min-width:0!important;width:100%!important;display:block!important;border:0!important;background:transparent!important;border-radius:0!important;overflow:visible!important}
+  .rpf-compare thead{display:none!important}
+  .rpf-compare tbody{display:flex!important;flex-direction:column;gap:12px}
+  .rpf-compare tr{display:grid!important;grid-template-columns:1fr 1fr;background:#FFFFFF;border:1px solid #E1E4EA;border-radius:16px;overflow:hidden}
+  .rpf-compare td{display:block!important;border:0!important;padding:12px 14px!important;font-size:14px!important;line-height:20px!important}
+  .rpf-compare td:first-child{grid-column:1 / -1;white-space:normal!important;background:#514150;color:#FFFFFF!important;font-size:15px!important}
+  .rpf-compare td:nth-child(3){border-left:1px solid #E1E4EA!important}
+  .rpf-compare td:nth-child(2)::before,.rpf-compare td:nth-child(3)::before{display:block;margin-bottom:4px;font-size:11px;line-height:14px;font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+  .rpf-compare td:nth-child(2)::before{content:"Raw Pet Foods";color:#3E9AB8}
+  .rpf-compare td:nth-child(3)::before{content:"Processed";color:#8A7F89}
   /* Trust badges: tidy 2x2 grid of equal cards. */
   #trust.e-con-full,#trust.e-con-boxed > .e-con-inner{display:grid!important;grid-template-columns:1fr 1fr;gap:12px!important;align-items:stretch}
   #trust .elementor-widget-icon-box{width:auto!important;max-width:none!important;margin:0!important;height:100%;box-sizing:border-box;padding:16px 10px;background:#F5FAFC;border:1px solid #E1E4EA;border-radius:16px}
