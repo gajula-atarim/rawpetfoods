@@ -165,6 +165,9 @@ const headerLayoutCss = `<style>
    whole site out and shows a white strip down the right-hand side. clip (unlike hidden) keeps sticky/anchors working. */
 html,body{max-width:100%;overflow-x:clip}
 @supports not (overflow-x:clip){body{overflow-x:hidden}}
+/* No orphans: balance headings across their lines and keep paragraphs from ending on a single word. */
+h1,h2,h3,h4,h5,h6,.elementor-heading-title,.elementor-icon-box-title{text-wrap:balance}
+p,li,blockquote,figcaption,.elementor-icon-list-text,.elementor-icon-box-description,.elementor-tab-content,.e-n-accordion-item-title-text{text-wrap:pretty}
 @media (max-width:1024px){
   body .rpf-header > .elementor-widget-image{flex:0 0 auto!important;order:1!important;margin-right:auto!important;width:auto!important;min-width:0!important}
   body .rpf-header > .rpf-header-cta{flex:0 0 auto!important;order:2!important}
@@ -190,7 +193,18 @@ html,body{max-width:100%;overflow-x:clip}
   .rpf-header{gap:12px!important}
   .rpf-header > .rpf-header-cta .elementor-button{font-size:15px}
 }
-</style>`;
+</style>
+<script>
+/* Orphan fallback for browsers without text-wrap:pretty (e.g. older Safari): glue a short last word to the one before it. */
+(function(){if(window.CSS&&CSS.supports&&CSS.supports('text-wrap','pretty'))return;
+function fix(){document.querySelectorAll('.elementor p,.elementor-widget-text-editor li,.elementor-icon-list-text,.elementor-icon-box-description').forEach(function(el){
+  var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null),n,last=null;while((n=w.nextNode())){if(n.nodeValue.trim())last=n;}
+  if(!last||el.textContent.trim().split(/\\s+/).length<4)return;
+  var v=last.nodeValue,t=v.replace(/\\s+$/,''),i=t.lastIndexOf(' ');
+  if(i>0&&t.length-i<=12){last.nodeValue=t.slice(0,i)+'\\u00a0'+t.slice(i+1)+v.slice(t.length);}
+});}
+if(document.readyState!=='loading'){fix();}else{document.addEventListener('DOMContentLoaded',fix);}})();
+</script>`;
 const header = [
   section({
     content_width: 'full', ...row({ flex_direction_mobile: 'row' }), flex_justify_content: 'center', flex_align_items: 'center',
