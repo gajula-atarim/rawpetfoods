@@ -1377,16 +1377,6 @@ const ourRange = [
     ]),
     ctaBtn('Order Now', ORDER_URL, { align: 'center' }),
   ]),
-  trustBadges('#FFFFFF'),
-  // Wholesale teaser
-  section(SEC({ ...row(), flex_align_items: 'center', flex_justify_content: 'space-between', flex_gap: gap(40), padding: box(80, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFCF9' }), [
-    con({ ...col(), flex_gap: gap(12), ...widthPx(640) }, [
-      eyebrow('For Retailers &amp; Groomers'),
-      heading('Stock our range in your store'),
-      text('<p>Join our network of select pet retailers and groomers offering premium raw seafood meals to health-conscious pet owners.</p>'),
-    ]),
-    ctaBtn('Wholesale Enquiries', `${SITE}/wholesale/`),
-  ]),
   // FAQ
   section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', __globals__: { background_color: gColor('rpf_light') } }), [
     introBlock('Product FAQ', 'Questions about our range', `Can’t see your answer? See our <a href="${SITE}/faq/">full FAQ</a> or email <a href="mailto:${EMAIL_ORDERS}">${EMAIL_ORDERS}</a>.`, 'center'),
