@@ -29,6 +29,9 @@ const MEDIA = {
   retailShelves: { id: 100, url: `${SITE}/wp-content/uploads/2026/10/retailers-stocking-shelves.jpg` },
   groomer: { id: 101, url: `${SITE}/wp-content/uploads/2026/10/groomer-with-terrier.jpg` },
   petPro: { id: 102, url: `${SITE}/wp-content/uploads/2026/10/pet-care-professional-with-dog.jpg` },
+  // Why Raw page (Pexels, free licence).
+  dogHome: { id: 134, url: `${SITE}/wp-content/uploads/2026/10/dog-eating-from-bowl-at-home.jpg` },
+  catTreat: { id: 132, url: `${SITE}/wp-content/uploads/2026/10/cat-taking-treat-from-owner.jpg` },
   blog1: { id: 18, url: `${SITE}/wp-content/uploads/2026/10/blog-real-seafood.jpg` },
   blog2: { id: 19, url: `${SITE}/wp-content/uploads/2026/10/blog-natural-pet-food.jpg` },
   blog3: { id: 20, url: `${SITE}/wp-content/uploads/2026/10/blog-sustainable-feeding.jpg` },
@@ -543,6 +546,7 @@ const home = [
         pillar('fas fa-shield-alt', 'Vet-approved & sustainable', 'Balanced, safe nutrition from responsibly managed fisheries.'),
       ]),
       ctaBtn('Start Your Pet’s Raw Journey', '#products', { _margin: box(16, 0, 0, 0) }),
+      ctaBtn('Discover Why Raw', `${SITE}/why-raw/`, { selected_icon: icon('fas fa-arrow-right'), icon_align: 'row-reverse', icon_indent: px(8), background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
     ]),
   ]),
 
@@ -1202,6 +1206,104 @@ const blog = [
   ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love.', 'Order Now – Freshness Delivered Frozen', `${SITE}/#products`),
 ];
 
+// ---------- Why Raw page ----------
+const compareTable = `<div class="rpf-compare">
+<table>
+  <thead><tr><th></th><th>Raw Pet Foods</th><th>Typical processed pet food</th></tr></thead>
+  <tbody>
+    <tr><td>Main ingredient</td><td>Real seafood cuts, like salmon belly fins</td><td>Often grains, starches and meat by-products</td></tr>
+    <tr><td>Processing</td><td>Prepared raw and snap-frozen</td><td>Cooked at high heat and extruded or canned</td></tr>
+    <tr><td>Fillers</td><td>None — just seafood</td><td>Commonly used to bulk out the recipe</td></tr>
+    <tr><td>Natural nutrients</td><td>Locked in by freezing fast</td><td>Some lost in cooking, then added back as supplements</td></tr>
+    <tr><td>Storage</td><td>Freezer, then thaw in the fridge</td><td>Pantry shelf</td></tr>
+  </tbody>
+</table>
+</div>
+<style>
+.rpf-compare{overflow-x:auto}
+.rpf-compare table{width:100%;min-width:560px;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid #E1E4EA;border-radius:20px;overflow:hidden;font:600 16px/24px "Source Sans Pro",sans-serif;color:#534251;margin:0}
+.rpf-compare th,.rpf-compare td{padding:16px 20px;text-align:left;vertical-align:top;border-bottom:1px solid #E1E4EA}
+.rpf-compare th{background:#514150;color:#fff;font-weight:700}
+.rpf-compare th:nth-child(2){background:#3E9AB8}
+.rpf-compare td:first-child{color:#514150;font-weight:700;white-space:nowrap}
+.rpf-compare td:nth-child(2){background:#F5FAFC;color:#2F7F99;font-weight:700}
+.rpf-compare tr:last-child td{border-bottom:0}
+@media (max-width:767px){.rpf-compare th,.rpf-compare td{padding:12px 14px;font-size:15px}}
+</style>`;
+const WHY_RAW_FAQS = [
+  faqs[0],
+  faq('Is raw seafood suitable for both dogs and cats?', `Yes. Seafood is a natural, highly palatable protein for both dogs and cats. Start with small portions and follow our <a href="${SITE}/feeding-guide/">feeding guide</a> for how much to serve.`),
+  faq('Do I need to cook it?', 'No — it’s made to be served raw. Thaw a portion in the fridge and serve it fridge-cool. Never cook it or microwave it, as heat changes the texture and the natural nutrients we work to protect.'),
+  faq('Can raw seafood be a whole diet, or a topper?', 'Both work. Many owners start by adding it as a topper to their pet’s usual food, then build up from there. If you’d like raw seafood to be the main diet, talk to your vet about keeping meals complete and balanced for your pet.'),
+  faqs[3],
+  faqs[4],
+];
+const whyRaw = [
+  pageHero('Why Raw', 'Why raw seafood is nature’s perfect pet food', 'Real seafood, prepared raw and snap-frozen to lock in nutrition. Here’s why more Australian pet owners are making the switch.', MEDIA.dogHome),
+  // What nature intended
+  section(SEC({ ...row(), flex_align_items: 'center', flex_gap: gap(64), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF' }), [
+    con({ ...col(), flex_gap: gap(20), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+      eyebrow('What Nature Intended'),
+      heading('Fresh, simple food the way pets are built to eat'),
+      text('<p>Dogs and cats evolved eating fresh, unprocessed prey — not dry pellets cooked at high heat. Raw feeding brings their bowl closer to that natural diet, with real protein and nothing they don’t need.</p><p>We chose seafood because it’s one of nature’s richest sources of omega-3s, lean protein and minerals, and because pets simply love the taste. Every meal starts with real Australian seafood, prepared raw and snap-frozen so the goodness stays in.</p>'),
+      bullets(['Real seafood cuts — no fillers or artificial additives', 'Prepared raw, never cooked or extruded', 'Snap-frozen to lock in freshness and flavour', 'Vet-approved and responsibly sourced']),
+    ]),
+    image(MEDIA.seafoodPlatter, { width: px(520), width_tablet: pct(100), height: px(500), height_tablet: px(400), height_mobile: px(280), 'object-fit': 'cover', image_border_radius: box(24), _flex_size: 'none', _flex_size_tablet: 'shrink', _element_width_tablet: 'inherit' }),
+  ]),
+  // Raw vs processed
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#F5FAFC', _element_id: 'compare' }), [
+    introBlock('Raw vs Processed', 'What’s really in the bowl?', 'Many pet foods are built for a long shelf life. Ours is built around fresh nutrition. Here’s how they compare.', 'center'),
+    con({ ...col(), width: px(1000), width_tablet: pct(100) }, [w('html', { html: compareTable })]),
+  ]),
+  // Why seafood
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'nutrition' }), [
+    introBlock('Why Seafood', 'Ocean nutrition in every bite', 'Seafood packs a lot of goodness into a small, easy-to-digest meal.', 'center'),
+    cardsRow([
+      benefitCard('fas fa-fish', 'Natural omega-3s', 'Oily fish like salmon is naturally rich in omega-3 fatty acids, which support skin, coat, joints and brain health.'),
+      benefitCard('fas fa-dumbbell', 'Lean, quality protein', 'Easy-to-digest protein helps maintain strong muscles and steady energy for active dogs and curious cats.'),
+      benefitCard('fas fa-bone', 'Calcium &amp; vitamin D', 'Salmon belly fins provide calcium and vitamin D to help support healthy bones and teeth.'),
+    ]),
+    cardsRow([
+      benefitCard('fas fa-heart', 'Irresistible taste', 'The fresh smell and taste of seafood wins over even fussy eaters — a big help for picky cats.'),
+      benefitCard('fas fa-leaf', 'Nothing artificial', 'No fillers, grains or artificial preservatives. Just seafood, frozen fast to keep it fresh.'),
+      benefitCard('fas fa-tint', 'Natural moisture', 'Raw food holds its natural moisture, which helps keep pets — especially cats — well hydrated.'),
+    ]),
+  ]),
+  // Benefits owners notice
+  section(SEC({ ...row(), flex_align_items: 'center', flex_gap: gap(64), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFCF9', _element_id: 'benefits' }), [
+    image(MEDIA.catTreat, { width: px(500), width_tablet: pct(100), height: px(520), height_tablet: px(400), height_mobile: px(280), 'object-fit': 'cover', image_border_radius: box(24), _flex_size: 'none', _flex_size_tablet: 'shrink' }),
+    con({ ...col(), flex_gap: gap(20), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+      eyebrow('Health Benefits'),
+      heading('The difference owners notice'),
+      text('<p>Every pet is different, but these are the changes owners most often tell us about after switching to raw seafood.</p>'),
+      con({ ...col(), flex_gap: gap(18), _margin: box(8, 0, 0, 0) }, [
+        pillar('fas fa-star', 'Shinier coat, healthier skin', 'Omega-3s help nourish skin and give coats a natural shine.'),
+        pillar('fas fa-smile', 'Happier tummies', 'Simple, single-protein meals without fillers are gentle on digestion.'),
+        pillar('fas fa-bolt', 'Steady energy', 'Quality protein supports lean muscle and an active, playful pet.'),
+        pillar('fas fa-tooth', 'Cleaner bowls, keener eaters', 'Pets love the taste, so mealtimes become something to look forward to.'),
+      ]),
+      text('<p><em>Results vary between pets. If your pet has a health condition, check with your vet before changing their diet.</em></p>', { color: 'rpf_grey' }),
+    ]),
+  ]),
+  // Ocean to bowl
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#F5FAFC', _element_id: 'sustainability' }), [
+    introBlock('From Ocean to Bowl', 'Fresh, responsible and made in NSW', 'We keep the journey short and simple, so the nutrition makes it all the way to your pet’s bowl.', 'center'),
+    cardsRow([
+      stepTile('01', 'Responsibly sourced', 'Seafood is harvested from Australian waters, with care for the oceans it comes from.'),
+      stepTile('02', 'Prepared raw in NSW', 'Real seafood cuts like salmon belly fins are prepared hygienically — never cooked, never extruded.'),
+      stepTile('03', 'Snap-frozen &amp; delivered', `Frozen fast to lock in freshness. ${STORAGE_LINE}`),
+    ]),
+    ctaBtn('How to Feed Raw – Feeding Guide', `${SITE}/feeding-guide/`, { align: 'center', background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
+  ]),
+  trustBadges('#FFFFFF'),
+  // FAQ
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', __globals__: { background_color: gColor('rpf_light') } }), [
+    introBlock('Raw Feeding FAQ', 'Questions about raw feeding', `More questions? See our <a href="${SITE}/faq/">full FAQ</a> or email <a href="mailto:${EMAIL_ORDERS}">${EMAIL_ORDERS}</a>.`, 'center'),
+    makeAccordion(WHY_RAW_FAQS),
+  ]),
+  ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love — delivered frozen to your door.', 'Order Now – Freshness Delivered Frozen', `${SITE}/#products`),
+];
+
 fs.mkdirSync(new URL('./dist/', import.meta.url), { recursive: true });
 const out = (name, data) => {
   const json = JSON.stringify(data);
@@ -1218,3 +1320,4 @@ out('faq', faqPage);
 out('delivery', delivery);
 out('feeding-guide', feedingGuide);
 out('blog', blog);
+out('why-raw', whyRaw);
