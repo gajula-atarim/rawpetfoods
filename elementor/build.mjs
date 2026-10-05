@@ -177,6 +177,9 @@ p,li,blockquote,figcaption,.elementor-icon-list-text,.elementor-icon-box-descrip
 /* Health Benefits page: keep side-by-side button labels on one line. */
 .page-id-253 .elementor-widget-button{flex-shrink:0}
 .page-id-253 .elementor-button{white-space:nowrap}
+/* Home blog cards: content fills the card so every Read more sits at the same height. */
+#blog .e-con:has(> .rpf-readmore){flex:1 1 auto!important}
+#blog .rpf-readmore{margin-top:auto!important}
 /* Editable blocks (text-editor widgets) styled by their widget class. */
 /* Portion tables (Home + Feeding Guide). */
 .rpf-feed table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid #E1E4EA;border-radius:16px;overflow:hidden;font:600 16px/24px "Source Sans Pro",sans-serif;color:#534251;margin:0}
