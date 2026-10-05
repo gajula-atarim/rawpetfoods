@@ -203,10 +203,13 @@ p,li,blockquote,figcaption,.elementor-icon-list-text,.elementor-icon-box-descrip
 /* ---------- Phones (<=767px) ---------- */
 @media (max-width:767px){
   /* Buttons and headings sized for small screens. */
-  .elementor-button{font-size:15px!important;letter-spacing:0!important}
+  .elementor-button{font-size:14px!important;letter-spacing:0!important;padding:12px 22px!important}
+  /* Health Benefits: the long order label is shortened to "Order Now" on phones (full text stays for screen readers). */
+  #health-benefits .elementor-button-text{font-size:0!important;line-height:0!important}
+  #health-benefits .elementor-button-text::after{content:"Order Now";font-size:14px;line-height:20px;display:inline-block}
   .elementor-widget-heading h2.elementor-heading-title{font-size:28px!important;line-height:34px!important;letter-spacing:-0.4px!important}
-  /* Home hero: frame the pets better and keep the headline compact. */
-  .home .rpf-hero{background-position:40% 30%!important}
+  /* Home hero: show the dogs and the cat as a photo band at the top, fading into the dark text area below. */
+  .home .rpf-hero{background-image:linear-gradient(180deg,rgba(26,30,38,0) 200px,#1A1E26 345px),url(https://rawpetfoods.wsdfy.com/wp-content/uploads/2026/10/golden-retrievers-and-cat-relaxing.jpg)!important;background-size:100% 100%,165% auto!important;background-position:0 0,48% 0!important;background-repeat:no-repeat!important;background-color:#1A1E26!important;padding-top:330px!important}
   .home .rpf-hero h1.elementor-heading-title{font-size:30px!important;line-height:1.15!important}
   /* Trust badges: tidy 2x2 grid of equal cards. */
   #trust.e-con-full,#trust.e-con-boxed > .e-con-inner{display:grid!important;grid-template-columns:1fr 1fr;gap:12px!important;align-items:stretch}
