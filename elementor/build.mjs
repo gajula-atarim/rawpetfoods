@@ -24,6 +24,11 @@ const MEDIA = {
   salmonIce: { id: 58, url: `${SITE}/wp-content/uploads/2026/10/raw-salmon-fillet-on-ice.jpg` },
   fishIce: { id: 59, url: `${SITE}/wp-content/uploads/2026/10/fresh-fish-on-ice-market.jpg` },
   fishingBoat: { id: 60, url: `${SITE}/wp-content/uploads/2026/10/fishing-boat-open-sea.jpg` },
+  // Wholesale page (Pexels, free licence).
+  storeOwners: { id: 99, url: `${SITE}/wp-content/uploads/2026/10/pet-store-owners-in-shop.jpg` },
+  retailShelves: { id: 100, url: `${SITE}/wp-content/uploads/2026/10/retailers-stocking-shelves.jpg` },
+  groomer: { id: 101, url: `${SITE}/wp-content/uploads/2026/10/groomer-with-terrier.jpg` },
+  petPro: { id: 102, url: `${SITE}/wp-content/uploads/2026/10/pet-care-professional-with-dog.jpg` },
   blog1: { id: 18, url: `${SITE}/wp-content/uploads/2026/10/blog-real-seafood.jpg` },
   blog2: { id: 19, url: `${SITE}/wp-content/uploads/2026/10/blog-natural-pet-food.jpg` },
   blog3: { id: 20, url: `${SITE}/wp-content/uploads/2026/10/blog-sustainable-feeding.jpg` },
@@ -831,22 +836,128 @@ const wholesaleForm = `<form class="rpf-ws-form" novalidate>
   });
 });})();
 </script>`;
-const wholesale = [
-  pageHero('Wholesale', 'Stock Australia’s first ocean-fresh raw seafood meals', 'Join our network of select pet retailers and groomers offering premium raw seafood meals to health-conscious pet owners.', MEDIA.partner, 'center 30%'),
-  section(SEC({ ...row(), flex_align_items: 'flex-start', flex_gap: gap(64), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF' }), [
-    con({ ...col(), flex_gap: gap(20), ...widthPx(480) }, [
-      eyebrow('Why partner with us'),
-      heading('A premium range your customers will come back for'),
-      text('<p>Health-conscious pet owners are looking for fresh, natural food they can trust. Raw Pet Foods gives you a premium frozen line that stands out on the shelf — with the support to sell it.</p>'),
-      bullets(['Exclusive distributor pricing', 'Premium frozen product line', 'Free marketing support &amp; POS materials']),
-      text(`<p>Prefer to talk first? Email <a href="mailto:${EMAIL_INFO}">${EMAIL_INFO}</a>.</p>`, { color: 'rpf_grey' }),
+// B2B pitch: hero with the client's opening line + benefit bullets, benefit cards, partner types,
+// product line, how it works, then the enquiry form. No pricing, MOQs or timeframes until the client confirms them.
+const WS_BENEFITS = ['Exclusive distributor pricing', 'Premium frozen product line', 'Free marketing support &amp; POS materials'];
+const outlineBtn = (label, url) => button(label, url, {
+  text_padding_mobile: box(14, 24), background_color: 'rgba(255,255,255,0)', button_text_color: '#FFFFFF',
+  border_border: 'solid', border_width: box(2), border_color: '#FFFFFF',
+  button_background_hover_color: '#FFFFFF', hover_color: '#514150', button_hover_border_color: '#FFFFFF',
+});
+const wsHero = section({ content_width: 'full', padding: box(0, 10, 10, 10), padding_mobile: box(0, 8, 8, 8), background_background: 'classic', background_color: '#FFFFFF' }, [
+  con({
+    content_width: 'full', ...col(), flex_justify_content: 'center', flex_gap: gap(20), min_height: px(620), min_height_mobile: px(0),
+    padding: box(96, 80), padding_tablet: box(72, 40), padding_mobile: box(48, 20), border_radius: box(30), border_radius_mobile: box(20),
+    background_background: 'classic', background_image: img(MEDIA.storeOwners), background_position: 'center right', background_size: 'cover', background_repeat: 'no-repeat',
+    background_overlay_background: 'gradient', background_overlay_color: 'rgba(20,24,32,0.9)', background_overlay_color_stop: pct(0),
+    // Right side stays a little dark so the hero copy stays readable on phones, where it sits over the photo.
+    background_overlay_color_b: 'rgba(20,24,32,0.4)', background_overlay_color_b_stop: pct(100),
+    background_overlay_gradient_type: 'linear', background_overlay_gradient_angle: { unit: 'deg', size: 90, sizes: [] },
+  }, [
+    con({ ...col(), flex_gap: gap(20), ...widthPx(640) }, [
+      w('heading', { title: 'Wholesale &amp; Stockists', header_size: 'p', title_color: '#BFE6F2', typography_typography: 'custom', typography_font_family: 'Source Sans Pro', typography_font_weight: '700', typography_font_size: px(14), typography_letter_spacing: px(1.6), typography_text_transform: 'uppercase' }),
+      w('heading', { title: 'Stock Australia’s first ocean-fresh raw seafood meals for pets', header_size: 'h1', title_color: '#FFFFFF', typography_typography: 'custom', typography_font_family: 'Source Sans Pro', typography_font_weight: '700', typography_font_size: px(52), typography_font_size_tablet: px(44), typography_font_size_mobile: px(34), typography_line_height: { unit: 'em', size: 1.1, sizes: [] }, typography_letter_spacing: px(-1) }),
+      w('text-editor', { editor: '<p>Join our network of select pet retailers and groomers offering premium raw seafood meals to health-conscious pet owners.</p>', text_color: '#FFFFFF', typography_typography: 'custom', typography_font_family: 'Source Sans Pro', typography_font_weight: '600', typography_font_size: px(20), typography_font_size_mobile: px(18), typography_line_height: { unit: 'em', size: 1.45, sizes: [] } }),
+      w('icon-list', {
+        icon_list: WS_BENEFITS.map((t) => ({ _id: uid(), text: t, selected_icon: icon('fas fa-check-circle') })),
+        space_between: px(10), icon_size: px(20), text_indent: px(12), icon_color: '#62B6CF', text_color: '#FFFFFF',
+        icon_typography_typography: 'custom', icon_typography_font_family: 'Source Sans Pro', icon_typography_font_weight: '700', icon_typography_font_size: px(18), icon_typography_line_height: px(26),
+      }),
+      con({ ...row({ flex_direction_mobile: 'column' }), flex_gap: gap(16), flex_align_items: 'center', flex_align_items_mobile: 'stretch', _margin: box(12, 0, 0, 0) }, [
+        ctaBtn('Become a Stockist', '#enquiry'),
+        outlineBtn('Email Our Wholesale Team', `mailto:${EMAIL_INFO}?subject=Wholesale%20enquiry`),
+      ]),
     ]),
-    con({ ...col(), flex_gap: gap(20), padding: box(40), padding_mobile: box(24), border_radius: box(24), background_background: 'classic', background_color: '#F5FAFC', _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1, width_tablet: pct(100), _element_id: 'enquiry' }, [
-      heading('Wholesale enquiry', { tag: 'h2', type: 'secondary' }),
+  ]),
+]);
+// Big benefit card: icon, title (the client's bullet), supporting copy.
+const benefitCard = (ic, title, body) => con({ ...col(), flex_gap: gap(14), padding: box(36, 32), padding_mobile: box(28, 24), border_radius: box(24), background_background: 'classic', background_color: '#FFFFFF', box_shadow_box_shadow_type: 'yes', box_shadow_box_shadow: { horizontal: 0, vertical: 16, blur: 40, spread: 0, color: 'rgba(14,18,27,0.08)' }, border_border: 'solid', border_width: box(1), border_color: '#E1E4EA', width: pct(32), width_tablet: pct(100), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+  w('icon', { selected_icon: icon(ic), view: 'stacked', shape: 'circle', primary_color: '#62B6CF', secondary_color: '#FFFFFF', size: px(24), icon_padding: px(18), align: 'left' }),
+  heading(title, { tag: 'h3', type: 'secondary' }),
+  text(`<p>${body}</p>`),
+]);
+// Partner type card with photo on top.
+const partnerCard = (m, title, body) => con({ ...col(), flex_gap: gap(0), border_radius: box(24), background_background: 'classic', background_color: '#FFFFFF', border_border: 'solid', border_width: box(1), border_color: '#E1E4EA', overflow: 'hidden', width: pct(32), width_tablet: pct(100), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+  image(m, { width: pct(100), height: px(220), height_mobile: px(200), 'object-fit': 'cover', _element_width: 'inherit' }),
+  con({ ...col(), flex_gap: gap(10), padding: box(24, 28, 28, 28) }, [
+    heading(title, { tag: 'h3', type: 'secondary' }),
+    text(`<p>${body}</p>`),
+  ]),
+]);
+// Numbered step for "How it works".
+const stepCard = (num, title, body) => con({ ...col(), flex_gap: gap(12), padding: box(28), border_radius: box(20), background_background: 'classic', background_color: 'rgba(255,255,255,0.08)', border_border: 'solid', border_width: box(1), border_color: 'rgba(255,255,255,0.18)', width: pct(24), width_tablet: { unit: 'custom', size: 'calc(50% - 12px)', sizes: [] }, width_mobile: pct(100), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+  w('heading', { title: num, header_size: 'p', title_color: '#62B6CF', typography_typography: 'custom', typography_font_family: 'Source Sans Pro', typography_font_weight: '700', typography_font_size: px(40), typography_line_height: px(44) }),
+  heading(title, { tag: 'h3', type: 'secondary', color: 'rpf_white' }),
+  w('text-editor', { editor: `<p>${body}</p>`, text_color: 'rgba(255,255,255,0.82)', __globals__: { typography_typography: gType('text') } }),
+]);
+const wholesale = [
+  wsHero,
+  trustBadges('#FFFFFF'),
+  // Benefits
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#F5FAFC' }), [
+    introBlock('Wholesale Benefits', 'Everything you need to sell premium raw', 'We look after our stockists. Partner with us and you get a standout product, pricing that works for your business, and the support to put it in front of the right customers.', 'center'),
+    cardsRow([
+      benefitCard('fas fa-tags', 'Exclusive distributor pricing', 'Trade pricing reserved for approved stockists, so you can offer a premium, in-demand product while protecting your margins. We’ll share our wholesale price list once we’ve learnt a little about your business.'),
+      benefitCard('fas fa-snowflake', 'Premium frozen product line', 'Australian-sourced seafood, prepared raw and snap-frozen in NSW to lock in freshness and nutrition. Packs arrive frozen, ready for your freezer — your customers simply thaw them in the fridge before serving.'),
+      benefitCard('fas fa-bullhorn', 'Free marketing support &amp; POS materials', 'Point-of-sale materials, product information and marketing assets at no extra cost, so your team can talk confidently about raw seafood nutrition and your customers can see why it’s worth trying.'),
+    ]),
+  ]),
+  // Who we partner with
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF' }), [
+    introBlock('Who We Partner With', 'Built for businesses pet owners trust', 'Our stockists are the people pet owners already turn to for advice. If health-conscious customers walk through your door, we’d love to hear from you.', 'center'),
+    cardsRow([
+      partnerCard(MEDIA.retailShelves, 'Pet retailers', 'Independent pet stores and specialty retailers looking for a fresh, natural point of difference in the freezer.'),
+      partnerCard(MEDIA.groomer, 'Groomers &amp; salons', 'Recommend nutrition that supports healthy skin and a shinier coat — and give clients something great to take home.'),
+      partnerCard(MEDIA.petPro, 'Vets &amp; pet care professionals', 'Clinics, trainers and pet care businesses that want a vet-approved raw seafood option they can recommend with confidence.'),
+    ]),
+  ]),
+  // Product line
+  section(SEC({ ...row(), flex_align_items: 'center', flex_gap: gap(64), flex_gap_tablet: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFCF9' }), [
+    con({ ...col(), flex_align_items: 'center', flex_justify_content: 'center', padding: box(40), padding_mobile: box(24), border_radius: box(24), background_background: 'classic', background_color: '#FFFFFF', ...widthPx(480), _flex_size: 'none', _flex_size_tablet: 'shrink' }, [
+      image(MEDIA.pack, { width: pct(100) }),
+    ]),
+    con({ ...col(), flex_gap: gap(20), _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1 }, [
+      eyebrow('The Product Line'),
+      heading('A premium range that earns its place in your freezer'),
+      text('<p>Raw Pet Foods brings something genuinely new to your shelves: real Australian seafood, prepared raw for dogs and cats. It’s a product your customers will notice — and come back for.</p>'),
+      con({ ...col(), flex_gap: gap(18), _margin: box(8, 0, 0, 0) }, [
+        pillar('fas fa-water', 'Ocean-fresh, Australian-sourced', 'Real seafood cuts such as salmon belly fins — never fillers.'),
+        pillar('fas fa-snowflake', 'Snap-frozen &amp; delivered frozen', `${STORAGE_LINE}`),
+        pillar('fas fa-stethoscope', 'Vet-approved', 'Balanced, safe nutrition you can recommend with confidence.'),
+        pillar('fas fa-fish', 'Sustainable seafood, made in NSW', 'Responsibly sourced and prepared locally.'),
+      ]),
+    ]),
+  ]),
+  // How it works
+  section(SEC({ ...col(), flex_align_items: 'center', flex_gap: gap(48), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#514150' }), [
+    con({ ...col(), flex_gap: gap(16), flex_align_items: 'center', width: px(800), width_tablet: pct(100) }, [
+      w('heading', { title: 'How It Works', header_size: 'p', align: 'center', title_color: '#BFE6F2', typography_typography: 'custom', typography_font_family: 'Source Sans Pro', typography_font_weight: '700', typography_font_size: px(14), typography_line_height: px(20), typography_letter_spacing: px(1.6), typography_text_transform: 'uppercase' }),
+      heading('Becoming a stockist is simple', { color: 'rpf_white', align: 'center' }),
+    ]),
+    con({ ...row({ flex_direction_tablet: 'row' }), flex_wrap: 'nowrap', flex_wrap_tablet: 'wrap', flex_gap: gap(24), flex_align_items: 'stretch', width: pct(100) }, [
+      stepCard('01', 'Send an enquiry', 'Tell us about your business using the form below — it only takes a minute.'),
+      stepCard('02', 'Have a chat with us', 'We’ll get in touch to talk through your customers, our range and how we can work together.'),
+      stepCard('03', 'Set up your account', 'Once you’re approved, we’ll set up your trade account and share distributor pricing.'),
+      stepCard('04', 'Stock &amp; sell', 'Your first order arrives frozen, with marketing support and POS materials to help it sell.'),
+    ]),
+  ]),
+  // Enquiry
+  section(SEC({ ...row(), flex_align_items: 'stretch', flex_gap: gap(40), padding: box(96, 112), padding_tablet: box(64, 32), padding_mobile: box(48, 16), background_background: 'classic', background_color: '#FFFFFF', _element_id: 'enquiry' }), [
+    con({ ...col(), flex_gap: gap(20), ...widthPx(400), _flex_size: 'none', _flex_size_tablet: 'shrink' }, [
+      eyebrow('Wholesale Enquiry'),
+      heading('Let’s grow together'),
+      text('<p>Join our network of select pet retailers and groomers offering premium raw seafood meals to health-conscious pet owners. Fill in the form and our team will be in touch.</p>'),
+      bullets(WS_BENEFITS),
+      con({ ...col(), flex_gap: gap(6), padding: box(20, 24), border_radius: box(16), background_background: 'classic', background_color: '#F5FAFC', _margin: box(8, 0, 0, 0) }, [
+        heading('Prefer email?', { tag: 'p', type: 'secondary' }),
+        text(`<p><a href="mailto:${EMAIL_INFO}?subject=Wholesale%20enquiry">${EMAIL_INFO}</a></p>`),
+      ]),
+    ]),
+    con({ ...col(), flex_gap: gap(20), padding: box(40), padding_mobile: box(24), border_radius: box(24), background_background: 'classic', background_color: '#F5FAFC', border_border: 'solid', border_width: box(1), border_color: '#E1E4EA', _flex_size: 'custom', _flex_grow: 1, _flex_shrink: 1, width_tablet: pct(100) }, [
+      heading('Become a stockist', { tag: 'h3', type: 'secondary' }),
       w('html', { html: wholesaleForm }),
     ]),
   ]),
-  trustBadges('#FFFFFF'),
 ];
 
 const faqPage = [
