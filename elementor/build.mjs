@@ -289,7 +289,7 @@ const footer = [
 // ---------- Home page ----------
 // Custom listbox instead of a native <select>: mobile browsers place the native picker wherever they like.
 const chevron = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`;
-const heroForm = `<form class="rpf-pill-form rpf-pill-form--dark rpf-animal-form" action="#products">
+const heroForm = `<form class="rpf-pill-form rpf-pill-form--dark rpf-animal-form" action="${SITE}/contact/">
   <input type="hidden" name="animal" value="">
   <div class="rpf-select">
     <div class="rpf-select__btn" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false"><span class="rpf-select__label">Choose your animal</span></div>
@@ -298,7 +298,7 @@ const heroForm = `<form class="rpf-pill-form rpf-pill-form--dark rpf-animal-form
       <li role="option" tabindex="-1" aria-selected="false" data-value="cat">Cat</li>
     </ul>
   </div>
-  <a class="rpf-pill-btn" href="#products">Shop Now</a>
+  <a class="rpf-pill-btn" href="${SITE}/contact/">Shop Now</a>
 </form>
 <style>
 .rpf-select{position:relative;flex:1 1 auto;min-width:0}
@@ -526,7 +526,7 @@ const home = [
         w('heading', { title: TAGLINE, header_size: 'h1', title_color: '#FFFFFF', typography_typography: 'custom', typography_font_family: 'Source Sans Pro', typography_font_weight: '700', typography_font_size: px(56), typography_font_size_tablet: px(46), typography_font_size_mobile: px(34), typography_line_height: { unit: 'em', size: 1.1, sizes: [] }, typography_letter_spacing: px(-1.1) }),
         w('heading', { title: 'Snap-Frozen to Lock in Freshness and Nutrition', header_size: 'p', title_color: '#BFE6F2', typography_typography: 'custom', typography_font_family: 'Source Sans Pro', typography_font_weight: '700', typography_font_size: px(22), typography_font_size_mobile: px(18), typography_line_height: px(30) }),
         text('<p>Real Australian seafood, prepared raw and delivered frozen — so your dog or cat gets nutrition the way nature intended.</p>', { color: 'rpf_white' }),
-        ctaBtn('Order Now', '#products', { _margin: box(8, 0, 0, 0), css_classes: 'rpf-hero-cta' }),
+        ctaBtn('Order Now', `${SITE}/contact/`, { _margin: box(8, 0, 0, 0), css_classes: 'rpf-hero-cta' }),
       ]),
       con({
         ...col(), flex_gap: gap(16), padding: box(32), padding_mobile: box(20), border_radius: box(40), border_radius_mobile: box(28),
@@ -559,7 +559,7 @@ const home = [
         pillar('fas fa-snowflake', 'Snap-frozen for freshness', 'Frozen fast to lock in flavour and nutrients, then delivered frozen.'),
         pillar('fas fa-shield-alt', 'Vet-approved & sustainable', 'Balanced, safe nutrition from responsibly managed fisheries.'),
       ]),
-      ctaBtn('Start Your Pet’s Raw Journey', '#products', { _margin: box(16, 0, 0, 0) }),
+      ctaBtn('Start Your Pet’s Raw Journey', `${SITE}/contact/`, { _margin: box(16, 0, 0, 0) }),
       ctaBtn('Discover Why Raw', `${SITE}/why-raw/`, { selected_icon: icon('fas fa-arrow-right'), icon_align: 'row-reverse', icon_indent: px(8), background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
     ]),
   ]),
@@ -579,7 +579,7 @@ const home = [
         space_between: px(8), icon_size: px(20), text_indent: px(12), icon_color: '#62B6CF',
         __globals__: { text_color: gColor('text'), icon_typography_typography: gType('rpf_lead') },
       }),
-      ctaBtn('Order Now – Freshness Delivered Frozen', '#products', { _margin: box(16, 0, 0, 0) }),
+      ctaBtn('Order Now – Freshness Delivered Frozen', `${SITE}/contact/`, { _margin: box(16, 0, 0, 0) }),
     ]),
     image(MEDIA.dog, { width: px(557), width_tablet: pct(100), image_border_radius: box(21), _flex_size: 'none', _flex_size_tablet: 'shrink' }),
   ]),
@@ -606,7 +606,7 @@ const home = [
         heading('Powered by the ocean’s best', { color: 'rpf_white', align: 'center' }),
         text('<p>Responsibly sourced from Australian waters and snap-frozen at peak freshness — good for your pet, and for the oceans their food comes from.</p>', { color: 'rpf_white', align: 'center' }),
       ]),
-      ctaBtn('Order Now – Freshness Delivered Frozen', '#products', { align: 'center' }),
+      ctaBtn('Our Sustainability Promise', `${SITE}/sustainability/`, { align: 'center' }),
     ]),
   ]),
 
@@ -661,7 +661,6 @@ const home = [
       w('html', { html: feedingTable }),
       heading('Storage &amp; handling', { tag: 'h3', type: 'secondary' }),
       storageSteps,
-      ctaBtn('Get Your Custom Feeding Plan', `mailto:${EMAIL_ORDERS}?subject=Custom%20feeding%20plan`, { _margin: box(8, 0, 0, 0) }),
       ctaBtn('View the Full Feeding Guide', `${SITE}/feeding-guide/`, { selected_icon: icon('fas fa-arrow-right'), icon_align: 'row-reverse', icon_indent: px(8), background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
     ]),
   ]),
@@ -799,7 +798,7 @@ const about = [
       eyebrow('Our Story'),
       heading('Why we started Raw Pet Foods'),
       text('<p>Too many pet meals are heavily processed, packed with fillers and short on the fresh nutrition animals evolved to eat. We set out to change that with something simple: real Australian seafood, prepared raw and snap-frozen at its freshest.</p><p>Every recipe is vet-approved and made in NSW, so you always know what’s in your pet’s bowl — and where it came from.</p>'),
-      ctaBtn('Explore Our Range', `${SITE}/#products`, { _margin: box(16, 0, 0, 0) }),
+      ctaBtn('Explore Our Range', `${SITE}/our-range/`, { _margin: box(16, 0, 0, 0) }),
     ]),
     image(MEDIA.fishingBoat, { width: px(480), width_tablet: pct(100), height: px(560), height_tablet: px(420), height_mobile: px(320), 'object-fit': 'cover', image_border_radius: box(24), _flex_size: 'none', _flex_size_tablet: 'shrink' }),
   ]),
@@ -812,7 +811,7 @@ const about = [
     ]),
   ]),
   trustBadges('#FFFFFF'),
-  ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love.', 'Order Now – Freshness Delivered Frozen', `${SITE}/#products`),
+  ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love.', 'Order Now – Freshness Delivered Frozen', `${SITE}/contact/`),
 ];
 
 // Wholesale — the form opens the visitor's email app with the enquiry filled in (no form plugin yet).
@@ -986,7 +985,7 @@ const faqPage = [
     makeAccordion(),
     text(`<p>Still have a question? Email <a href="mailto:${EMAIL_ORDERS}">${EMAIL_ORDERS}</a> for orders and products, or <a href="mailto:${EMAIL_INFO}">${EMAIL_INFO}</a> for everything else.</p>`, { align: 'center' }),
   ]),
-  ctaBand('Ready to make the switch?', 'Start your pet’s raw journey with ocean-fresh, snap-frozen seafood.', 'Order Now – Freshness Delivered Frozen', `${SITE}/#products`),
+  ctaBand('Ready to make the switch?', 'Start your pet’s raw journey with ocean-fresh, snap-frozen seafood.', 'Order Now – Freshness Delivered Frozen', `${SITE}/contact/`),
 ];
 
 const delivery = [
@@ -1156,7 +1155,7 @@ const feedingGuide = [
     text('<p>Tell us about your pet and we’ll help you work out the right portions — then start their raw journey with ocean-fresh, snap-frozen seafood.</p>', { color: 'rpf_white', align: 'center', extra: { _element_width: 'initial', _element_custom_width: px(640), _element_custom_width_tablet: pct(100) } }),
     con({ ...row({ flex_direction_mobile: 'column' }), flex_gap: gap(16), flex_justify_content: 'center', flex_align_items: 'center', flex_align_items_mobile: 'stretch' }, [
       ctaBtn('Get Your Custom Feeding Plan', `mailto:${EMAIL_ORDERS}?subject=Custom%20feeding%20plan`, { background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
-      ctaBtn('Order Now – Freshness Delivered Frozen', `${SITE}/#products`),
+      ctaBtn('Order Now – Freshness Delivered Frozen', `${SITE}/contact/`),
     ]),
   ]),
 ];
@@ -1217,7 +1216,7 @@ const blog = [
     ]),
     ctaBtn('Read the FAQ', `${SITE}/faq/`),
   ]),
-  ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love.', 'Order Now – Freshness Delivered Frozen', `${SITE}/#products`),
+  ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love.', 'Order Now – Freshness Delivered Frozen', `${SITE}/contact/`),
 ];
 
 // ---------- Why Raw page ----------
@@ -1314,11 +1313,11 @@ const whyRaw = [
     introBlock('Raw Feeding FAQ', 'Questions about raw feeding', `More questions? See our <a href="${SITE}/faq/">full FAQ</a> or email <a href="mailto:${EMAIL_ORDERS}">${EMAIL_ORDERS}</a>.`, 'center'),
     makeAccordion(WHY_RAW_FAQS),
   ]),
-  ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love — delivered frozen to your door.', 'Order Now – Freshness Delivered Frozen', `${SITE}/#products`),
+  ctaBand('Start your pet’s raw journey', 'Ocean-fresh, snap-frozen seafood meals your dog or cat will love — delivered frozen to your door.', 'Order Now – Freshness Delivered Frozen', `${SITE}/contact/`),
 ];
 
 // ---------- Our Range page ----------
-const ORDER_URL = `mailto:${EMAIL_ORDERS}?subject=Order%20enquiry%20-%20Salmon%20Belly%20Fin`;
+const ORDER_URL = `${SITE}/contact/`;
 const RANGE_FAQS = [
   faq('What’s in a Salmon Belly Fin pack?', 'Premium salmon belly fins, prepared raw and snap-frozen — no fillers, grains or artificial additives. The pack size and contents are printed on every label.'),
   faq('Is it suitable for dogs and cats?', `Yes. Salmon belly fins suit both dogs and cats as a meal, a topper or a tasty reward. See our <a href="${SITE}/feeding-guide/">feeding guide</a> for how much to serve.`),
@@ -1382,7 +1381,7 @@ const ourRange = [
       heading('From our freezer to yours', { color: 'rpf_white', align: 'center' }),
     ]),
     con({ ...row({ flex_direction_tablet: 'row' }), flex_wrap: 'nowrap', flex_wrap_tablet: 'wrap', flex_gap: gap(24), flex_align_items: 'stretch', width: pct(100) }, [
-      stepCard('01', 'Send your order', `Email <a href="${ORDER_URL}" style="color:#BFE6F2">${EMAIL_ORDERS}</a> with what you’d like and your postcode.`),
+      stepCard('01', 'Send your order', `Email <a href="mailto:${EMAIL_ORDERS}?subject=Order%20enquiry%20-%20Salmon%20Belly%20Fin" style="color:#BFE6F2">${EMAIL_ORDERS}</a> with what you’d like and your postcode.`),
       stepCard('02', 'We confirm delivery', 'We’ll confirm availability, delivery to your area and the details of your order.'),
       stepCard('03', 'Delivered frozen', 'Your seafood arrives frozen to preserve raw nutrition. Pop it straight in the freezer.'),
       stepCard('04', 'Thaw &amp; serve', 'Move a portion to the fridge the night before, then serve fridge-cool.'),
