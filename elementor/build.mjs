@@ -565,7 +565,6 @@ const home = [
         pillar('fas fa-snowflake', 'Snap-frozen for freshness', 'Frozen fast to lock in flavour and nutrients, then delivered frozen.'),
         pillar('fas fa-shield-alt', 'Vet-approved & sustainable', 'Balanced, safe nutrition from responsibly managed fisheries.'),
       ]),
-      ctaBtn('Start Your Pet’s Raw Journey', `${SITE}/contact/`, { _margin: box(16, 0, 0, 0) }),
       ctaBtn('Discover Why Raw', `${SITE}/why-raw/`, { selected_icon: icon('fas fa-arrow-right'), icon_align: 'row-reverse', icon_indent: px(8), background_color: '#514150', button_background_hover_color: '#3C3C3C' }),
     ]),
   ]),
